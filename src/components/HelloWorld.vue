@@ -1,5 +1,5 @@
 <template lang="pug">
-  .hello
+  .HelloWorld
     h1 {{ msg }}
     p
       | For a guide and recipes on how to configure / customize this project,
@@ -23,6 +23,10 @@
         a(href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-unit-jest" target="_blank" rel="noopener") unit-jest
       li
         a(href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-e2e-nightwatch" target="_blank" rel="noopener") e2e-nightwatch
+      li
+        a(href="https://kazupon.github.io/vue-i18n/" target="_blank" rel="noopener" v-text="$t('message')")
+      li
+        a(href="https://element.eleme.io/" target="_blank" rel="noopener") Element UI
     h3 Essential Links
     ul
       li
@@ -47,8 +51,13 @@
         a(href="https://vue-loader.vuejs.org" target="_blank" rel="noopener") vue-loader
       li
         a(href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener") awesome-vue
-      li
-        a(href="https://kazupon.github.io/vue-i18n/" target="_blank" rel="noopener" v-text="$t('message')")
+      
+    h3 Element UI
+    p
+      | If Element is successfully added to this project, you'll see an
+      code(v-text="'<el-button />'")
+      | below
+    el-button el-button
 </template>
 
 <script>
@@ -63,19 +72,19 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="stylus">
-h3
-  margin 40px 0 0
+.HelloWorld
+  h3
+    margin 40px 0 0
 
-ul
-  list-style-type none
-  padding 0
+  ul
+    list-style-type none
+    padding 0
 
-li
-  display inline-block
-  margin 0 10px
+  li
+    display inline-block
+    margin 0 10px
 
-a
-  color #42b983
+  a
+    color #42b983
 </style>
