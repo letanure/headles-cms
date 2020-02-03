@@ -47,6 +47,8 @@
         a(href="https://vue-loader.vuejs.org" target="_blank" rel="noopener") vue-loader
       li
         a(href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener") awesome-vue
+      li
+        a(href="https://kazupon.github.io/vue-i18n/" target="_blank" rel="noopener" v-text="$t('message')")
 </template>
 
 <script>
