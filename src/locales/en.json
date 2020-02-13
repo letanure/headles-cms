@@ -1,3 +1,7 @@
 {
+  "menu": {
+    "about": "About",
+    "home": "Home"
+  },
   "message": "hello i18n !!"
 }

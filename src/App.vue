@@ -1,11 +1,6 @@
 <template lang="pug">
   #app
-    #nav
-      router-link(to="/") Home
-      |  |
-      router-link(to="/about") About
     router-view
-
 </template>
 
 <script>
@@ -15,11 +10,11 @@ export default {
 </script>
 
 <style lang="stylus">
-#app
-  font-family 'Avenir', Helvetica, Arial, sans-serif
-  -webkit-font-smoothing antialiased
+body
   -moz-osx-font-smoothing grayscale
-  text-align center
+  -webkit-font-smoothing antialiased
   color #2c3e50
-  margin-top 60px
+  font-family 'Avenir', Helvetica, Arial, sans-serif
+  margin 0
+  padding 0
 </style>
