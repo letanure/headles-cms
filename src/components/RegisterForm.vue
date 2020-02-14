@@ -2,7 +2,9 @@
   el-form.RegisterForm(
     :model="formData"
     :rules="formRules"
+    @submit.native.prevent="submit('RegisterForm')"
     label-position="top"
+    novalidate
     ref="RegisterForm"
     status-icon
     )
@@ -37,7 +39,6 @@
 
     el-form-item
       el-button(
-        @click="submit('RegisterForm')"
         type="primary"
         v-text="$t('RegisterForm.actions.submit.label')"
         )
