@@ -16,13 +16,39 @@
       }
     }
   },
+  "RegisterForm": {
+    "actions": {
+      "submit": {
+        "error": "Error on register",
+        "label": "Register"
+      }
+    },
+    "fields": {
+      "email": {
+        "label": "Email"
+      },
+      "name": {
+        "label": "Name"
+      },
+      "password": {
+        "label": "Password"
+      }
+    }
+  },
+  "auth": {
+    "email_already_in_use": "The email address is already in use by another account.",
+    "weak_password": "Password should be at least 6 characters"
+  },
   "menu": {
     "about": "About",
-    "home": "Home"
+    "home": "Home",
+    "login": "Login",
+    "register": "Register"
   },
   "message": "hello i18n !!",
   "validation": {
     "email": "Valid Email required",
+    "min": "at least {min} characters",
     "required": "Required field"
   }
 }
