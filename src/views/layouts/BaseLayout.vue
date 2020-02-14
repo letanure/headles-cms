@@ -7,7 +7,14 @@
         VerticalMenu
       el-container
         el-header(style="height: 56px;").BaseLayout-header
-          | BaseLayout-header
+          el-row(
+            justify="space-between"
+            type="flex"
+            )
+            el-col
+              | BaseLayout-header
+            el-col.BaseLayout-header-actions
+              SignOut
         el-main
           router-view
         el-footer.BaseLayout-footer
@@ -15,13 +22,14 @@
 </template>
 
 <script>
-// @ is an alias to /src
-import VerticalMenu from '@/components/ui/VerticalMenu.vue'
+import VerticalMenu from '@/components/ui/VerticalMenu'
+import SignOut from '@/components/SignOut'
 
 export default {
   name: 'BaseLayout',
   components: {
     VerticalMenu,
+    SignOut,
   },
 }
 </script>
@@ -36,6 +44,9 @@ export default {
     background-color #e6f2f2
     line-height 56px
     height 56px
+
+    &-actions
+      text-align right
 
   &-aside
     border-right solid 1px #35495d

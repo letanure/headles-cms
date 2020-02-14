@@ -1,4 +1,7 @@
 {
+  "SignOut": {
+    "label": "Sign out"
+  },
   "LoginForm": {
     "actions": {
       "submit": {
@@ -44,7 +47,6 @@
     "user_not_found": "User with this email dont exists",
     "weak_password": "Password should be at least 6 characters",
     "wrong_password": "The password is invalid"
-    
   },
   "menu": {
     "about": "About",
