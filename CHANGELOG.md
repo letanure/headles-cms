@@ -1,3 +1,11 @@
+# [1.4.0](https://github.com/letanure/headles-cms/compare/v1.3.0...v1.4.0) (2020-02-14)
+
+
+### Features
+
+* add login with firebase ([d8a14bd](https://github.com/letanure/headles-cms/commit/d8a14bdce37379752d14c5ea2c91d71848528081))
+* add register route, page, component, save to firebase ([e5802f6](https://github.com/letanure/headles-cms/commit/e5802f65a23008e77c699b6a1700e51c60e7c625))
+
 # [1.3.0](https://github.com/letanure/headles-cms/compare/v1.2.0...v1.3.0) (2020-02-14)
 
 
