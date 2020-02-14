@@ -1,5 +1,5 @@
 <template lang="pug">
-  .Login
+  .SignIn
     el-row(
       align="middle"
       justify="center"
@@ -9,19 +9,19 @@
         el-card()
           div(slot="header")
             h2 Login
-          LoginForm(@success="loginSuccess")
+          SignInForm(@success="signInSuccess")
 </template>
 
 <script>
-import LoginForm from '@/components/LoginForm'
+import SignInForm from '@/components/SignInForm'
 
 export default {
-  name: 'Login',
+  name: 'SignIn',
   components: {
-    LoginForm,
+    SignInForm,
   },
   methods: {
-    loginSuccess() {
+    signInSuccess() {
       this.$router.replace({ name: 'home' })
     },
   },
@@ -29,7 +29,7 @@ export default {
 </script>
 
 <style lang="stylus">
-.Login
+.SignIn
   .el-row
     min-height 100vh
 </style>

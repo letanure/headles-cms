@@ -26,7 +26,7 @@ export default {
       auth.signOut().then(() => {
         this.$emit('signOut')
         this.$router.replace({
-          name: 'login',
+          name: 'signIn',
         })
       })
     },

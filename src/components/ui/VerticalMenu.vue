@@ -34,8 +34,8 @@ export default {
           icon: 'info',
         },
         {
-          routeName: 'login',
-          text: this.$t('menu.login'),
+          routeName: 'signIn',
+          text: this.$t('menu.signIn'),
           icon: 'info',
         },
         {

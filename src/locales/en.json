@@ -2,7 +2,7 @@
   "SignOut": {
     "label": "Sign out"
   },
-  "LoginForm": {
+  "SignInForm": {
     "actions": {
       "submit": {
         "error": "Failed to login",
@@ -51,7 +51,7 @@
   "menu": {
     "about": "About",
     "home": "Home",
-    "login": "Login",
+    "signIn": "Login",
     "register": "Register"
   },
   "message": "hello i18n !!",

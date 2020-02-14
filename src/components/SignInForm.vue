@@ -1,8 +1,8 @@
 <template lang="pug">
-  el-form.LoginForm(
+  el-form.SignInForm(
     :model="formData"
     :rules="formRules"
-    @submit.native.prevent="submit('LoginForm')"
+    @submit.native.prevent="submit('SignInForm')"
     label-position="top"
     novalidate
     ref="addForm"
@@ -10,7 +10,7 @@
     )
 
     el-form-item(
-      :label="$t('LoginForm.fields.email.label')"
+      :label="$t('SignInForm.fields.email.label')"
       prop="email"
       )
       el-input(
@@ -19,11 +19,11 @@
       )
 
     el-form-item(
-      :label="$t('LoginForm.fields.password.label')"
+      :label="$t('SignInForm.fields.password.label')"
       prop="password"
       )
       el-input(
-        :placeholder="$t('LoginForm.fields.password.placeholder')"
+        :placeholder="$t('SignInForm.fields.password.placeholder')"
         show-password
         type="password"
         v-model="formData.password"
@@ -33,7 +33,7 @@
       el-button(
         native-type="submit"
         type="primary"
-        v-text="$t('LoginForm.actions.submit.label')"
+        v-text="$t('SignInForm.actions.submit.label')"
         )
 
 </template>
@@ -42,7 +42,7 @@
 import { auth } from '@/firebase/auth.js'
 
 export default {
-  name: 'LoginForm',
+  name: 'SignInForm',
 
   data() {
     return {
@@ -108,7 +108,7 @@ export default {
           this.login()
         } else {
           this.message({
-            messageKey: 'LoginForm.actions.submit.error',
+            messageKey: 'SignInForm.actions.submit.error',
           })
         }
       })
