@@ -1,7 +1,28 @@
 {
+  "LoginForm": {
+    "actions": {
+      "submit": {
+        "error": "Failed to login",
+        "label": "Login"
+      }
+    },
+    "fields": {
+      "email": {
+        "label": "Email"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "Password"
+      }
+    }
+  },
   "menu": {
     "about": "About",
     "home": "Home"
   },
-  "message": "hello i18n !!"
+  "message": "hello i18n !!",
+  "validation": {
+    "email": "Valid Email required",
+    "required": "Required field"
+  }
 }

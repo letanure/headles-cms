@@ -33,6 +33,11 @@ export default {
           text: this.$t('menu.about'),
           icon: 'info',
         },
+        {
+          routeName: 'login',
+          text: this.$t('menu.login'),
+          icon: 'info',
+        },
       ],
     }
   },

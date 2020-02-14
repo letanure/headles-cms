@@ -17,4 +17,13 @@ body
   font-family 'Avenir', Helvetica, Arial, sans-serif
   margin 0
   padding 0
+#app
+  min-height 100vh
+
+  .el-form--label-top .el-form-item__label
+    float none
+    display inline-block
+    text-align left
+    padding 0 0 0px 0
+    line-height 35px
 </style>

@@ -6,7 +6,7 @@ import Home from '../views/Home.vue'
 Vue.use(VueRouter)
 
 const routes = [
-   {
+  {
     path: '/',
     component: BaseLayout,
     children: [
@@ -16,7 +16,7 @@ const routes = [
         component: Home,
       },
       {
-        path: '/about',
+        path: 'about',
         name: 'about',
         // route level code-splitting
         // this generates a separate chunk (about.[hash].js) for this route
@@ -25,7 +25,13 @@ const routes = [
           import(/* webpackChunkName: "about" */ '../views/About.vue'),
       },
     ],
-   },
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () =>
+      import(/* webpackChunkName: "login" */ '../views/Login.vue'),
+  },
 ]
 
 const router = new VueRouter({
