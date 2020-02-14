@@ -11,17 +11,20 @@
             h2 Login
           SignInForm(@success="signInSuccess")
           SignInGoogle(@success="signInSuccess")
+          SignInFacebook(@success="signInSuccess")
 </template>
 
 <script>
 import SignInForm from '@/components/SignInForm'
 import SignInGoogle from '@/components/SignInGoogle'
+import SignInFacebook from '@/components/SignInFacebook'
 
 export default {
   name: 'SignIn',
   components: {
     SignInForm,
     SignInGoogle,
+    SignInFacebook,
   },
   methods: {
     signInSuccess() {

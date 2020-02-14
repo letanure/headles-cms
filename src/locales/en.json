@@ -38,13 +38,18 @@
   "SignInGoogle": {
     "label": "Sign in with Google"
   },
+  "SignInFacebook": {
+    "label": "Sign in with Facebook"
+  },
   "SignOut": {
     "label": "Sign out"
   },
   "auth": {
+    "account_exists_with_different_credential": "account already exists with other provider",
     "email_already_in_use": "The email address is already in use by another account.",
     "invalid_email": "Invalid email",
     "operation_not_allowed": "Login with email disabled",
+    "popup_closed_by_user": "Sign in canceled",
     "too_many_requests": " Too many unsuccessful login attempts. Please try again later",
     "user_disabled": "User disabled",
     "user_not_found": "User with this email dont exists",
