@@ -1,3 +1,13 @@
+# [1.6.0](https://github.com/letanure/headles-cms/compare/v1.5.0...v1.6.0) (2020-02-14)
+
+
+### Features
+
+* add facebook sign in ([a736493](https://github.com/letanure/headles-cms/commit/a736493908baa3e17ef606ef9f1a4819e5e24f9b))
+* add google Sign in ([73d27e9](https://github.com/letanure/headles-cms/commit/73d27e9b2902f541eb6c9eff015c21bf6efec1ab))
+* add sign in with github ([d6cac3e](https://github.com/letanure/headles-cms/commit/d6cac3e32ff5ddd7e12a73e973a4e8ce7a139292))
+* add sign up with twitter ([6a95e12](https://github.com/letanure/headles-cms/commit/6a95e12fa2f3bd2315a62391b867d46d9b8731fe))
+
 # [1.5.0](https://github.com/letanure/headles-cms/compare/v1.4.0...v1.5.0) (2020-02-14)
 
 
