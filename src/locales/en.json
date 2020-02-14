@@ -1,24 +1,4 @@
 {
-  "SignOut": {
-    "label": "Sign out"
-  },
-  "SignInForm": {
-    "actions": {
-      "submit": {
-        "error": "Failed to login",
-        "label": "Login"
-      }
-    },
-    "fields": {
-      "email": {
-        "label": "Email"
-      },
-      "password": {
-        "label": "Password",
-        "placeholder": "Password"
-      }
-    }
-  },
   "RegisterForm": {
     "actions": {
       "submit": {
@@ -38,6 +18,29 @@
       }
     }
   },
+  "SignInForm": {
+    "actions": {
+      "submit": {
+        "error": "Failed to login",
+        "label": "Login"
+      }
+    },
+    "fields": {
+      "email": {
+        "label": "Email"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "Password"
+      }
+    }
+  },
+  "SignInGoogle": {
+    "label": "Sign in with Google"
+  },
+  "SignOut": {
+    "label": "Sign out"
+  },
   "auth": {
     "email_already_in_use": "The email address is already in use by another account.",
     "invalid_email": "Invalid email",
@@ -51,8 +54,8 @@
   "menu": {
     "about": "About",
     "home": "Home",
-    "signIn": "Login",
-    "register": "Register"
+    "register": "Register",
+    "signIn": "Login"
   },
   "message": "hello i18n !!",
   "validation": {

@@ -10,15 +10,18 @@
           div(slot="header")
             h2 Login
           SignInForm(@success="signInSuccess")
+          SignInGoogle(@success="signInSuccess")
 </template>
 
 <script>
 import SignInForm from '@/components/SignInForm'
+import SignInGoogle from '@/components/SignInGoogle'
 
 export default {
   name: 'SignIn',
   components: {
     SignInForm,
+    SignInGoogle,
   },
   methods: {
     signInSuccess() {
