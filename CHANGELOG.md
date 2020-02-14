@@ -1,3 +1,18 @@
+# [1.5.0](https://github.com/letanure/headles-cms/compare/v1.4.0...v1.5.0) (2020-02-14)
+
+
+### Bug Fixes
+
+* add scope to row css in login page only ([a617d9f](https://github.com/letanure/headles-cms/commit/a617d9fc8ac34963f9286a0906a8cf54db99243c))
+* prevent jump on scroll possible ([a24cd67](https://github.com/letanure/headles-cms/commit/a24cd679a2ca8c9371e23875be0d7c6d68d48de7))
+
+
+### Features
+
+* add sign out button and action ([c3b5269](https://github.com/letanure/headles-cms/commit/c3b5269183ce5e9352bdb6bcabd8ca7170946045))
+* add user store, watch state, commit to user store ([187cd0c](https://github.com/letanure/headles-cms/commit/187cd0c38f121ad18992887d5e05af0dba289312))
+* redirect to home after register success ([01af343](https://github.com/letanure/headles-cms/commit/01af34357e1031d001b4ab93e4b6ae75fb41ef5d))
+
 # [1.4.0](https://github.com/letanure/headles-cms/compare/v1.3.0...v1.4.0) (2020-02-14)
 
 
