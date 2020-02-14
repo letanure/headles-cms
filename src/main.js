@@ -18,6 +18,5 @@ new Vue({
 }).$mount('#app')
 
 auth.onAuthStateChanged((user) => {
-  console.log('onAuthStateChanged', user)
   store.dispatch('user/fetch', user)
 })
