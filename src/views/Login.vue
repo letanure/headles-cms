@@ -9,7 +9,7 @@
         el-card()
           div(slot="header")
             h2 Login
-          LoginForm
+          LoginForm(@success="loginSuccess")
 </template>
 
 <script>
@@ -19,6 +19,11 @@ export default {
   name: 'Login',
   components: {
     LoginForm,
+  },
+  methods: {
+    loginSuccess() {
+      this.$router.replace({ name: 'home' })
+    },
   },
 }
 </script>

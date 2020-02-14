@@ -2,7 +2,9 @@
   el-form.LoginForm(
     :model="formData"
     :rules="formRules"
+    @submit.native.prevent="submit('LoginForm')"
     label-position="top"
+    novalidate
     ref="addForm"
     status-icon
     )
@@ -10,7 +12,6 @@
     el-form-item(
       :label="$t('LoginForm.fields.email.label')"
       prop="email"
-
       )
       el-input(
         type="email"
@@ -30,14 +31,16 @@
 
     el-form-item
       el-button(
-        @click="submitForm('addForm')"
         type="primary"
+        native-type="submit"
         v-text="$t('LoginForm.actions.submit.label')"
         )
 
 </template>
 
 <script>
+import { auth } from '@/firebase/auth.js'
+
 export default {
   name: 'LoginForm',
 
@@ -62,6 +65,11 @@ export default {
         ],
         password: [
           {
+            min: 6,
+            message: this.$t('validation.min', { min: 6 }),
+            trigger: 'blur',
+          },
+          {
             required: true,
             message: this.$t('validation.required'),
             trigger: 'blur',
@@ -71,20 +79,37 @@ export default {
     }
   },
   methods: {
-    sendLogin() {
-      //
+    login() {
+      auth
+        .signInWithEmailAndPassword(this.formData.email, this.formData.password)
+        .then(() => {
+          this.$emit('success')
+        })
+        .catch((err) => {
+          this.$emit('error')
+          this.message({
+            messageKey: err.code.replace(/\//g, '.').replace(/-/g, '_'),
+          })
+        })
     },
 
-    submitForm() {
+    message({ type = 'error', messageKey = null }) {
+      if (messageKey) {
+        this.$message({
+          type,
+          message: this.$t(messageKey),
+        })
+      }
+    },
+
+    submit() {
       this.$refs['addForm'].validate((valid) => {
         if (valid) {
-          this.sendLogin()
+          this.login()
         } else {
-          this.$message({
-            type: 'danger',
-            message: this.$t('LoginForm.actions.submit.error'),
+          this.message({
+            messageKey: 'LoginForm.actions.submit.error',
           })
-          return false
         }
       })
     },

@@ -37,7 +37,14 @@
   },
   "auth": {
     "email_already_in_use": "The email address is already in use by another account.",
-    "weak_password": "Password should be at least 6 characters"
+    "invalid_email": "Invalid email",
+    "operation_not_allowed": "Login with email disabled",
+    "too_many_requests": " Too many unsuccessful login attempts. Please try again later",
+    "user_disabled": "User disabled",
+    "user_not_found": "User with this email dont exists",
+    "weak_password": "Password should be at least 6 characters",
+    "wrong_password": "The password is invalid"
+    
   },
   "menu": {
     "about": "About",
