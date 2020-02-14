@@ -1,3 +1,11 @@
+# [1.2.0](https://github.com/letanure/headles-cms/compare/v1.1.0...v1.2.0) (2020-02-14)
+
+
+### Features
+
+* add base layout, route and vertical menu ([a7c7a31](https://github.com/letanure/headles-cms/commit/a7c7a3175cbc0deb3f2377cce78ed5a8dde87ca9))
+* add login route, view, form ([957335e](https://github.com/letanure/headles-cms/commit/957335e32423aa03d388231510d05e974ce8281d))
+
 # [1.1.0](https://github.com/letanure/headles-cms/compare/v1.0.0...v1.1.0) (2020-02-03)
 
 
