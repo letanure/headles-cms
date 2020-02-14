@@ -1,3 +1,11 @@
+# [1.3.0](https://github.com/letanure/headles-cms/compare/v1.2.0...v1.3.0) (2020-02-14)
+
+
+### Features
+
+* add firebase config and functions folder ([1d46650](https://github.com/letanure/headles-cms/commit/1d466507b6acd20a2d312ab3bc02f6dddfc61707))
+* add firebase to vue app ([f827ee9](https://github.com/letanure/headles-cms/commit/f827ee9315f9ad87d427f592b6ebd2b72d25245b))
+
 # [1.2.0](https://github.com/letanure/headles-cms/compare/v1.1.0...v1.2.0) (2020-02-14)
 
 
