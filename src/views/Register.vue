@@ -9,7 +9,7 @@
         el-card()
           div(slot="header")
             h2 Register
-          RegisterForm
+          RegisterForm(@success="registerSuccess")
 </template>
 
 <script>
@@ -19,6 +19,11 @@ export default {
   name: 'Register',
   components: {
     RegisterForm,
+  },
+  methods: {
+    registerSuccess() {
+      this.$router.replace({ name: 'home' })
+    },
   },
 }
 </script>

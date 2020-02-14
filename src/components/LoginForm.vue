@@ -31,8 +31,8 @@
 
     el-form-item
       el-button(
-        type="primary"
         native-type="submit"
+        type="primary"
         v-text="$t('LoginForm.actions.submit.label')"
         )
 

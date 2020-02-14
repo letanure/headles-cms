@@ -39,6 +39,7 @@
 
     el-form-item
       el-button(
+        native-type="submit"
         type="primary"
         v-text="$t('RegisterForm.actions.submit.label')"
         )
@@ -105,6 +106,7 @@ export default {
           this.formData.password,
         )
         .then((data) => {
+          this.$emit('success')
           data.user
             .updateProfile({
               displayName: this.formData.name,
@@ -112,6 +114,7 @@ export default {
             .then(() => {})
         })
         .catch((err) => {
+          this.$emit('error')
           this.message({
             messageKey: err.code.replace(/\//g, '.').replace(/-/g, '_'),
           })
