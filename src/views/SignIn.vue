@@ -10,21 +10,24 @@
           div(slot="header")
             h2 Login
           SignInForm(@success="signInSuccess")
-          SignInGoogle(@success="signInSuccess")
           SignInFacebook(@success="signInSuccess")
+          SignInGoogle(@success="signInSuccess")
+          SignInGithub(@success="signInSuccess")
 </template>
 
 <script>
+import SignInFacebook from '@/components/SignInFacebook'
 import SignInForm from '@/components/SignInForm'
 import SignInGoogle from '@/components/SignInGoogle'
-import SignInFacebook from '@/components/SignInFacebook'
+import SignInGithub from '@/components/SignInGithub'
 
 export default {
   name: 'SignIn',
   components: {
+    SignInFacebook,
     SignInForm,
     SignInGoogle,
-    SignInFacebook,
+    SignInGithub,
   },
   methods: {
     signInSuccess() {
