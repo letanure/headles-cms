@@ -111,7 +111,6 @@ export default {
             .then(() => {})
         })
         .catch((err) => {
-          this.error = err.message
           this.message({
             messageKey: err.code.replace(/\//g, '.').replace(/-/g, '_'),
           })
