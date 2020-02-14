@@ -29,6 +29,7 @@ export default {
 </script>
 
 <style lang="stylus">
-.Login, .el-row
-  min-height 100vh
+.Login
+  .el-row
+    min-height 100vh
 </style>
