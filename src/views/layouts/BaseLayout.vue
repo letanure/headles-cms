@@ -14,6 +14,7 @@
             el-col
               | BaseLayout-header
             el-col.BaseLayout-header-actions
+              UserInfo
               SignOut
         el-main
           router-view
@@ -22,14 +23,16 @@
 </template>
 
 <script>
-import VerticalMenu from '@/components/ui/VerticalMenu'
 import SignOut from '@/components/SignOut'
+import UserInfo from '@/components/ui/UserInfo'
+import VerticalMenu from '@/components/ui/VerticalMenu'
 
 export default {
   name: 'BaseLayout',
   components: {
     VerticalMenu,
     SignOut,
+    UserInfo,
   },
 }
 </script>
