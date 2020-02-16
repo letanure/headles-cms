@@ -43,6 +43,11 @@ export default {
           text: this.$t('menu.register'),
           icon: 'info',
         },
+        {
+          routeName: 'users',
+          text: this.$t('menu.users'),
+          icon: 'info',
+        },
       ],
     }
   },

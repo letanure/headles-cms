@@ -60,6 +60,19 @@
   "SignOut": {
     "label": "Sign out"
   },
+  "Users": {
+    "props": {
+      "email": {
+        "label": "Email"
+      },
+      "name": {
+        "label": "Name"
+      },
+      "provider": {
+        "label": "Provider"
+      }
+    }
+  },
   "auth": {
     "account_exists_with_different_credential": "account already exists with other provider",
     "email_already_in_use": "The email address is already in use by another account.",
@@ -76,7 +89,8 @@
     "about": "About",
     "home": "Home",
     "register": "Register",
-    "signIn": "Login"
+    "signIn": "Login",
+    "users": "Users"
   },
   "message": "hello i18n !!",
   "validation": {
