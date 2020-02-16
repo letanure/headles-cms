@@ -10,27 +10,29 @@
           div(slot="header")
             h2 Login
           SignInForm(@success="signInSuccess")
-          SignInFacebook(@success="signInSuccess")
-          SignInGithub(@success="signInSuccess")
-          SignInGoogle(@success="signInSuccess")
-          SignInTwitter(@success="signInSuccess")
+          el-divider
+          el-row.SignIn-providers(
+            type="flex"
+            )
+            el-col()
+              SignInProvider(@success="signInSuccess" provider="github")
+            el-col()
+              SignInProvider(@success="signInSuccess" provider="facebook")
+            el-col()
+              SignInProvider(@success="signInSuccess" provider="google")
+            el-col()
+              SignInProvider(@success="signInSuccess" provider="twitter")
 </template>
 
 <script>
-import SignInFacebook from '@/components/SignInFacebook'
+import SignInProvider from '@/components/SignInProvider'
 import SignInForm from '@/components/SignInForm'
-import SignInGithub from '@/components/SignInGithub'
-import SignInGoogle from '@/components/SignInGoogle'
-import SignInTwitter from '@/components/SignInTwitter'
 
 export default {
   name: 'SignIn',
   components: {
-    SignInFacebook,
     SignInForm,
-    SignInGoogle,
-    SignInGithub,
-    SignInTwitter,
+    SignInProvider,
   },
   methods: {
     signInSuccess() {
@@ -42,6 +44,11 @@ export default {
 
 <style lang="stylus">
 .SignIn
-  .el-row
+  &-providers
+    flex-wrap wrap
+    text-align center
+    .el-col
+      margin-bottom 10px
+  & + .el-row
     min-height 100vh
 </style>

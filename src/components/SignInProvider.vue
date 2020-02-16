@@ -1,21 +1,32 @@
 <template lang="pug">
-  el-button.SignInGithub(
+  el-button.SignInProvider(
     @click="signIn"
-    v-text="$t('SignInGithub.label')"
+    v-text="$t(`SignInProvider.${provider}.label`)"
     )
 
 </template>
 
 <script>
-import { auth, providerGithub } from '@/firebase/auth.js'
+import { auth, providers } from '@/firebase/auth.js'
 
 export default {
-  name: 'SignInGithub',
+  name: 'SignInProvider',
+
+  props: {
+    provider: {
+      default: null,
+      required: true,
+      type: String,
+      validator: (value) => {
+        return ['facebook', 'google', 'twitter', 'github'].includes(value)
+      }
+    },
+  },
 
   methods: {
     signIn() {
       auth
-        .signInWithPopup(providerGithub)
+        .signInWithPopup(providers[this.provider])
         .then(() => {
           this.$emit('success')
         })

@@ -4,7 +4,9 @@ import 'firebase/auth'
 
 export const auth = firebase.auth()
 
-export const providerFacebook = new Firebase.auth.FacebookAuthProvider()
-export const providerGithub = new Firebase.auth.GithubAuthProvider()
-export const providerGoogle = new Firebase.auth.GoogleAuthProvider()
-export const providerTwitter = new Firebase.auth.TwitterAuthProvider()
+export const providers = {
+  facebook: new Firebase.auth.FacebookAuthProvider(),
+  github: new Firebase.auth.GithubAuthProvider(),
+  google: new Firebase.auth.GoogleAuthProvider(),
+  twitter: new Firebase.auth.TwitterAuthProvider(),
+}
