@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import store from '@/store/'
 import BaseLayout from '@/views/layouts/BaseLayout.vue'
 import Home from '../views/Home.vue'
 
@@ -44,6 +45,21 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes,
+})
+
+router.beforeEach((to, from, next) => {
+  const signedIn = store.state.user.user.signedIn
+  const unprotectedRoutes = ['signIn', 'register']
+
+  if (unprotectedRoutes.includes(to.name)) {
+    next()
+  } else {
+    if (!signedIn) {
+      next({ name: 'signIn' })
+    } else {
+      next()
+    }
+  }
 })
 
 export default router
