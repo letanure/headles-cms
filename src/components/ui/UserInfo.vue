@@ -1,7 +1,7 @@
 <template lang="pug">
-  span.UserInfo(v-if="user")
+  span.UserInfo(v-if="user && user.data")
     el-image(
-      :alt="user.displayName"
+      :alt="user.data.displayName"
       :src="user.data.photoURL"
       fit="fill"
       style="width: 38px; height: 38px"
