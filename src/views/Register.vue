@@ -13,7 +13,7 @@
           p
             SignOut
 
-        el-card(v-if="user.data && !user.signedIn")
+        el-card(v-if="!user.signedIn")
           div(slot="header")
             h2 Register
           RegisterForm(@success="registerSuccess")
@@ -37,7 +37,9 @@ export default {
   },
   methods: {
     registerSuccess() {
-      this.$router.replace({ name: 'home' })
+      setTimeout(() => {
+        this.$router.replace({ name: 'home' })
+      }, 300)
     },
   },
 }

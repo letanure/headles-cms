@@ -1,19 +1,18 @@
 <template lang="pug">
-  .SignIn(v-if="user")
+  .SignIn()
     el-row.pageHeight(
       align="middle"
       justify="center"
       type="flex"
       )
       el-col(:xs="22" :sm="12" :md="8" :lg="6" :xl="4")
-        
         .tip(v-if="user.signedIn")
           p {{ $t('SignIn.signedIn') }}
           p {{ $t('SignIn.signedOut') }}
           p
             SignOut
 
-        el-card(v-if="user.data && !user.signedIn")
+        el-card(v-if="!user.signedIn")
           div(slot="header")
             h2 Login
           SignInForm(@success="signInSuccess")

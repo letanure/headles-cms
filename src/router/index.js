@@ -12,6 +12,7 @@ const routes = [
     children: [
       {
         path: '',
+        name: 'home',
         component: () =>
           import(/* webpackChunkName: "home" */ '../views/Home.vue'),
       },
@@ -50,17 +51,25 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  const signedIn = store.state.user.user.signedIn
-  const unprotectedRoutes = ['signIn', 'register']
-
-  if (unprotectedRoutes.includes(to.name)) {
-    next()
-  } else {
-    if (!signedIn) {
-      next({ name: 'signIn' })
-    } else {
+  const navigate = () => {
+    const unprotectedRoutes = ['signIn', 'register']
+    if (unprotectedRoutes.includes(to.name)) {
       next()
+    } else {
+      if (store.state.user.user.signedIn) {
+        next()
+      } else {
+        next({ name: 'signIn' })
+      }
     }
+  }
+
+  if (store.state.user.loaded) {
+    navigate()
+  } else {
+    store.watch(store.getters['user/loaded'], () => {
+      navigate()
+    })
   }
 })
 
