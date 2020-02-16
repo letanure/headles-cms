@@ -19,7 +19,7 @@ export default {
       type: String,
       validator: (value) => {
         return ['facebook', 'google', 'twitter', 'github'].includes(value)
-      }
+      },
     },
   },
 

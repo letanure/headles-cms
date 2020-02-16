@@ -24,7 +24,6 @@ export default {
       user: 'user/user',
     }),
   },
-
 }
 </script>
 
