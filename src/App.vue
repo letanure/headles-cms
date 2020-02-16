@@ -17,7 +17,7 @@ body
   font-family 'Avenir', Helvetica, Arial, sans-serif
   margin 0
   padding 0
-  overflow-x scroll
+  overflow-y scroll
 #app
   min-height 100vh
 
