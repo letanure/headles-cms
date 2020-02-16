@@ -6,19 +6,34 @@
       type="flex"
       )
       el-col(:xs="22" :sm="12" :md="8" :lg="6" :xl="4")
-        el-card()
+        
+        .tip(v-if="user.signedIn")
+          p {{ $t('Register.signedIn') }}
+          p {{ $t('Register.signedOut') }}
+          p
+            SignOut
+
+        el-card(v-if="user.data && !user.signedIn")
           div(slot="header")
             h2 Register
           RegisterForm(@success="registerSuccess")
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import RegisterForm from '@/components/RegisterForm'
+import SignOut from '@/components/SignOut'
 
 export default {
   name: 'Register',
   components: {
     RegisterForm,
+    SignOut,
+  },
+  computed: {
+    ...mapGetters({
+      user: 'user/user',
+    }),
   },
   methods: {
     registerSuccess() {

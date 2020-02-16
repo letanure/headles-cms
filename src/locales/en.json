@@ -1,4 +1,8 @@
 {
+  "Register": {
+    "signedIn": "You cant register again",
+    "signedOut": "Wants to log out?"
+  },
   "RegisterForm": {
     "actions": {
       "submit": {
@@ -17,6 +21,10 @@
         "label": "Password"
       }
     }
+  },
+  "SignIn": {
+    "signedIn": "You are Already Logged in",
+    "signedOut": "Wants to log out?"
   },
   "SignInForm": {
     "actions": {
