@@ -1,3 +1,21 @@
+# [1.7.0](https://github.com/letanure/headles-cms/compare/v1.6.0...v1.7.0) (2020-02-16)
+
+
+### Bug Fixes
+
+* check user loaded before navigate ([f2c571c](https://github.com/letanure/headles-cms/commit/f2c571c4c38a076d47b28cef2b7f8e39710493b1))
+* show scroll on Y axis instead of X ([96c88c9](https://github.com/letanure/headles-cms/commit/96c88c9f42a6424f90e9dbae1527897677a32503))
+
+
+### Features
+
+* add  route auth protection ([788f6e2](https://github.com/letanure/headles-cms/commit/788f6e27bd9d5342ec36ad999f45a25ee0021efe))
+* add message signed in on login and register ([96adff4](https://github.com/letanure/headles-cms/commit/96adff4d23fda493be4580a8126eddeda4ade2fe))
+* add page and loist users with provider icons ([82f2802](https://github.com/letanure/headles-cms/commit/82f280278d93c979d7c66f3dcf9c30da052cc8ac))
+* add tip component, global min page height helper ([81a42dc](https://github.com/letanure/headles-cms/commit/81a42dcca6fa1c8e121d8eaf44d720b49bda9e81))
+* add user photo - user info component to the header ([3cd0e50](https://github.com/letanure/headles-cms/commit/3cd0e504b27bca1a3d3cf1e173a44f07f5041153))
+* add user to firebase collection on create ([0c213c2](https://github.com/letanure/headles-cms/commit/0c213c2a02a28adb946599bb5a810b7380c7d982))
+
 # [1.6.0](https://github.com/letanure/headles-cms/compare/v1.5.0...v1.6.0) (2020-02-14)
 
 
