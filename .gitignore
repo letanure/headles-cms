@@ -25,3 +25,4 @@ yarn-error.log*
 *.sln
 *.sw?
 firestore-debug.log
+firebase/functions/serviceAccountKey.json
