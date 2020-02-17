@@ -1,26 +1,7 @@
 <template lang="pug">
   .Users
     p
-      el-table(
-        :data="users"
-        stripe
-        style="width: 100%"
-        )
-        el-table-column(
-          :label="$t('Users.props.name.label')"
-          prop="displayName"
-          )
-        el-table-column(
-          :label="$t('Users.props.email.label')"
-          prop="email"
-          )
-        el-table-column(
-          :label="$t('Users.props.provider.label')"
-          prop="provider"
-          )
-          template(slot-scope="scope")
-            span(v-for="provider in scope.row.providerData" :key="provider.uid")
-              img(:src="`${publicPath}img/icons/auth/auth_service_${provider.providerId.split('.')[0]}.svg`") 
+      UsersList
     p
       router-link(
         :to="{ name: `UsersCreate` }"
@@ -33,27 +14,13 @@
 </template>
 
 <script>
-import { firestore } from '@/firebase/firestore'
+import UsersList from '@/components/UsersList'
 
 export default {
   name: 'Users',
 
-  data: () => ({
-    users: [],
-    publicPath: process.env.BASE_URL,
-  }),
-
-  async beforeMount() {
-    const request = firestore
-      .collection('users')
-      .where('status', '==', 'ACTIVE')
-      .get()
-    const dataRequest = await request
-    const dataPromise = Promise.all(
-      dataRequest.docs.map(async (user) => user.data()),
-    )
-    const data = await dataPromise
-    this.users = data
+  components: {
+    UsersList,
   },
 }
 </script>
