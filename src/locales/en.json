@@ -1,5 +1,5 @@
 {
-  "CreateUserForm": {
+  "UserFormCreate": {
     "actions": {
       "submit": {
         "error": "Error on register",

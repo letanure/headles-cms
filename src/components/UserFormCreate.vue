@@ -1,16 +1,16 @@
 <template lang="pug">
-  el-form.CreateUserForm(
+  el-form.UserFormCreate(
     :model="formData"
     :rules="formRules"
-    @submit.native.prevent="submit('CreateUserForm')"
+    @submit.native.prevent="submit('UserFormCreate')"
     label-position="top"
     novalidate
-    ref="CreateUserForm"
+    ref="UserFormCreate"
     status-icon
     )
 
     el-form-item(
-      :label="$t('CreateUserForm.fields.name.label')"
+      :label="$t('UserFormCreate.fields.name.label')"
       prop="name"
       )
       el-input(
@@ -19,7 +19,7 @@
       )
 
     el-form-item(
-      :label="$t('CreateUserForm.fields.email.label')"
+      :label="$t('UserFormCreate.fields.email.label')"
       prop="email"
       )
       el-input(
@@ -28,7 +28,7 @@
       )
 
     el-form-item(
-      :label="$t('CreateUserForm.fields.password.label')"
+      :label="$t('UserFormCreate.fields.password.label')"
       prop="password"
       )
       el-input(
@@ -41,7 +41,7 @@
       el-button(
         native-type="submit"
         type="primary"
-        v-text="$t('CreateUserForm.actions.submit.label')"
+        v-text="$t('UserFormCreate.actions.submit.label')"
         )
 
 </template>
@@ -52,7 +52,7 @@ import { createUser } from '@/firebase/functions'
 console.log(createUser)
 
 export default {
-  name: 'CreateUserForm',
+  name: 'UserFormCreate',
 
   data() {
     return {
@@ -125,12 +125,12 @@ export default {
     },
 
     submit() {
-      this.$refs['CreateUserForm'].validate((valid) => {
+      this.$refs['UserFormCreate'].validate((valid) => {
         if (valid) {
           this.create()
         } else {
           this.message({
-            messageKey: 'CreateUserForm.actions.submit.error',
+            messageKey: 'UserFormCreate.actions.submit.error',
           })
         }
       })

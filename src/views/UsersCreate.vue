@@ -4,16 +4,16 @@
       type="flex"
       )
       el-col(:xs="24" :sm="24" :md="12" :lg="12" :xl="6")
-        CreateUserForm(@success="registerSuccess")
+        UserFormCreate(@success="registerSuccess")
 </template>
 
 <script>
-import CreateUserForm from '@/components/CreateUserForm'
+import UserFormCreate from '@/components/UserFormCreate'
 
 export default {
   name: 'UsersCreate',
   components: {
-    CreateUserForm,
+    UserFormCreate,
   },
   methods: {
     registerSuccess() {
