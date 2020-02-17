@@ -19,7 +19,7 @@ function findEmailInProvider(providers) {
   return email
 }
 
-exports.registerNewUser = functions.auth.user().onCreate((user) => {
+exports.onCreateUser = functions.auth.user().onCreate((user) => {
   const email = user.email || findEmailInProvider(user.providerData)
   const userData = {
     email: email,
@@ -29,6 +29,7 @@ exports.registerNewUser = functions.auth.user().onCreate((user) => {
     phoneNumber: user.phoneNumber,
     disabled: user.disabled,
     uid: user.uid,
+    status: 'ACTIVE',
     providerData: user.providerData.map((providerData) => {
       return {
         providerId: providerData.providerId,
@@ -45,6 +46,25 @@ exports.registerNewUser = functions.auth.user().onCreate((user) => {
   } else {
     return false
   }
+})
+
+exports.onDeleteUser = functions.auth.user().onDelete((user) => {
+  admin
+    .firestore()
+    .collection('users')
+    .where('uid', '==', user.uid)
+    .get()
+    .then((snap) => {
+      if (snap.docs[0]) {
+        snap.docs[0].ref.update({
+          status: 'DELETED',
+        })
+      }
+      return true
+    })
+    .catch((err) => {
+      console.log(err)
+    })
 })
 
 exports.createUser = functions.https.onCall((data, context) => {

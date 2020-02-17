@@ -44,7 +44,10 @@ export default {
   }),
 
   async beforeMount() {
-    const request = firestore.collection('users').get()
+    const request = firestore
+      .collection('users')
+      .where('status', '==', 'ACTIVE')
+      .get()
     const dataRequest = await request
     const dataPromise = Promise.all(
       dataRequest.docs.map(async (user) => user.data()),
