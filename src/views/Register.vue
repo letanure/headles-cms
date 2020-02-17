@@ -16,18 +16,18 @@
         el-card(v-if="!user.signedIn")
           div(slot="header")
             h2 Register
-          RegisterForm(@success="registerSuccess")
+          UserCreateForm(@success="registerSuccess")
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-import RegisterForm from '@/components/RegisterForm'
+import UserCreateForm from '@/components/UserCreateForm'
 import SignOut from '@/components/SignOut'
 
 export default {
   name: 'Register',
   components: {
-    RegisterForm,
+    UserCreateForm,
     SignOut,
   },
   computed: {

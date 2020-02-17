@@ -3,7 +3,7 @@
     "signedIn": "You cant register again",
     "signedOut": "Wants to log out?"
   },
-  "RegisterForm": {
+  "UserCreateForm": {
     "actions": {
       "submit": {
         "error": "Error on register",
