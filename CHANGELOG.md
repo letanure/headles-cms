@@ -1,3 +1,18 @@
+# [1.8.0](https://github.com/letanure/headles-cms/compare/v1.7.0...v1.8.0) (2020-02-17)
+
+
+### Bug Fixes
+
+* update name file to name firebase auth service provider ([44ee3a1](https://github.com/letanure/headles-cms/commit/44ee3a1408cfac4b4acc729f1e0610e5833661ab))
+
+
+### Features
+
+* add cerate user component using cloud function ([b97e9da](https://github.com/letanure/headles-cms/commit/b97e9da9baf18dac067054aa659ba5a594ed0552))
+* add cloud function create user binded to firebase, add credentials ([2ef64cc](https://github.com/letanure/headles-cms/commit/2ef64cc4f447ca59ab6797d91a14eebd7745e408))
+* add firebase function wrapper ([525846d](https://github.com/letanure/headles-cms/commit/525846d4356f243d6ffd40d21251187aac5a3305))
+* add user create in user admin ([35c339e](https://github.com/letanure/headles-cms/commit/35c339ebf0d715a2d36cab27748224ebd87429bc))
+
 # [1.7.0](https://github.com/letanure/headles-cms/compare/v1.6.0...v1.7.0) (2020-02-16)
 
 
