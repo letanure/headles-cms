@@ -28,6 +28,12 @@ const routes = [
         component: () =>
           import(/* webpackChunkName: "users" */ '../views/Users.vue'),
       },
+      {
+        path: 'users/create',
+        name: 'UsersCreate',
+        component: () =>
+          import(/* webpackChunkName: "users" */ '../views/UsersCreate.vue'),
+      },
     ],
   },
   {

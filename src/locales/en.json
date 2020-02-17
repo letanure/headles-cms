@@ -61,6 +61,11 @@
     "label": "Sign out"
   },
   "Users": {
+    "actions": {
+      "create": {
+        "label": "Create new user"
+      }
+    },
     "props": {
       "email": {
         "label": "Email"
