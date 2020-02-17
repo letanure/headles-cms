@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/letanure/headles-cms/compare/v1.8.0...v1.9.0) (2020-02-17)
+
+
+### Features
+
+* change status user data on delete user ([3431b60](https://github.com/letanure/headles-cms/commit/3431b609c0831dbbbb7777ade4daeaae270bf5a1))
+
 # [1.8.0](https://github.com/letanure/headles-cms/compare/v1.7.0...v1.8.0) (2020-02-17)
 
 
