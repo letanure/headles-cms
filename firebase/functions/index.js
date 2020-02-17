@@ -1,8 +1,12 @@
-const functions = require('firebase-functions')
 const admin = require('firebase-admin')
+const functions = require('firebase-functions')
+const serviceAccount = require('./serviceAccountKey.json')
 
 if (!admin.apps.length) {
-  admin.initializeApp({})
+  admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: 'https://headles-cms-vue.firebaseio.com',
+  })
 }
 
 function findEmailInProvider(providers) {
@@ -41,4 +45,26 @@ exports.registerNewUser = functions.auth.user().onCreate((user) => {
   } else {
     return false
   }
+})
+
+exports.createUser = functions.https.onCall((data, context) => {
+  const { email, name, password } = data
+
+  if (!context.auth) {
+    throw new functions.https.HttpsError('auth required')
+  }
+
+  return admin
+    .auth()
+    .createUser({
+      email,
+      displayName: name,
+      password: password,
+    })
+    .then((userRecord) => {
+      return { success: userRecord.uid }
+    })
+    .catch((error) => {
+      return error
+    })
 })
