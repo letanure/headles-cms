@@ -1,3 +1,10 @@
+## [1.10.1](https://github.com/letanure/headles-cms/compare/v1.10.0...v1.10.1) (2020-02-18)
+
+
+### Bug Fixes
+
+* prevent NaN in page 1 load ([15050ad](https://github.com/letanure/headles-cms/commit/15050ad08931c8ed4cade51e8444344410b0067f))
+
 # [1.10.0](https://github.com/letanure/headles-cms/compare/v1.9.0...v1.10.0) (2020-02-18)
 
 
