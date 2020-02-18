@@ -19,7 +19,7 @@ function findEmailInProvider(providers) {
   return email
 }
 
-exports.onCreateUser = functions.auth.user().onCreate((user) => {
+exports.onAuthCreateUser = functions.auth.user().onCreate((user) => {
   const email = user.email || findEmailInProvider(user.providerData)
   const userData = {
     email: email,
@@ -91,12 +91,44 @@ exports.createUser = functions.https.onCall((data, context) => {
     })
 })
 
+exports.onCreateUser = functions.firestore
+  .document('users/{userId}')
+  .onCreate((snapshot, context) => {
+    return admin.firestore().runTransaction(async (transaction) => {
+      // Get the metadata and incement the count.
+      const metaRef = admin.firestore().doc('metadata/users')
+      const metaData = (await transaction.get(metaRef)).data()
+      const number = metaData.count + 1
+      transaction.update(metaRef, {
+        count: number,
+      })
+
+      // Update User
+      const userRef = snapshot.ref
+
+      transaction.set(
+        userRef,
+        {
+          number,
+        },
+        { merge: true },
+      )
+    })
+  })
+
 exports.getPageCollection = functions.https.onCall(async (data, context) => {
   if (!context.auth) {
     throw new functions.https.HttpsError('auth required')
   }
 
   const { collection, orderBy, limit, offset } = data
+  const requestMeta = admin
+    .firestore()
+    .doc(`metadata/${collection}`)
+    .get()
+  const docMeta = await requestMeta
+  const dataMeta = docMeta.data()
+
   const request = admin
     .firestore()
     .collection(collection)
@@ -110,5 +142,8 @@ exports.getPageCollection = functions.https.onCall(async (data, context) => {
     dataRequest.docs.map(async (user) => user.data()),
   )
   const dataPage = await dataPromise
-  return dataPage
+  return {
+    meta: dataMeta,
+    page: dataPage,
+  }
 })

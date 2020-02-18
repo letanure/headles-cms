@@ -6,6 +6,7 @@
           :data="users"
           stripe
           style="width: 100%"
+          v-loading="loading"
           )
           el-table-column(
             :label="$t('Users.props.name.label')"
@@ -31,18 +32,14 @@
     
     el-row.UsersList-pagination(v-if="!hidePagination")
       el-col
-        el-button-group
-          router-link.el-button(
-            :to="{ name: $route.name, params: { page: (page - 1 < 1 ? 1 : (page - 1) ) }}"
-            )
-            i.el-icon-arrow-left
-            span {{ $t('general.pagination.previous') }}
-          router-link.el-button(
-            :to="{ name: $route.name, params: { page: (page + 1) }}"
-            )
-            span {{ $t('general.pagination.next') }}
-            i.el-icon-arrow-right
-
+        el-pagination(
+          :current-page="page"
+          :page-size="perPage"
+          :total="usersCount"
+          @current-change="handleCurrentChange"
+          background
+          layout="prev, pager, next"
+        )
 </template>
 
 <script>
@@ -58,7 +55,7 @@ export default {
       type: Number,
     },
     perPage: {
-      default: 5,
+      default: 10,
       required: false,
       type: Number,
     },
@@ -70,6 +67,8 @@ export default {
   },
 
   data: () => ({
+    loading: false,
+    usersCount: null,
     users: [],
     publicPath: process.env.BASE_URL,
   }),
@@ -85,14 +84,21 @@ export default {
   },
 
   methods: {
+    handleCurrentChange(newPage) {
+      this.$router.push({ name: this.$route.name, params: { page: newPage } })
+    },
+
     getData() {
+      this.loading = true
       getPageCollection({
         collection: 'users',
         orderBy: 'created',
         limit: this.perPage,
         offset: (this.page - 1) * this.perPage,
-      }).then((snap) => {
-        this.users = snap.data
+      }).then((result) => {
+        this.loading = false
+        this.usersCount = result.data.meta.count
+        this.users = result.data.page
       })
     },
   },
