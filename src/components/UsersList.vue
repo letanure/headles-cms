@@ -21,6 +21,12 @@
           template(slot-scope="scope")
             span(v-for="provider in scope.row.providerData" :key="provider.uid")
               img(:src="`${publicPath}img/icons/auth/auth_service_${provider.providerId.split('.')[0]}.svg`")
+        el-table-column(
+          :label="$t('Users.props.created.label')"
+          prop="created"
+          )
+          template(slot-scope="scope")
+            span {{ new Date(scope.row.created.seconds * 1000 ).toLocaleString('en-GB') }}
 </template>
 
 <script>
@@ -37,6 +43,7 @@ export default {
   async beforeMount() {
     const request = firestore
       .collection('users')
+      .orderBy('created')
       .where('status', '==', 'ACTIVE')
       .get()
     const dataRequest = await request

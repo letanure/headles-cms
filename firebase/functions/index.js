@@ -30,6 +30,8 @@ exports.onCreateUser = functions.auth.user().onCreate((user) => {
     disabled: user.disabled,
     uid: user.uid,
     status: 'ACTIVE',
+    created: admin.firestore.Timestamp.now(),
+    deleted: null,
     providerData: user.providerData.map((providerData) => {
       return {
         providerId: providerData.providerId,
@@ -58,6 +60,7 @@ exports.onDeleteUser = functions.auth.user().onDelete((user) => {
       if (snap.docs[0]) {
         snap.docs[0].ref.update({
           status: 'DELETED',
+          deleted: admin.firestore.Timestamp.now(),
         })
       }
       return true

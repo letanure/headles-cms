@@ -94,6 +94,9 @@
       },
       "provider": {
         "label": "Provider"
+      },
+      "created": {
+        "label": "Created"
       }
     }
   },
