@@ -1,7 +1,7 @@
 <template lang="pug">
   .Users
     p
-      UsersList(:page="page")
+      UsersList(:page="isNaN(page) ? 1 : page")
     p
       router-link(
         :to="{ name: `UsersCreate` }"
