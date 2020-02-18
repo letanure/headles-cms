@@ -1,3 +1,12 @@
+# [1.10.0](https://github.com/letanure/headles-cms/compare/v1.9.0...v1.10.0) (2020-02-18)
+
+
+### Features
+
+* add cloud function paginate ([4110d8f](https://github.com/letanure/headles-cms/commit/4110d8fdcfc302f79dc653fa9d0ba7fee4f19179))
+* add created and deleetd fields and display in user table ([c037a1a](https://github.com/letanure/headles-cms/commit/c037a1a24bc4e01b55c0ea2e1f94de8242b69944))
+* add next/]prev pagination in users ([6470e13](https://github.com/letanure/headles-cms/commit/6470e13ffa32b4e47052230a294cafb1c508687c))
+
 # [1.9.0](https://github.com/letanure/headles-cms/compare/v1.8.0...v1.9.0) (2020-02-17)
 
 
