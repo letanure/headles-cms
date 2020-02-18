@@ -29,7 +29,31 @@
             )
             template(slot-scope="scope")
               span {{ new Date(scope.row.created._seconds * 1000 ).toLocaleString('en-GB') }}
-    
+          el-table-column(
+            v-if="users.length > 1"
+            :label="$t('general.table.actions')"
+            width="220"
+          )
+            template(slot-scope="scope")
+              router-link(
+                :to="{ name: 'UserEdit', params: {uid: scope.row.uid} }"
+                )
+                el-button(
+                  plain
+                  size="mini"
+                  type="warning"
+                  v-text="$t('general.actions.edit')"
+                  )
+              el-popconfirm(
+                  :title="$t('general.actions.delete.confirm')")
+                el-button(
+                  slot="reference"
+                  plain
+                  :disabled="scope.row.uid === user.data.uid"
+                  size="mini"
+                  type="danger"
+                  v-text="$t('general.actions.delete.label')"
+                  )
     el-row.UsersList-pagination(v-if="!hidePagination")
       el-col
         el-pagination(
@@ -44,6 +68,7 @@
 
 <script>
 import { getPageCollection } from '@/firebase/functions'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'UsersList',
@@ -72,6 +97,12 @@ export default {
     users: [],
     publicPath: process.env.BASE_URL,
   }),
+
+  computed: {
+    ...mapGetters({
+      user: 'user/user',
+    }),
+  },
 
   watch: {
     page: function() {
@@ -112,4 +143,8 @@ export default {
     text-align right
     a
       text-decoration none
+  .el-table_1_column_5
+    padding 0
+    a + span
+      margin-left 5px
 </style>

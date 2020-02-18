@@ -104,6 +104,7 @@
     "account_exists_with_different_credential": "account already exists with other provider",
     "email_already_in_use": "The email address is already in use by another account.",
     "invalid_email": "Invalid email",
+    "invalid_uid": "The uid must be a non-empty string with at most 128 characters.",
     "operation_not_allowed": "Login with email disabled",
     "popup_closed_by_user": "Sign in canceled",
     "too_many_requests": " Too many unsuccessful login attempts. Please try again later",
@@ -113,9 +114,19 @@
     "wrong_password": "The password is invalid"
   },
   "general": {
+    "actions": {
+      "delete": {
+        "confirm": "Are you sure to delete this?",
+        "label": "Delete"
+      },
+      "edit": "Edit"
+    },
     "pagination": {
       "next": "Next Page",
       "previous": "Previous Page"
+    },
+    "table": {
+      "actions": "Actions"
     }
   },
   "menu": {

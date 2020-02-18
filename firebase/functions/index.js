@@ -116,6 +116,24 @@ exports.updateUser = functions.https.onCall(async (data, context) => {
     })
 })
 
+exports.deleteUser = functions.https.onCall(async (data, context) => {
+  if (!context.auth) {
+    throw new functions.https.HttpsError('auth required')
+  }
+
+  const { uid } = data
+
+  return admin
+    .auth()
+    .deleteUser(uid)
+    .then((userRecord) => {
+      return true
+    })
+    .catch((error) => {
+      return error
+    })
+})
+
 exports.onCreateUser = functions.firestore
   .document('users/{userId}')
   .onCreate((snapshot, context) => {
