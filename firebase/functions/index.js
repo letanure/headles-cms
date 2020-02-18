@@ -71,12 +71,11 @@ exports.onDeleteUser = functions.auth.user().onDelete((user) => {
 })
 
 exports.createUser = functions.https.onCall((data, context) => {
-  const { email, name, password } = data
-
   if (!context.auth) {
     throw new functions.https.HttpsError('auth required')
   }
 
+  const { email, name, password } = data
   return admin
     .auth()
     .createUser({
@@ -90,4 +89,26 @@ exports.createUser = functions.https.onCall((data, context) => {
     .catch((error) => {
       return error
     })
+})
+
+exports.getPageCollection = functions.https.onCall(async (data, context) => {
+  if (!context.auth) {
+    throw new functions.https.HttpsError('auth required')
+  }
+
+  const { collection, orderBy, limit, offset } = data
+  const request = admin
+    .firestore()
+    .collection(collection)
+    .orderBy(orderBy)
+    .where('status', '==', 'ACTIVE')
+    .limit(limit)
+    .offset(offset)
+    .get()
+  const dataRequest = await request
+  const dataPromise = Promise.all(
+    dataRequest.docs.map(async (user) => user.data()),
+  )
+  const dataPage = await dataPromise
+  return dataPage
 })
