@@ -1,23 +1,4 @@
 {
-  "UserFormCreate": {
-    "actions": {
-      "submit": {
-        "error": "Error on register",
-        "label": "Register"
-      }
-    },
-    "fields": {
-      "email": {
-        "label": "Email"
-      },
-      "name": {
-        "label": "Name"
-      },
-      "password": {
-        "label": "Password"
-      }
-    }
-  },
   "Register": {
     "signedIn": "You cant register again",
     "signedOut": "Wants to log out?"
@@ -79,6 +60,25 @@
   "SignOut": {
     "label": "Sign out"
   },
+  "UserFormCreate": {
+    "actions": {
+      "submit": {
+        "error": "Error on register",
+        "label": "Register"
+      }
+    },
+    "fields": {
+      "email": {
+        "label": "Email"
+      },
+      "name": {
+        "label": "Name"
+      },
+      "password": {
+        "label": "Password"
+      }
+    }
+  },
   "Users": {
     "actions": {
       "create": {
@@ -86,6 +86,9 @@
       }
     },
     "props": {
+      "created": {
+        "label": "Created"
+      },
       "email": {
         "label": "Email"
       },
@@ -94,9 +97,6 @@
       },
       "provider": {
         "label": "Provider"
-      },
-      "created": {
-        "label": "Created"
       }
     }
   },
@@ -111,6 +111,12 @@
     "user_not_found": "User with this email dont exists",
     "weak_password": "Password should be at least 6 characters",
     "wrong_password": "The password is invalid"
+  },
+  "general": {
+    "pagination": {
+      "next": "Next Page",
+      "previous": "Previous Page"
+    }
   },
   "menu": {
     "about": "About",

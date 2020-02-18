@@ -1,7 +1,7 @@
 <template lang="pug">
   .Users
     p
-      UsersList
+      UsersList(:page="page")
     p
       router-link(
         :to="{ name: `UsersCreate` }"
@@ -21,6 +21,14 @@ export default {
 
   components: {
     UsersList,
+  },
+
+  props: {
+    page: {
+      default: 1,
+      required: false,
+      type: Number,
+    },
   },
 }
 </script>

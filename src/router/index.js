@@ -23,7 +23,12 @@ const routes = [
           import(/* webpackChunkName: "about" */ '../views/About.vue'),
       },
       {
-        path: 'users',
+        path: 'users/:page?',
+        props(route) {
+          const props = { ...route.params }
+          props.page = +props.page
+          return props
+        },
         name: 'users',
         component: () =>
           import(/* webpackChunkName: "users" */ '../views/Users.vue'),
