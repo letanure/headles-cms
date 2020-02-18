@@ -91,6 +91,31 @@ exports.createUser = functions.https.onCall((data, context) => {
     })
 })
 
+exports.updateUser = functions.https.onCall(async (data, context) => {
+  if (!context.auth) {
+    throw new functions.https.HttpsError('auth required')
+  }
+
+  const { email, name, password, uid } = data
+  let newDataUser = {
+    email: email,
+    displayName: name,
+  }
+  if (password) {
+    newDataUser.password = password
+  }
+
+  return admin
+    .auth()
+    .updateUser(uid, newDataUser)
+    .then((userRecord) => {
+      return { success: userRecord.uid }
+    })
+    .catch((error) => {
+      return error
+    })
+})
+
 exports.onCreateUser = functions.firestore
   .document('users/{userId}')
   .onCreate((snapshot, context) => {

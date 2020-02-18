@@ -26,9 +26,10 @@ const actions = {
       commit('SET_USER', {
         displayName: user.displayName,
         email: user.email,
-        photoURL: user.photoURL,
         emailVerified: user.emailVerified,
         phoneNumber: user.phoneNumber,
+        photoURL: user.photoURL,
+        uid: user.uid,
       })
     } else {
       commit('SET_USER', null)

@@ -47,12 +47,19 @@
 </template>
 
 <script>
-import { createUser } from '@/firebase/functions'
-
-console.log(createUser)
+import { firestore } from '@/firebase/firestore'
+import { createUser, updateUser } from '@/firebase/functions'
 
 export default {
   name: 'UserFormCreate',
+
+  props: {
+    uid: {
+      default: null,
+      required: false,
+      type: String,
+    },
+  },
 
   data() {
     return {
@@ -101,6 +108,14 @@ export default {
       },
     }
   },
+
+  beforeMount() {
+    if (this.uid !== null) {
+      this.loadDataUser()
+      this.formRules.password[0].required = false
+    }
+  },
+
   methods: {
     create() {
       createUser(this.formData)
@@ -115,6 +130,46 @@ export default {
         })
     },
 
+    async update() {
+      const dataUser = {
+        uid: this.uid,
+        ...this.formData,
+      }
+      updateUser(dataUser)
+        .then(() => {
+          this.$emit('success')
+        })
+        .catch((err) => {
+          console.log(err)
+          this.$emit('error', err)
+          this.message({
+            messageKey: err.code.replace(/\//g, '.').replace(/-/g, '_'),
+          })
+        })
+      const request = firestore
+        .collection('users')
+        .where('uid', '==', this.uid)
+        .get()
+      const dataRequest = await request
+      const snapshot = await dataRequest
+      snapshot.docs[0].ref.update({
+        displayName: this.formData.name,
+        email: this.formData.email,
+      })
+    },
+
+    async loadDataUser() {
+      const request = firestore
+        .collection('users')
+        .where('uid', '==', this.uid)
+        .get()
+      const dataRequest = await request
+      const snapshot = await dataRequest
+      const data = snapshot.docs[0].data()
+      this.formData.email = data.email
+      this.formData.name = data.displayName
+    },
+
     message({ type = 'error', messageKey = null }) {
       if (messageKey) {
         this.$message({
@@ -127,7 +182,11 @@ export default {
     submit() {
       this.$refs['UserFormCreate'].validate((valid) => {
         if (valid) {
-          this.create()
+          if (this.uid !== null) {
+            this.update()
+          } else {
+            this.create()
+          }
         } else {
           this.message({
             messageKey: 'UserFormCreate.actions.submit.error',
