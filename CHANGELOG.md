@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/letanure/headles-cms/compare/v1.10.1...v1.11.0) (2020-02-18)
+
+
+### Features
+
+* add number nav pagination, loading, meta data on firebase ([161ff7f](https://github.com/letanure/headles-cms/commit/161ff7f31741d24efbc847e5a47a1443b36c4b6c))
+
 ## [1.10.1](https://github.com/letanure/headles-cms/compare/v1.10.0...v1.10.1) (2020-02-18)
 
 
