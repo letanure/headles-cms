@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/letanure/headles-cms/compare/v1.12.0...v1.13.0) (2020-02-23)
+
+
+### Features
+
+* add config for firebase emulators ([856c2af](https://github.com/letanure/headles-cms/commit/856c2af8d86f25bac2090d9231c220e7b3c40312))
+
 # [1.12.0](https://github.com/letanure/headles-cms/compare/v1.11.0...v1.12.0) (2020-02-18)
 
 
