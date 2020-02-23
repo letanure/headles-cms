@@ -10,7 +10,6 @@ if (!admin.apps.length) {
 }
 
 async function softDeteleUser(user) {
-  console.log('SOFTDETELEUSER')
   const requestUser = admin
     .firestore()
     .collection('users')
@@ -164,7 +163,6 @@ async function updateMetaCount(collectionName, operation) {
       { merge: true },
     )
   } else {
-    console.log('create count')
     metadataRef.set({
       active: 1,
       deleted: 0,
@@ -185,7 +183,6 @@ exports.collectionUserAdd = functions.firestore
 exports.collectionUserUpdate = functions.firestore
   .document('/users/{userId}')
   .onWrite(async (change, context) => {
-    console.log('COLLECTIONUSERUPDATE', change.after.data())
     const userdata = change.after.data()
     if (userdata.status && userdata.status === 'DELETING') {
       deleteUserOnFirebaseAuth(change.after.data())
@@ -201,7 +198,6 @@ exports.onAuthCreateUser = functions.auth
 
 // delete on console firebase
 exports.onDeleteUser = functions.auth.user().onDelete(async (user) => {
-  console.log('ONDELETEUSER')
   softDeteleUser(user)
   updateMetaCount('users', 'DELETE')
   return true
@@ -218,7 +214,10 @@ exports.getPageCollection = functions.https.onCall(async (data, context) => {
     .doc(`metadata/${collection}`)
     .get()
   const docMeta = await requestMeta
-  const dataMeta = docMeta.data()
+  let dataMeta = {}
+  if (docMeta.data()) {
+    dataMeta = docMeta.data()
+  }
 
   const request = admin
     .firestore()
@@ -229,10 +228,13 @@ exports.getPageCollection = functions.https.onCall(async (data, context) => {
     .offset(offset)
     .get()
   const dataRequest = await request
-  const dataPromise = Promise.all(
-    dataRequest.docs.map(async (user) => user.data()),
-  )
-  const dataPage = await dataPromise
+  let dataPage = {}
+  if (dataRequest.size) {
+    const dataPromise = Promise.all(
+      dataRequest.docs.map(async (user) => user.data()),
+    )
+    dataPage = await dataPromise
+  }
   return {
     meta: dataMeta,
     page: dataPage,
