@@ -81,7 +81,7 @@
 
 <script>
 import { firestore } from '@/firebase/firestore'
-import { deleteUser, getPageCollection } from '@/firebase/functions'
+import { getPageCollection } from '@/firebase/functions'
 import { mapGetters } from 'vuex'
 
 export default {
