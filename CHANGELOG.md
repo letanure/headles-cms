@@ -1,3 +1,16 @@
+# [1.12.0](https://github.com/letanure/headles-cms/compare/v1.11.0...v1.12.0) (2020-02-18)
+
+
+### Bug Fixes
+
+* fix load element ui locale ([52e43dc](https://github.com/letanure/headles-cms/commit/52e43dc3c12b6d69724221d9006fa09e8ff30831))
+
+
+### Features
+
+* add  edit user (router, form, function) ([334c3e9](https://github.com/letanure/headles-cms/commit/334c3e900fc6b769c51ab52ccfcf3fb0db26c0f5))
+* add delete user button, function ([7697905](https://github.com/letanure/headles-cms/commit/76979052690b9d80e3745ce8bd812d5227d8eb5a))
+
 # [1.11.0](https://github.com/letanure/headles-cms/compare/v1.10.1...v1.11.0) (2020-02-18)
 
 
