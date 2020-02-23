@@ -171,6 +171,22 @@ async function updateMetaCount(collectionName, operation) {
   }
 }
 
+exports.collectionGroupsCreate = functions.firestore
+  .document('/groups/{groupId}')
+  .onCreate(async (snapshotUser, context) => {
+    return updateMetaCount('groups', 'CREATE')
+  })
+
+exports.collectionGroupsDelete = functions.firestore
+  .document('/groups/{groupId}')
+  .onWrite(async (change, context) => {
+    const data = change.after.data()
+    if (data.status && data.status === 'DELETED') {
+      return updateMetaCount('groups', 'DELETE')
+    }
+    return true
+  })
+
 exports.collectionUserAdd = functions.firestore
   .document('/users/{userId}')
   .onCreate(async (snapshotUser, context) => {
