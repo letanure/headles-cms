@@ -7,6 +7,14 @@
         { "fieldPath": "status", "order": "ASCENDING" },
         { "fieldPath": "created", "order": "ASCENDING" }
       ]
+    },
+    {
+      "collectionGroup": "groups",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "status", "order": "ASCENDING" },
+        { "fieldPath": "created", "order": "ASCENDING" }
+      ]
     }
   ],
   "fieldOverrides": []
