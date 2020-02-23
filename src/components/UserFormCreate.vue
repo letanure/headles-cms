@@ -47,8 +47,8 @@
 </template>
 
 <script>
-import { firestore } from '@/firebase/firestore'
-import { createUser, updateUser } from '@/firebase/functions'
+import { firestore, serverTimestamp } from '@/firebase/firestore'
+import { updateUser } from '@/firebase/functions'
 
 export default {
   name: 'UserFormCreate',
@@ -118,14 +118,22 @@ export default {
 
   methods: {
     create() {
-      createUser(this.formData)
+      firestore
+        .collection('users')
+        .add({
+          status: 'NEW',
+          created: serverTimestamp,
+          ...this.formData,
+        })
         .then(() => {
           this.$emit('success')
         })
         .catch((err) => {
           this.$emit('error')
           this.message({
-            messageKey: err.code.replace(/\//g, '.').replace(/-/g, '_'),
+            messageKey: `auth.${err.code
+              .replace(/\//g, '.')
+              .replace(/-/g, '_')}`,
           })
         })
     },
@@ -140,7 +148,6 @@ export default {
           this.$emit('success')
         })
         .catch((err) => {
-          console.log(err)
           this.$emit('error', err)
           this.message({
             messageKey: err.code.replace(/\//g, '.').replace(/-/g, '_'),
@@ -153,7 +160,7 @@ export default {
       const dataRequest = await request
       const snapshot = await dataRequest
       snapshot.docs[0].ref.update({
-        displayName: this.formData.name,
+        name: this.formData.name,
         email: this.formData.email,
       })
     },
@@ -167,7 +174,7 @@ export default {
       const snapshot = await dataRequest
       const data = snapshot.docs[0].data()
       this.formData.email = data.email
-      this.formData.name = data.displayName
+      this.formData.name = data.name
     },
 
     message({ type = 'error', messageKey = null }) {

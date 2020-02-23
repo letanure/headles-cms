@@ -97,15 +97,20 @@
       },
       "provider": {
         "label": "Provider"
+      },
+      "status": {
+        "label": "Status"
       }
     }
   },
   "auth": {
     "account_exists_with_different_credential": "account already exists with other provider",
     "email_already_in_use": "The email address is already in use by another account.",
+    "invalid_argument": "invalid_argument",
     "invalid_email": "Invalid email",
     "invalid_uid": "The uid must be a non-empty string with at most 128 characters.",
     "operation_not_allowed": "Login with email disabled",
+    "permission_denied": "Missing or insufficient permissions",
     "popup_closed_by_user": "Sign in canceled",
     "too_many_requests": " Too many unsuccessful login attempts. Please try again later",
     "user_disabled": "User disabled",
@@ -125,8 +130,16 @@
       "next": "Next Page",
       "previous": "Previous Page"
     },
+    "status": {
+      "ACTIVE": "Active",
+      "NEW": "Creating",
+      "DELETED": "Deleted",
+      "DELETING": "Deleting",
+      "DISABLED": "Disabled"
+    },
     "table": {
-      "actions": "Actions"
+      "actions": "Actions",
+      "empty": "No data to display"
     }
   },
   "menu": {

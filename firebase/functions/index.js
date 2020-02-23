@@ -9,87 +9,22 @@ if (!admin.apps.length) {
   })
 }
 
-function findEmailInProvider(providers) {
-  let email = null
-  providers.forEach((providerData) => {
-    if (providerData.email !== null && providerData.email !== '') {
-      email = providerData.email
-    }
-  })
-  return email
-}
-
-exports.onAuthCreateUser = functions.auth.user().onCreate((user) => {
-  const email = user.email || findEmailInProvider(user.providerData)
-  const userData = {
-    email: email,
-    emailVerified: user.emailVerified,
-    displayName: user.displayName,
-    photoURL: user.photoURL,
-    phoneNumber: user.phoneNumber,
-    disabled: user.disabled,
-    uid: user.uid,
-    status: 'ACTIVE',
-    created: admin.firestore.Timestamp.now(),
-    deleted: null,
-    providerData: user.providerData.map((providerData) => {
-      return {
-        providerId: providerData.providerId,
-        uid: providerData.uid,
-      }
-    }),
-  }
-  if (userData.uid) {
-    admin
-      .firestore()
-      .collection('users')
-      .add(userData)
-    return true
-  } else {
-    return false
-  }
-})
-
-exports.onDeleteUser = functions.auth.user().onDelete((user) => {
-  admin
+async function softDeteleUser(user) {
+  console.log('SOFTDETELEUSER')
+  const requestUser = admin
     .firestore()
     .collection('users')
     .where('uid', '==', user.uid)
     .get()
-    .then((snap) => {
-      if (snap.docs[0]) {
-        snap.docs[0].ref.update({
-          status: 'DELETED',
-          deleted: admin.firestore.Timestamp.now(),
-        })
-      }
-      return true
+  const querySnapshotUser = await requestUser
+  const querySnapshotUserDoc = querySnapshotUser.docs[0]
+  if (querySnapshotUserDoc) {
+    querySnapshotUserDoc.ref.update({
+      status: 'DELETED',
+      deleted: admin.firestore.Timestamp.now(),
     })
-    .catch((err) => {
-      console.log(err)
-    })
-})
-
-exports.createUser = functions.https.onCall((data, context) => {
-  if (!context.auth) {
-    throw new functions.https.HttpsError('auth required')
   }
-
-  const { email, name, password } = data
-  return admin
-    .auth()
-    .createUser({
-      email,
-      displayName: name,
-      password: password,
-    })
-    .then((userRecord) => {
-      return { success: userRecord.uid }
-    })
-    .catch((error) => {
-      return error
-    })
-})
+}
 
 exports.updateUser = functions.https.onCall(async (data, context) => {
   if (!context.auth) {
@@ -116,48 +51,161 @@ exports.updateUser = functions.https.onCall(async (data, context) => {
     })
 })
 
-exports.deleteUser = functions.https.onCall(async (data, context) => {
-  if (!context.auth) {
-    throw new functions.https.HttpsError('auth required')
-  }
-
-  const { uid } = data
-
-  return admin
-    .auth()
-    .deleteUser(uid)
-    .then((userRecord) => {
-      return true
-    })
-    .catch((error) => {
-      return error
-    })
-})
-
-exports.onCreateUser = functions.firestore
-  .document('users/{userId}')
-  .onCreate((snapshot, context) => {
-    return admin.firestore().runTransaction(async (transaction) => {
-      // Get the metadata and incement the count.
-      const metaRef = admin.firestore().doc('metadata/users')
-      const metaData = (await transaction.get(metaRef)).data()
-      const number = metaData.count + 1
-      transaction.update(metaRef, {
-        count: number,
-      })
-
-      // Update User
-      const userRef = snapshot.ref
-
-      transaction.set(
-        userRef,
-        {
-          number,
-        },
-        { merge: true },
-      )
-    })
+async function createUserOnFirebaseAuth({ email, name, password }) {
+  const UserRecord = await admin.auth().createUser({
+    email: email,
+    emailVerified: false,
+    displayName: name,
+    password: password,
   })
+  return UserRecord
+}
+
+async function deleteUserOnFirebaseAuth({ uid }) {
+  const UserRecord = await admin.auth().deleteUser(uid)
+  return UserRecord
+}
+
+function findEmailInProvider(providers) {
+  let email = null
+  providers.forEach((providerData) => {
+    if (providerData.email !== null && providerData.email !== '') {
+      email = providerData.email
+    }
+  })
+  return email
+}
+
+function normalizeProviderData(providerData) {
+  return providerData.map((provider) => {
+    return {
+      uid: provider.uid ? provider.uid : null,
+      displayName: provider.displayName ? provider.displayName : null,
+      email: provider.email ? provider.email : null,
+      photoURL: provider.photoURL ? provider.photoURL : null,
+      providerId: provider.providerId ? provider.providerId : null,
+      phoneNumber: provider.phoneNumber ? provider.phoneNumber : null,
+    }
+  })
+}
+
+async function updateUserData(userRef, userRecord) {
+  return userRef.set(
+    {
+      // metadata: userRecord.metadata,
+      created: userRecord.created ? userRecord.created : null,
+      customClaims: userRecord.customClaims ? userRecord.customClaims : null,
+      deleted: null,
+      disabled: userRecord.disabled,
+      displayName: userRecord.displayName,
+      email: userRecord.email,
+      emailVerified: userRecord.emailVerified,
+      phoneNumber: userRecord.phoneNumber ? userRecord.phoneNumber : null,
+      photoURL: userRecord.photoURL ? userRecord.photoURL : null,
+      providerData: normalizeProviderData(userRecord.providerData),
+      status: 'ACTIVE',
+      tenantId: userRecord.tenantId ? userRecord.tenantId : null,
+      uid: userRecord.uid,
+    },
+    { merge: true },
+  )
+}
+
+async function getUsersByEmail(email) {
+  return await admin
+    .firestore()
+    .collection('users')
+    .where('email', '==', email)
+    .get()
+}
+
+async function registerUserOnAuthCreate(UserRecord) {
+  const email = UserRecord.email || findEmailInProvider(UserRecord.providerData)
+  const existentUsers = await getUsersByEmail(email)
+  let userRef = null
+  if (existentUsers.docs && existentUsers.docs[0]) {
+    userRef = existentUsers.docs[0].ref
+  } else {
+    userRef = admin
+      .firestore()
+      .collection('users')
+      .doc()
+  }
+  UserRecordData = {
+    ...UserRecord,
+    created: admin.firestore.Timestamp.now(),
+  }
+  const WriteResult = await updateUserData(userRef, UserRecordData)
+  return WriteResult
+}
+
+async function updateMetaCount(collectionName, operation) {
+  const metadataRef = await admin.firestore().doc(`metadata/${collectionName}`)
+  const metadataDoc = await metadataRef.get()
+  if (metadataDoc.data()) {
+    const count = metadataDoc.data()
+    let newTotal = count.total
+    let newActive = count.active
+    let newDeleted = count.deleted
+    if (operation === 'CREATE') {
+      newTotal += 1
+      newActive += 1
+    }
+    if (operation === 'DELETE') {
+      newActive -= 1
+      newDeleted += 1
+    }
+    metadataRef.update(
+      {
+        active: newActive,
+        deleted: newDeleted,
+        total: newTotal,
+      },
+      { merge: true },
+    )
+  } else {
+    console.log('create count')
+    metadataRef.set({
+      active: 1,
+      deleted: 0,
+      total: 1,
+    })
+  }
+}
+
+exports.collectionUserAdd = functions.firestore
+  .document('/users/{userId}')
+  .onCreate(async (snapshotUser, context) => {
+    const { email, name, password } = snapshotUser.data()
+    const UserRecord = await createUserOnFirebaseAuth({ email, name, password })
+    updateMetaCount('users', 'CREATE')
+    return UserRecord
+  })
+
+exports.collectionUserUpdate = functions.firestore
+  .document('/users/{userId}')
+  .onWrite(async (change, context) => {
+    console.log('COLLECTIONUSERUPDATE', change.after.data())
+    const userdata = change.after.data()
+    if (userdata.status && userdata.status === 'DELETING') {
+      deleteUserOnFirebaseAuth(change.after.data())
+    }
+    return true
+  })
+
+exports.onAuthCreateUser = functions.auth
+  .user()
+  .onCreate(async (UserRecord) => {
+    return await registerUserOnAuthCreate(UserRecord)
+  })
+
+// delete on console firebase
+exports.onDeleteUser = functions.auth.user().onDelete(async (user) => {
+  console.log('ONDELETEUSER')
+  softDeteleUser(user)
+  updateMetaCount('users', 'DELETE')
+  return true
+})
 
 exports.getPageCollection = functions.https.onCall(async (data, context) => {
   if (!context.auth) {
@@ -176,7 +224,7 @@ exports.getPageCollection = functions.https.onCall(async (data, context) => {
     .firestore()
     .collection(collection)
     .orderBy(orderBy)
-    .where('status', '==', 'ACTIVE')
+    .where('status', 'in', ['ACTIVE', 'DELETING', 'NEW'])
     .limit(limit)
     .offset(offset)
     .get()
