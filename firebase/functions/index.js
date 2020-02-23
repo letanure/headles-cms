@@ -218,7 +218,6 @@ exports.getPageCollection = functions.https.onCall(async (data, context) => {
   if (docMeta.data()) {
     dataMeta = docMeta.data()
   }
-
   const request = admin
     .firestore()
     .collection(collection)
@@ -231,7 +230,12 @@ exports.getPageCollection = functions.https.onCall(async (data, context) => {
   let dataPage = {}
   if (dataRequest.size) {
     const dataPromise = Promise.all(
-      dataRequest.docs.map(async (user) => user.data()),
+      dataRequest.docs.map(async (user) => {
+        return {
+          id: user.id,
+          ...user.data(),
+        }
+      }),
     )
     dataPage = await dataPromise
   }
