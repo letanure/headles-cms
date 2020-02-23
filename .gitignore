@@ -26,3 +26,6 @@ yarn-error.log*
 *.sw?
 firestore-debug.log
 firebase/functions/serviceAccountKey.json
+database-debug.log
+pubsub-debug.log
+firebase-debug.log
