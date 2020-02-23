@@ -1,8 +1,8 @@
 import Firebase from 'firebase/app'
-import { firebase } from './firebase'
+import { firebaseApp } from './firebase'
 import 'firebase/auth'
 
-export const auth = firebase.auth()
+export const auth = firebaseApp.auth()
 
 const providersConfig = [
   {

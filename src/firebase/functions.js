@@ -1,14 +1,18 @@
-import { firebase } from './firebase'
+import { firebaseApp } from './firebase'
 require('firebase/functions')
 
-firebase.functions()
+firebaseApp.functions()
 
-export const createUser = firebase.functions().httpsCallable('createUser')
+if (process.env.VUE_APP_FIREBASE === 'emulator') {
+  firebaseApp.functions().useFunctionsEmulator('http://localhost:5001')
+}
 
-export const deleteUser = firebase.functions().httpsCallable('deleteUser')
+export const createUser = firebaseApp.functions().httpsCallable('createUser')
 
-export const updateUser = firebase.functions().httpsCallable('updateUser')
+export const deleteUser = firebaseApp.functions().httpsCallable('deleteUser')
 
-export const getPageCollection = firebase
+export const updateUser = firebaseApp.functions().httpsCallable('updateUser')
+
+export const getPageCollection = firebaseApp
   .functions()
   .httpsCallable('getPageCollection')
