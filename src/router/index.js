@@ -46,6 +46,30 @@ const routes = [
         component: () =>
           import(/* webpackChunkName: "users" */ '../views/UserEdit.vue'),
       },
+      {
+        path: 'groups/:page?',
+        props(route) {
+          const props = { ...route.params }
+          props.page = +props.page
+          return props
+        },
+        name: 'Groups',
+        component: () =>
+          import(/* webpackChunkName: "Groups" */ '../views/Groups.vue'),
+      },
+      {
+        path: 'groups/create',
+        name: 'GroupsCreate',
+        component: () =>
+          import(/* webpackChunkName: "Groups" */ '../views/GroupsCreate.vue'),
+      },
+      {
+        path: 'groups/edit/:id',
+        name: 'GroupsEdit',
+        props: true,
+        component: () =>
+          import(/* webpackChunkName: "Groups" */ '../views/GroupsEdit.vue'),
+      },
     ],
   },
   {

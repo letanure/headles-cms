@@ -48,6 +48,11 @@ export default {
           text: this.$t('menu.users'),
           icon: 'info',
         },
+        {
+          routeName: 'Groups',
+          text: this.$t('menu.groups'),
+          icon: 'info',
+        },
       ],
     }
   },

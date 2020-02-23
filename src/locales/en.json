@@ -1,4 +1,34 @@
 {
+  "GroupForm": {
+    "actions": {
+      "submit": {
+        "error": "Error on save",
+        "label": "Save"
+      }
+    },
+    "fields": {
+      "name": {
+        "label": "Name"
+      }
+    }
+  },
+  "Groups": {
+    "actions": {
+      "create": {
+        "label": "Create group"
+      }
+    }
+  },
+  "GroupsList": {
+    "props": {
+      "created": {
+        "label": "Created"
+      },
+      "name": {
+        "label": "Name"
+      }
+    }
+  },
   "Register": {
     "signedIn": "You cant register again",
     "signedOut": "Wants to log out?"
@@ -132,10 +162,10 @@
     },
     "status": {
       "ACTIVE": "Active",
-      "NEW": "Creating",
       "DELETED": "Deleted",
       "DELETING": "Deleting",
-      "DISABLED": "Disabled"
+      "DISABLED": "Disabled",
+      "NEW": "Creating"
     },
     "table": {
       "actions": "Actions",
@@ -144,6 +174,7 @@
   },
   "menu": {
     "about": "About",
+    "groups": "Groups",
     "home": "Home",
     "register": "Register",
     "signIn": "Login",
