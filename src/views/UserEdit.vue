@@ -4,20 +4,20 @@
       type="flex"
       )
       el-col(:xs="24" :sm="24" :md="12" :lg="12" :xl="6")
-        UserFormCreate(
+        UserForm(
           @success="registerSuccess"
           :id="id"
           )
 </template>
 
 <script>
-import UserFormCreate from '@/components/UserFormCreate'
+import UserForm from '@/components/UserForm'
 
 export default {
   name: 'UserEdit',
 
   components: {
-    UserFormCreate,
+    UserForm,
   },
 
   props: {

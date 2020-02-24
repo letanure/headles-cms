@@ -1,16 +1,16 @@
 <template lang="pug">
-  el-form.UserFormCreate(
+  el-form.UserForm(
     :model="formData"
     :rules="formRules"
-    @submit.native.prevent="submit('UserFormCreate')"
+    @submit.native.prevent="submit('UserForm')"
     label-position="top"
     novalidate
-    ref="UserFormCreate"
+    ref="UserForm"
     status-icon
     )
 
     el-form-item(
-      :label="$t('UserFormCreate.fields.name.label')"
+      :label="$t('UserForm.fields.name.label')"
       prop="name"
       )
       el-input(
@@ -19,7 +19,7 @@
       )
 
     el-form-item(
-      :label="$t('UserFormCreate.fields.email.label')"
+      :label="$t('UserForm.fields.email.label')"
       prop="email"
       )
       el-input(
@@ -28,7 +28,7 @@
       )
 
     el-form-item(
-      :label="$t('UserFormCreate.fields.password.label')"
+      :label="$t('UserForm.fields.password.label')"
       prop="password"
       )
       el-input(
@@ -36,9 +36,9 @@
         type="password"
         v-model="formData.password"
       )
-    
+
     el-form-item(
-      :label="$t('UserFormCreate.fields.groups.label')"
+      :label="$t('UserForm.fields.groups.label')"
       prop="groups"
       )
       el-select(v-model="formData.groups" filterable multiple placeholder="Select")
@@ -53,7 +53,7 @@
       el-button(
         native-type="submit"
         type="primary"
-        v-text="$t('UserFormCreate.actions.submit.label')"
+        v-text="$t('UserForm.actions.submit.label')"
         )
 
 </template>
@@ -62,7 +62,7 @@
 import { firestore, serverTimestamp } from '@/firebase/firestore'
 
 export default {
-  name: 'UserFormCreate',
+  name: 'UserForm',
 
   props: {
     id: {
@@ -211,7 +211,7 @@ export default {
     },
 
     submit() {
-      this.$refs['UserFormCreate'].validate((valid) => {
+      this.$refs['UserForm'].validate((valid) => {
         if (valid) {
           if (this.id !== null) {
             this.update()
@@ -220,7 +220,7 @@ export default {
           }
         } else {
           this.message({
-            messageKey: 'UserFormCreate.actions.submit.error',
+            messageKey: 'UserForm.actions.submit.error',
           })
         }
       })

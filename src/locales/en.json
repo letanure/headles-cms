@@ -100,7 +100,7 @@
   "SignOut": {
     "label": "Sign out"
   },
-  "UserFormCreate": {
+  "UserForm": {
     "actions": {
       "submit": {
         "error": "Error on register",
