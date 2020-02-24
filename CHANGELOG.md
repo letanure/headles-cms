@@ -1,3 +1,22 @@
+# [1.14.0](https://github.com/letanure/headles-cms/compare/v1.13.0...v1.14.0) (2020-02-24)
+
+
+### Bug Fixes
+
+* emulatio in local file ebv only ([c93be4f](https://github.com/letanure/headles-cms/commit/c93be4f67556d4805a06f8e6960493f372dfed09))
+
+
+### Features
+
+* add basic CRUD groups ([1f74b63](https://github.com/letanure/headles-cms/commit/1f74b63de5d16add41770d74af614de84e1004a0))
+* add groups form permissions ([bf2ad05](https://github.com/letanure/headles-cms/commit/bf2ad0557ddc578ef6d157aed3ee4f0ab7dcb989))
+* add inde firebase groups ([b52aa93](https://github.com/letanure/headles-cms/commit/b52aa93199d7e3d45e9c3ed5203bcd013687bf00))
+* add paginate metadata om groups collection ([2d3832f](https://github.com/letanure/headles-cms/commit/2d3832f64796e6e354f00ad6c1c8a1031c1349b8))
+* add user group select, update load by ID instead of UID ([a9dafee](https://github.com/letanure/headles-cms/commit/a9dafeed36e1ed619406d173f08e43043fb885f8))
+* check if data exists before send in pagination ([e6b74f3](https://github.com/letanure/headles-cms/commit/e6b74f32f8b975f9a466e1ebc4a0124c7265d96c))
+* return doc id on pagination ([82cfd35](https://github.com/letanure/headles-cms/commit/82cfd35f885cc2d8a41140c68418e4da21c0ad40))
+* update firestore security rules ([c1a5394](https://github.com/letanure/headles-cms/commit/c1a53943d2bec002134e6673580623ae5d5f82f4))
+
 # [1.13.0](https://github.com/letanure/headles-cms/compare/v1.12.0...v1.13.0) (2020-02-23)
 
 
