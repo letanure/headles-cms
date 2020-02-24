@@ -40,7 +40,7 @@ const routes = [
           import(/* webpackChunkName: "users" */ '../views/UsersCreate.vue'),
       },
       {
-        path: 'users/edit/:uid',
+        path: 'users/edit/:id',
         name: 'UserEdit',
         props: true,
         component: () =>

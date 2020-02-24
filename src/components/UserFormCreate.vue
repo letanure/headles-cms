@@ -36,6 +36,18 @@
         type="password"
         v-model="formData.password"
       )
+    
+    el-form-item(
+      :label="$t('UserFormCreate.fields.groups.label')"
+      prop="groups"
+      )
+      el-select(v-model="formData.groups" filterable multiple placeholder="Select")
+        el-option(
+          :key="group.value"
+          :label="group.label"
+          :value="group.value"
+          v-for="group in optionGroups"
+        )
 
     el-form-item
       el-button(
@@ -48,13 +60,12 @@
 
 <script>
 import { firestore, serverTimestamp } from '@/firebase/firestore'
-import { updateUser } from '@/firebase/functions'
 
 export default {
   name: 'UserFormCreate',
 
   props: {
-    uid: {
+    id: {
       default: null,
       required: false,
       type: String,
@@ -63,8 +74,10 @@ export default {
 
   data() {
     return {
+      itemRef: null,
       formData: {
         email: '',
+        groups: [],
         name: '',
         password: '',
       },
@@ -79,6 +92,13 @@ export default {
             type: 'email',
             message: this.$t('validation.email'),
             trigger: ['blur', 'change'],
+          },
+        ],
+        groups: [
+          {
+            required: true,
+            message: this.$t('validation.required'),
+            trigger: 'blur',
           },
         ],
         name: [
@@ -106,12 +126,14 @@ export default {
           },
         ],
       },
+      optionGroups: [],
     }
   },
 
   beforeMount() {
-    if (this.uid !== null) {
+    if (this.id !== null) {
       this.loadDataUser()
+      this.loadGroups()
       this.formRules.password[0].required = false
     }
   },
@@ -139,42 +161,44 @@ export default {
     },
 
     async update() {
-      const dataUser = {
-        uid: this.uid,
-        ...this.formData,
-      }
-      updateUser(dataUser)
-        .then(() => {
-          this.$emit('success')
-        })
-        .catch((err) => {
-          this.$emit('error', err)
-          this.message({
-            messageKey: err.code.replace(/\//g, '.').replace(/-/g, '_'),
-          })
-        })
-      const request = firestore
-        .collection('users')
-        .where('uid', '==', this.uid)
-        .get()
-      const dataRequest = await request
-      const snapshot = await dataRequest
-      snapshot.docs[0].ref.update({
-        name: this.formData.name,
-        email: this.formData.email,
+      this.itemRef.update(this.formData).then(() => {
+        this.$emit('success')
       })
     },
 
-    async loadDataUser() {
+    async loadGroups() {
       const request = firestore
-        .collection('users')
-        .where('uid', '==', this.uid)
+        .collection('groups')
+        .where('status', '==', 'ACTIVE')
         .get()
       const dataRequest = await request
-      const snapshot = await dataRequest
-      const data = snapshot.docs[0].data()
-      this.formData.email = data.email
-      this.formData.name = data.name
+      const dataPromise = Promise.all(
+        dataRequest.docs.map(async (user) => {
+          return {
+            id: user.id,
+            ...user.data(),
+          }
+        }),
+      )
+      const data = await dataPromise
+      this.optionGroups = data.map((group) => {
+        return {
+          value: group.id,
+          label: group.name,
+        }
+      })
+    },
+
+    async loadData() {
+      this.itemRef = firestore.doc(`groups/${this.id}`)
+      const request = await this.itemRef.get()
+      this.formData = request.data()
+    },
+
+    async loadDataUser() {
+      this.itemRef = firestore.doc(`users/${this.id}`)
+      const request = await this.itemRef.get()
+      this.formData = request.data()
     },
 
     message({ type = 'error', messageKey = null }) {
@@ -189,7 +213,7 @@ export default {
     submit() {
       this.$refs['UserFormCreate'].validate((valid) => {
         if (valid) {
-          if (this.uid !== null) {
+          if (this.id !== null) {
             this.update()
           } else {
             this.create()
