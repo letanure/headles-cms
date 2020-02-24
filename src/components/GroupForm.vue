@@ -24,7 +24,52 @@
         type="primary"
         v-text="$t('GroupForm.actions.submit.label')"
         )
-
+    el-form-item(
+      :label="$t('GroupForm.fields.name.label')"
+      prop="name"
+    )
+      el-table(
+        :data="formData.collections"
+        stripe
+        style="width: 100%"
+        )
+        el-table-column(
+          :label="$t('Permissions.groupName')"
+          prop="name"
+          )
+        el-table-column(
+          :label="$t('Permissions.type.list')"
+          prop="list"
+          )
+          template(slot-scope="scope")
+            el-switch(v-model="scope.row.list")
+        el-table-column(
+          :label="$t('Permissions.type.get')"
+          prop="get"
+          )
+          template(slot-scope="scope")
+            el-switch(v-model="scope.row.get")
+        el-table-column(
+          :label="$t('Permissions.type.update')"
+          prop="update"
+          )
+          template(slot-scope="scope")
+            el-switch(v-model="scope.row.update")
+        el-table-column(
+          :label="$t('Permissions.type.create')"
+          prop="create"
+          )
+          template(slot-scope="scope")
+            el-switch(v-model="scope.row.create")
+        el-table-column(
+          :label="$t('Permissions.type.delete')"
+          prop="delete"
+          )
+          template(slot-scope="scope")
+            el-switch(v-model="scope.row.delete")
+        
+        
+        
 </template>
 
 <script>
@@ -46,6 +91,24 @@ export default {
       itemRef: null,
       formData: {
         name: '',
+        collections: [
+          {
+            name: 'groups',
+            create: false,
+            delete: false,
+            get: false,
+            list: false,
+            update: false,
+          },
+          {
+            name: 'users',
+            create: false,
+            delete: false,
+            get: false,
+            list: false,
+            update: false,
+          },
+        ],
       },
       formRules: {
         name: [

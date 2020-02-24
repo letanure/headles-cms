@@ -29,6 +29,16 @@
       }
     }
   },
+  "Permissions": {
+    "groupName": "Type",
+    "type": {
+      "create": "Create",
+      "delete": "Delete",
+      "get": "Get",
+      "list": "List",
+      "update": "Update"
+    }
+  },
   "Register": {
     "signedIn": "You cant register again",
     "signedOut": "Wants to log out?"
@@ -100,6 +110,9 @@
     "fields": {
       "email": {
         "label": "Email"
+      },
+      "groups": {
+        "label": "Groups"
       },
       "name": {
         "label": "Name"
