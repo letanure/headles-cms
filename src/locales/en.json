@@ -9,6 +9,9 @@
     "fields": {
       "name": {
         "label": "Name"
+      },
+      "permissions": {
+        "label": "Permissions"
       }
     }
   },

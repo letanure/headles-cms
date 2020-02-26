@@ -18,15 +18,9 @@
         v-model="formData.name"
       )
 
-    el-form-item
-      el-button(
-        native-type="submit"
-        type="primary"
-        v-text="$t('GroupForm.actions.submit.label')"
-        )
     el-form-item(
-      :label="$t('GroupForm.fields.name.label')"
-      prop="name"
+      :label="$t('GroupForm.fields.permissions.label')"
+      prop="collections"
     )
       el-table(
         :data="formData.collections"
@@ -68,9 +62,12 @@
           template(slot-scope="scope")
             el-switch(v-model="scope.row.delete")
         
-        
-        
-</template>
+    el-form-item
+      el-button(
+        native-type="submit"
+        type="primary"
+        v-text="$t('GroupForm.actions.submit.label')"
+        )</template>
 
 <script>
 import { firestore, serverTimestamp } from '@/firebase/firestore'
