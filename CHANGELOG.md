@@ -1,3 +1,11 @@
+# [1.15.0](https://github.com/letanure/headles-cms/compare/v1.14.0...v1.15.0) (2020-02-26)
+
+
+### Features
+
+* bind groups permissions to firestore collection groups rules ([b8dd5cd](https://github.com/letanure/headles-cms/commit/b8dd5cd267f1f4b63b345b83f1118f9b60e0df73))
+* update token user on navigate ([1696278](https://github.com/letanure/headles-cms/commit/1696278e1754c7a0c31a92c76f00749e91f41b10))
+
 # [1.14.0](https://github.com/letanure/headles-cms/compare/v1.13.0...v1.14.0) (2020-02-24)
 
 
