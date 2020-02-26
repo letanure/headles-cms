@@ -198,7 +198,7 @@ function updateGroupPermissions({ groupId, collections }) {
     const collectionPermissions = { ...defaultPermissions, ...collection }
     delete collectionPermissions.name
 
-    admin
+    return admin
       .firestore()
       .doc(`permissions/${collection.name}/groups/${groupId}`)
       .update(collectionPermissions, { merge: true })
