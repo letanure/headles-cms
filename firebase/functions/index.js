@@ -60,6 +60,21 @@ async function createUserOnFirebaseAuth({ email, name, password }) {
   return UserRecord
 }
 
+async function updateUserCustomClaims({ uid, groups }) {
+  var customClaims = {
+    groups,
+  }
+  admin
+    .auth()
+    .setCustomUserClaims(uid, customClaims)
+    .then(() => {
+      return customClaims
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+}
+
 async function deleteUserOnFirebaseAuth({ uid }) {
   const UserRecord = await admin.auth().deleteUser(uid)
   return UserRecord
@@ -171,18 +186,44 @@ async function updateMetaCount(collectionName, operation) {
   }
 }
 
+function updateGroupPermissions({ groupId, collections }) {
+  collections.map((collection) => {
+    const defaultPermissions = {
+      create: false,
+      delete: false,
+      get: false,
+      list: false,
+      update: false,
+    }
+    const collectionPermissions = { ...defaultPermissions, ...collection }
+    delete collectionPermissions.name
+
+    admin
+      .firestore()
+      .doc(`permissions/${collection.name}/groups/${groupId}`)
+      .update(collectionPermissions, { merge: true })
+  })
+}
+
 exports.collectionGroupsCreate = functions.firestore
   .document('/groups/{groupId}')
   .onCreate(async (snapshotUser, context) => {
     return updateMetaCount('groups', 'CREATE')
   })
 
-exports.collectionGroupsDelete = functions.firestore
+exports.collectionGroupsUpdate = functions.firestore
   .document('/groups/{groupId}')
   .onWrite(async (change, context) => {
+    const groupId = context.params.groupId
     const data = change.after.data()
     if (data.status && data.status === 'DELETED') {
       return updateMetaCount('groups', 'DELETE')
+    }
+    if (data.status && data.status === 'ACTIVE') {
+      updateGroupPermissions({
+        groupId: groupId,
+        collections: data.collections,
+      })
     }
     return true
   })
@@ -202,6 +243,12 @@ exports.collectionUserUpdate = functions.firestore
     const userdata = change.after.data()
     if (userdata.status && userdata.status === 'DELETING') {
       deleteUserOnFirebaseAuth(change.after.data())
+    }
+    if (userdata.status && userdata.status === 'ACTIVE') {
+      updateUserCustomClaims({
+        uid: userdata.uid,
+        groups: userdata.groups,
+      })
     }
     return true
   })

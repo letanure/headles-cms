@@ -6,51 +6,19 @@ service cloud.firestore {
     }
     
     match /{pathSegment}/{document=**} {
-    	// function signedInOrPublic() {
-    	// return request.auth.uid != null || (resource.data.visibility == 'public');
-    	// }
       
       function hasPermission(operation) {
-        return get(/databases/$(database)/documents/permissions/$(request.auth.uid)).data[pathSegment][operation]
-      }
-
-      // [WRITE] Data that is sent to a Firestore document
-      function incomingData() {
-        return request.resource.data;
-      }
-      
-      function isValidUser() {
-        return incomingData().name.size() > 3 && 
-               incomingData().email.size() >= 6  &&
-               incomingData().status in ['ACTIVE', 'NEW', 'DELETED', 'DISABLED'];
-      }
-      
-      function validateCreate() {
-      	return pathSegment
-        	== 'users'
-          ? isValidUser()
-          : true;
-      }
-      
-      function validateUpdate() {
-      	return true;
-      }
-      
-      function validateData(operation){
-      	return operation 
-        	== 'create'
-          ? validateCreate()
-          : operation 
-          	== 'update'
-            ? validateUpdate()
-            : true; // get, list, delete dont validate data
+        return get(/databases/$(database)/documents/permissions/$(pathSegment)/groups/$(request.auth.token.groups[0])).data[operation]
+        || get(/databases/$(database)/documents/permissions/$(pathSegment)/groups/$(request.auth.token.groups[1])).data[operation]
+        || get(/databases/$(database)/documents/permissions/$(pathSegment)/groups/$(request.auth.token.groups[2])).data[operation]
+        || get(/databases/$(database)/documents/permissions/$(pathSegment)/groups/$(request.auth.token.groups[3])).data[operation]
       }
 
 			// read
       allow get: if hasPermission('get');
       allow list: if hasPermission('list');
 			// write
-      allow create: if hasPermission('create') && validateData('create');
+      allow create: if hasPermission('create');
       allow update: if hasPermission('update');
       allow delete: if hasPermission('delete');
     }
