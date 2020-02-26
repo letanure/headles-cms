@@ -119,14 +119,14 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   const navigate = () => {
-    const unprotectedRoutes = ['signIn', 'register']
+    const unprotectedRoutes = ['SignIn', 'Register']
     if (unprotectedRoutes.includes(to.name)) {
       next()
     } else {
       if (store.state.user.user.signedIn) {
         next()
       } else {
-        next({ name: 'signIn' })
+        next({ name: 'SignIn' })
       }
     }
   }
