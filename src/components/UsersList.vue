@@ -126,15 +126,6 @@ export default {
 
   async beforeMount() {
     this.getData()
-    firestore
-      .collection('metadata')
-      .get()
-      .then((a) => {
-        console.log(a.docs[0].data())
-      })
-      .catch((err) => {
-        console.dir(err)
-      })
   },
 
   methods: {
