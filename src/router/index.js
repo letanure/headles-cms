@@ -25,12 +25,12 @@ const routes = [
       },
       {
         path: 'users/:page?',
+        name: 'Users',
         props(route) {
           const props = { ...route.params }
           props.page = +props.page
           return props
         },
-        name: 'Users',
         component: () =>
           import(/* webpackChunkName: "Users" */ '../views/Users.vue'),
       },
@@ -49,12 +49,12 @@ const routes = [
       },
       {
         path: 'groups/:page?',
+        name: 'Groups',
         props(route) {
           const props = { ...route.params }
           props.page = +props.page
           return props
         },
-        name: 'Groups',
         component: () =>
           import(/* webpackChunkName: "Groups" */ '../views/Groups.vue'),
       },
