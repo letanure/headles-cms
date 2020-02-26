@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import store from '@/store/'
 import BaseLayout from '@/views/layouts/BaseLayout.vue'
+import { auth } from '@/firebase/auth'
 
 Vue.use(VueRouter)
 
@@ -106,7 +107,12 @@ router.beforeEach((to, from, next) => {
     }
   }
 
+  const updateToken = () => {
+    auth.currentUser.getIdToken(true)
+  }
+
   if (store.state.user.loaded) {
+    updateToken()
     navigate()
   } else {
     store.watch(store.getters['user/loaded'], () => {
