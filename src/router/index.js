@@ -132,7 +132,9 @@ router.beforeEach((to, from, next) => {
   }
 
   const updateToken = () => {
-    auth.currentUser.getIdToken(true)
+    if (auth && auth.currentUser) {
+      auth.currentUser.getIdToken(true)
+    }
   }
 
   if (store.state.user.loaded) {
