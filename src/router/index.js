@@ -24,52 +24,76 @@ const routes = [
           import(/* webpackChunkName: "About" */ '../views/About.vue'),
       },
       {
-        path: 'users/:page?',
-        name: 'Users',
-        props(route) {
-          const props = { ...route.params }
-          props.page = +props.page
-          return props
-        },
+        path: 'users',
         component: () =>
-          import(/* webpackChunkName: "Users" */ '../views/Users.vue'),
+          import(
+            /* webpackChunkName: "Users" */ '../views/layouts/MainArea.vue'
+          ),
+        children: [
+          {
+            path: ':page?',
+            name: 'Users',
+            props(route) {
+              const props = { ...route.params }
+              props.page = +props.page
+              return props
+            },
+            component: () =>
+              import(/* webpackChunkName: "Users" */ '../views/Users.vue'),
+          },
+          {
+            path: 'create',
+            name: 'UsersCreate',
+            component: () =>
+              import(
+                /* webpackChunkName: "Users" */ '../views/UsersCreate.vue'
+              ),
+          },
+          {
+            path: 'edit/:id',
+            name: 'UsersEdit',
+            props: true,
+            component: () =>
+              import(/* webpackChunkName: "Users" */ '../views/UsersEdit.vue'),
+          },
+        ],
       },
       {
-        path: 'users/create',
-        name: 'UsersCreate',
+        path: 'groups',
         component: () =>
-          import(/* webpackChunkName: "Users" */ '../views/UsersCreate.vue'),
-      },
-      {
-        path: 'users/edit/:id',
-        name: 'UsersEdit',
-        props: true,
-        component: () =>
-          import(/* webpackChunkName: "Users" */ '../views/UsersEdit.vue'),
-      },
-      {
-        path: 'groups/:page?',
-        name: 'Groups',
-        props(route) {
-          const props = { ...route.params }
-          props.page = +props.page
-          return props
-        },
-        component: () =>
-          import(/* webpackChunkName: "Groups" */ '../views/Groups.vue'),
-      },
-      {
-        path: 'groups/create',
-        name: 'GroupsCreate',
-        component: () =>
-          import(/* webpackChunkName: "Groups" */ '../views/GroupsCreate.vue'),
-      },
-      {
-        path: 'groups/edit/:id',
-        name: 'GroupsEdit',
-        props: true,
-        component: () =>
-          import(/* webpackChunkName: "Groups" */ '../views/GroupsEdit.vue'),
+          import(
+            /* webpackChunkName: "Groups" */ '../views/layouts/MainArea.vue'
+          ),
+        children: [
+          {
+            path: ':page?',
+            name: 'Groups',
+            props(route) {
+              const props = { ...route.params }
+              props.page = +props.page
+              return props
+            },
+            component: () =>
+              import(/* webpackChunkName: "Groups" */ '../views/Groups.vue'),
+          },
+          {
+            path: 'create',
+            name: 'GroupsCreate',
+            component: () =>
+              import(
+                /* webpackChunkName: "Groups" */ '../views/GroupsCreate.vue'
+              ),
+          },
+          {
+            path: 'edit/:id',
+            name: 'GroupsEdit',
+            props: true,
+            component: () =>
+              import(
+                /* webpackChunkName: "Groups" */ '../views/GroupsEdit.vue'
+              ),
+          },
+        ],
       },
     ],
   },
