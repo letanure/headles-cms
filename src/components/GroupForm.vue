@@ -67,7 +67,8 @@
         native-type="submit"
         type="primary"
         v-text="$t('GroupForm.actions.submit.label')"
-        )</template>
+        )
+</template>
 
 <script>
 import { firestore, serverTimestamp } from '@/firebase/firestore'

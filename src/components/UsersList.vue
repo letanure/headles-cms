@@ -46,7 +46,7 @@
           )
             template(slot-scope="scope")
               router-link(
-                :to="{ name: 'UserEdit', params: {id: scope.row.id} }"
+                :to="{ name: 'UsersEdit', params: {id: scope.row.id} }"
                 )
                 el-button(
                   :disabled="scope.row.status === 'NEW'"

@@ -14,7 +14,7 @@
 import UserForm from '@/components/UserForm'
 
 export default {
-  name: 'UserEdit',
+  name: 'UsersEdit',
 
   components: {
     UserForm,
@@ -29,7 +29,7 @@ export default {
 
   methods: {
     onSuccess() {
-      this.$router.push({ name: 'users' })
+      this.$router.push({ name: 'Users' })
     },
   },
 }

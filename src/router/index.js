@@ -13,15 +13,15 @@ const routes = [
     children: [
       {
         path: '',
-        name: 'home',
+        name: 'Home',
         component: () =>
-          import(/* webpackChunkName: "home" */ '../views/Home.vue'),
+          import(/* webpackChunkName: "Home" */ '../views/Home.vue'),
       },
       {
         path: 'about',
-        name: 'about',
+        name: 'About',
         component: () =>
-          import(/* webpackChunkName: "about" */ '../views/About.vue'),
+          import(/* webpackChunkName: "About" */ '../views/About.vue'),
       },
       {
         path: 'users/:page?',
@@ -30,22 +30,22 @@ const routes = [
           props.page = +props.page
           return props
         },
-        name: 'users',
+        name: 'Users',
         component: () =>
-          import(/* webpackChunkName: "users" */ '../views/Users.vue'),
+          import(/* webpackChunkName: "Users" */ '../views/Users.vue'),
       },
       {
         path: 'users/create',
         name: 'UsersCreate',
         component: () =>
-          import(/* webpackChunkName: "users" */ '../views/UsersCreate.vue'),
+          import(/* webpackChunkName: "Users" */ '../views/UsersCreate.vue'),
       },
       {
         path: 'users/edit/:id',
-        name: 'UserEdit',
+        name: 'UsersEdit',
         props: true,
         component: () =>
-          import(/* webpackChunkName: "users" */ '../views/UsersEdit.vue'),
+          import(/* webpackChunkName: "Users" */ '../views/UsersEdit.vue'),
       },
       {
         path: 'groups/:page?',
@@ -75,15 +75,15 @@ const routes = [
   },
   {
     path: '/login',
-    name: 'signIn',
+    name: 'SignIn',
     component: () =>
-      import(/* webpackChunkName: "signIn" */ '../views/SignIn.vue'),
+      import(/* webpackChunkName: "SignIn" */ '../views/SignIn.vue'),
   },
   {
     path: '/register',
-    name: 'register',
+    name: 'Register',
     component: () =>
-      import(/* webpackChunkName: "register" */ '../views/Register.vue'),
+      import(/* webpackChunkName: "Register" */ '../views/Register.vue'),
   },
 ]
 

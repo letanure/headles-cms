@@ -19,7 +19,7 @@ export default {
 
   methods: {
     onSuccess() {
-      this.$router.push({ name: 'users' })
+      this.$router.push({ name: 'Users' })
     },
   },
 }

@@ -24,27 +24,27 @@ export default {
     return {
       menuItems: [
         {
-          routeName: 'home',
+          routeName: 'Home',
           text: this.$t('menu.home'),
           icon: 's-home',
         },
         {
-          routeName: 'about',
+          routeName: 'About',
           text: this.$t('menu.about'),
           icon: 'info',
         },
         {
-          routeName: 'signIn',
+          routeName: 'SignIn',
           text: this.$t('menu.signIn'),
           icon: 'info',
         },
         {
-          routeName: 'register',
+          routeName: 'Register',
           text: this.$t('menu.register'),
           icon: 'info',
         },
         {
-          routeName: 'users',
+          routeName: 'Users',
           text: this.$t('menu.users'),
           icon: 'info',
         },
