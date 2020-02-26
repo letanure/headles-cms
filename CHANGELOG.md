@@ -1,3 +1,11 @@
+## [1.15.1](https://github.com/letanure/headles-cms/compare/v1.15.0...v1.15.1) (2020-02-26)
+
+
+### Bug Fixes
+
+* check auth currentUser before use ([1bb5fdf](https://github.com/letanure/headles-cms/commit/1bb5fdfbfe19cf1e984bc321c96207be88090b6c))
+* wrong routes names fix ([44ccef0](https://github.com/letanure/headles-cms/commit/44ccef0771f39f49c49f8d28543700316a3d485f))
+
 # [1.15.0](https://github.com/letanure/headles-cms/compare/v1.14.0...v1.15.0) (2020-02-26)
 
 
