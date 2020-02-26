@@ -45,7 +45,7 @@ const routes = [
         name: 'UserEdit',
         props: true,
         component: () =>
-          import(/* webpackChunkName: "users" */ '../views/UserEdit.vue'),
+          import(/* webpackChunkName: "users" */ '../views/UsersEdit.vue'),
       },
       {
         path: 'groups/:page?',
