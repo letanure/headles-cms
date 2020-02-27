@@ -60,8 +60,7 @@
 </template>
 
 <script>
-import { firestore, serverTimestamp } from '@/firebase/firestore'
-import { getPageCollection } from '@/firebase/functions'
+import firestoreGroups from '@/firebase/collections/groups.js'
 
 export default {
   name: 'GroupsList',
@@ -103,15 +102,10 @@ export default {
   methods: {
     getData() {
       this.loading = true
-      getPageCollection({
-        collection: 'groups',
-        orderBy: 'created',
-        limit: this.perPage,
-        offset: (this.page - 1) * this.perPage,
-      }).then((result) => {
+      firestoreGroups.getPage(this.page).then((data) => {
         this.loading = false
-        this.count = result.data.meta ? result.data.meta.active : 0
-        this.list = result.data.page
+        this.count = data.meta ? data.meta.active : 0
+        this.list = data.page
       })
     },
 
@@ -120,18 +114,9 @@ export default {
     },
 
     deleteItem(id) {
-      firestore
-        .doc(`groups/${id}`)
-        .set(
-          {
-            deleted: serverTimestamp,
-            status: 'DELETED',
-          },
-          { merge: true },
-        )
-        .then(() => {
-          this.getData()
-        })
+      firestoreGroups.deleteItem(id).then(() => {
+        this.getData()
+      })
     },
   },
 }

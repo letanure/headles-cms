@@ -71,7 +71,7 @@
 </template>
 
 <script>
-import { firestore, serverTimestamp } from '@/firebase/firestore'
+import firestoreGroups from '@/firebase/collections/groups.js'
 
 export default {
   name: 'GroupForm',
@@ -133,13 +133,8 @@ export default {
 
   methods: {
     create() {
-      firestore
-        .collection('groups')
-        .add({
-          status: 'ACTIVE',
-          created: serverTimestamp,
-          ...this.formData,
-        })
+      firestoreGroups
+        .addItem(this.formData)
         .then(() => {
           this.$emit('success')
         })
@@ -154,15 +149,15 @@ export default {
     },
 
     async update() {
-      this.itemRef.update(this.formData).then(() => {
+      firestoreGroups.updateItem(this.id, this.formData).then(() => {
         this.$emit('success')
       })
     },
 
     async loadData() {
-      this.itemRef = firestore.doc(`groups/${this.id}`)
-      const request = await this.itemRef.get()
-      this.formData = request.data()
+      firestoreGroups.getItem(this.id).then((data) => {
+        this.formData = data.data
+      })
     },
 
     message({ type = 'error', messageKey = null }) {
