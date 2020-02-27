@@ -4,7 +4,7 @@
       :alt="user.data.displayName"
       :src="user.data.photoURL"
       fit="fill"
-      size="48"
+      :size="40"
       v-loading="!user"
       )
       i.el-icon-user-solid
