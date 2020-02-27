@@ -1,3 +1,15 @@
+# [1.16.0](https://github.com/letanure/headles-cms/compare/v1.15.1...v1.16.0) (2020-02-27)
+
+
+### Bug Fixes
+
+* size as number, prop validation ([351c32b](https://github.com/letanure/headles-cms/commit/351c32b33ab4b046e4a567106b8d727add4d7537))
+
+
+### Features
+
+* add firebase wrapper, basic CRUD functions ([e5a2736](https://github.com/letanure/headles-cms/commit/e5a2736a3fba01c20c798c070635e0ab9b538d7c))
+
 ## [1.15.1](https://github.com/letanure/headles-cms/compare/v1.15.0...v1.15.1) (2020-02-26)
 
 
