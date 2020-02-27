@@ -100,6 +100,12 @@ export default {
   },
 
   methods: {
+    deleteItem(id) {
+      firestoreGroups.deleteItem(id).then(() => {
+        this.getData()
+      })
+    },
+
     getData() {
       this.loading = true
       firestoreGroups.getPage(this.page).then((data) => {
@@ -111,12 +117,6 @@ export default {
 
     handleCurrentChange(newPage) {
       this.$router.push({ name: this.$route.name, params: { page: newPage } })
-    },
-
-    deleteItem(id) {
-      firestoreGroups.deleteItem(id).then(() => {
-        this.getData()
-      })
     },
   },
 }
