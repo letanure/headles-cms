@@ -2,12 +2,12 @@
   .UsersList
     el-row.UsersList-table
       el-col
-        p(v-if="users.length === 0" v-loading="loading") {{ $t('general.table.empty') }}
+        p(v-if="list.length === 0" v-loading="loading") {{ $t('general.table.empty') }}
     el-row.UsersList-table
       el-col
         el-table(
-          v-if="users.length > 0"
-          :data="users"
+          v-if="list.length > 0"
+          :data="list"
           stripe
           style="width: 100%"
           v-loading="loading"
@@ -56,7 +56,7 @@
                   v-text="$t('general.actions.edit')"
                   )
               el-popconfirm(
-                  @onConfirm="deleteUser(scope.row.uid)"
+                  @onConfirm="deleteItem(scope.row.uid)"
                   :title="$t('general.actions.delete.confirm')"
                   )
                 el-button(
@@ -67,12 +67,12 @@
                   type="danger"
                   v-text="$t('general.actions.delete.label')"
                   )
-    el-row.UsersList-pagination(v-if="!hidePagination && usersCount !== null && users.length !== 0")
+    el-row.UsersList-pagination(v-if="!hidePagination && count !== null && list.length !== 0")
       el-col
         el-pagination(
           :current-page="page"
           :page-size="perPage"
-          :total="usersCount"
+          :total="count"
           @current-change="handleCurrentChange"
           background
           layout="prev, pager, next"
@@ -80,8 +80,7 @@
 </template>
 
 <script>
-import { firestore } from '@/firebase/firestore'
-import { getPageCollection } from '@/firebase/functions'
+import firestoreUsers from '@/firebase/collections/users.js'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -107,8 +106,8 @@ export default {
 
   data: () => ({
     loading: false,
-    usersCount: null,
-    users: [],
+    count: null,
+    list: [],
     publicPath: process.env.BASE_URL,
   }),
 
@@ -129,38 +128,23 @@ export default {
   },
 
   methods: {
-    async deleteUser(uid) {
-      const querySnapshot = await firestore
-        .collection('users')
-        .where('uid', '==', uid)
-        .get()
-      if (querySnapshot.size > 0) {
-        querySnapshot.docs[0].ref
-          .update({
-            status: 'DELETING',
-          })
-          .then(() => {
-            this.getData()
-          })
-      }
-    },
-
-    handleCurrentChange(newPage) {
-      this.$router.push({ name: this.$route.name, params: { page: newPage } })
+    deleteItem(id) {
+      firestoreUsers.deleteItem(id, 'DELETING').then(() => {
+        this.getData()
+      })
     },
 
     getData() {
       this.loading = true
-      getPageCollection({
-        collection: 'users',
-        orderBy: 'created',
-        limit: this.perPage,
-        offset: (this.page - 1) * this.perPage,
-      }).then((result) => {
+      firestoreUsers.getPage(this.page).then((data) => {
         this.loading = false
-        this.usersCount = result.data.meta ? result.data.meta.active : 0
-        this.users = result.data.page
+        this.count = data.meta ? data.meta.active : 0
+        this.list = data.page
       })
+    },
+
+    handleCurrentChange(newPage) {
+      this.$router.push({ name: this.$route.name, params: { page: newPage } })
     },
   },
 }

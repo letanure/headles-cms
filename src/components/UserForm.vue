@@ -59,7 +59,8 @@
 </template>
 
 <script>
-import { firestore, serverTimestamp } from '@/firebase/firestore'
+import { firestore } from '@/firebase/firestore'
+import firestoreUsers from '@/firebase/collections/users.js'
 
 export default {
   name: 'UserForm',
@@ -140,13 +141,8 @@ export default {
 
   methods: {
     create() {
-      firestore
-        .collection('users')
-        .add({
-          status: 'NEW',
-          created: serverTimestamp,
-          ...this.formData,
-        })
+      firestoreUsers
+        .addItem(this.formData, 'NEW')
         .then(() => {
           this.$emit('success')
         })
@@ -161,7 +157,7 @@ export default {
     },
 
     async update() {
-      this.itemRef.update(this.formData).then(() => {
+      firestoreUsers.updateItem(this.id, this.formData).then(() => {
         this.$emit('success')
       })
     },
@@ -189,16 +185,10 @@ export default {
       })
     },
 
-    async loadData() {
-      this.itemRef = firestore.doc(`groups/${this.id}`)
-      const request = await this.itemRef.get()
-      this.formData = request.data()
-    },
-
     async loadDataUser() {
-      this.itemRef = firestore.doc(`users/${this.id}`)
-      const request = await this.itemRef.get()
-      this.formData = request.data()
+      firestoreUsers.getItem(this.id).then((data) => {
+        this.formData = data.data
+      })
     },
 
     message({ type = 'error', messageKey = null }) {
