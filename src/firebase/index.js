@@ -47,12 +47,12 @@ export default class FirestoreWrapper {
     }
   }
 
-  async deleteItem(id) {
+  async deleteItem(id, status = 'DELETED') {
     const docSnap = this.getDoc(id)
     return await docSnap.set(
       {
         deleted: serverTimestamp,
-        status: 'DELETED',
+        status: status,
       },
       { merge: true },
     )
