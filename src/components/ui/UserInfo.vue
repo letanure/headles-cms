@@ -1,15 +1,13 @@
 <template lang="pug">
   span.UserInfo(v-if="user && user.data")
-    el-image(
+    el-avatar(
       :alt="user.data.displayName"
       :src="user.data.photoURL"
       fit="fill"
-      style="width: 38px; height: 38px"
-      v-if="user.data.photoURL"
+      size="48"
       v-loading="!user"
       )
-      div(slot="error")
-        i.el-icon-picture-outline
+      i.el-icon-user-solid
 
 </template>
 
@@ -35,7 +33,10 @@ export default {
   overflow hidden
   vertical-align middle
   width 40px
-  .el-image
-    border 1px solid #5a6b79
-    border-radius 100%
+  .el-avatar
+    background-color teal
+  .el-icon-user-solid
+    font-size 22px
+    line-height 38px
+    color white
 </style>
