@@ -5,6 +5,10 @@ class FirestoreUsers extends FirestoreWrapper {
     super(options, options)
     this.collection = 'users'
   }
+
+  async deleteItem(id) {
+    return super.deleteItem(id, 'DELETING')
+  }
 }
 
 export default new FirestoreUsers()

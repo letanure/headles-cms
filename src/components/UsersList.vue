@@ -56,7 +56,7 @@
                   v-text="$t('general.actions.edit')"
                   )
               el-popconfirm(
-                  @onConfirm="deleteItem(scope.row.uid)"
+                  @onConfirm="deleteItem(scope.row.id)"
                   :title="$t('general.actions.delete.confirm')"
                   )
                 el-button(
@@ -129,7 +129,7 @@ export default {
 
   methods: {
     deleteItem(id) {
-      firestoreUsers.deleteItem(id, 'DELETING').then(() => {
+      firestoreUsers.deleteItem(id).then(() => {
         this.getData()
       })
     },
