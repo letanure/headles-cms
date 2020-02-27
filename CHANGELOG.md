@@ -1,3 +1,10 @@
+## [1.16.1](https://github.com/letanure/headles-cms/compare/v1.16.0...v1.16.1) (2020-02-27)
+
+
+### Bug Fixes
+
+* load groups data always ([4824cda](https://github.com/letanure/headles-cms/commit/4824cdac1db4bc948dfa9db4d152b12009128070))
+
 # [1.16.0](https://github.com/letanure/headles-cms/compare/v1.15.1...v1.16.0) (2020-02-27)
 
 
