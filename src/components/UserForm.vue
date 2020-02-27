@@ -132,9 +132,9 @@ export default {
   },
 
   beforeMount() {
+    this.loadGroups()
     if (this.id !== null) {
       this.loadDataUser()
-      this.loadGroups()
       this.formRules.password[0].required = false
     }
   },
