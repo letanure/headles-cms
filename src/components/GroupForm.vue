@@ -7,6 +7,7 @@
     novalidate
     ref="GroupForm"
     status-icon
+    v-formChange="{...formData, id}"
     )
 
     el-form-item(
@@ -72,6 +73,7 @@
 
 <script>
 import firestoreGroups from '@/firebase/collections/groups.js'
+import '@/directives/formChange.js'
 
 export default {
   name: 'GroupForm',
