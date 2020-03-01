@@ -2,9 +2,14 @@
   .BaseLayout
     el-container
       el-aside.BaseLayout-aside(
-        width="200px"
+        :width="`${menuClosed ? 56 : 200}px`"
         )
-        VerticalMenu
+        el-button.BaseLayout-toggleMenu(
+          type="default"
+          :icon="`el-icon-arrow-${menuClosed ? 'right' : 'left'}`"
+          @click="toggleMenu"
+        )
+        VerticalMenu(:class="`menu-${menuClosed ? 'closed' : 'open' }`")
       el-container
         el-header(style="height: 56px;").BaseLayout-header
           el-row(
@@ -29,10 +34,21 @@ import VerticalMenu from '@/components/ui/VerticalMenu'
 
 export default {
   name: 'BaseLayout',
+
   components: {
     VerticalMenu,
     SignOut,
     UserInfo,
+  },
+
+  data: () => ({
+    menuClosed: false,
+  }),
+
+  methods: {
+    toggleMenu() {
+      this.menuClosed = !this.menuClosed
+    },
   },
 }
 </script>
@@ -52,7 +68,27 @@ export default {
       text-align right
 
   &-aside
-    border-right solid 1px #35495d
+    position relative
+    transition width 0.2s ease-out
+    padding-top 56px
+
+    .el-menu-item span
+      transition opacity .2s ease-out
+
+    .menu-closed
+      .el-menu-item span
+        opacity 0
+
+  &-toggleMenu
+    position absolute
+    right 0
+    top 0
+    z-index 2
+    width 100%
+    background-color #e6f2f2
+    border-radius 0
+    height 56px
+    border-bottom 0
 
   &-footer
     line-height 56px

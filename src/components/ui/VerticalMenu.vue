@@ -1,6 +1,6 @@
 <template lang="pug">
   .VerticalMenu
-    el-menu.el-menu-vertical-demo(
+    el-menu(
       default-active="1"
       :router="true"
       )
@@ -12,8 +12,6 @@
         )
         i(:class='`el-icon-${menuItem.icon}`')
         span(v-text="menuItem.text")
-      
-
 </template>
 
 <script>
@@ -58,3 +56,11 @@ export default {
   },
 }
 </script>
+
+<style lang="stylus">
+.VerticalMenu
+  position relative
+  z-index 1
+  .el-menu
+    min-height 100vh
+</style>
