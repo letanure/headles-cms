@@ -1,3 +1,17 @@
+# [1.17.0](https://github.com/letanure/headles-cms/compare/v1.16.1...v1.17.0) (2020-03-01)
+
+
+### Bug Fixes
+
+* show route children instead of default on reload ([1b0e26d](https://github.com/letanure/headles-cms/commit/1b0e26d1da8a9b6d54b536be86ed63ef9c6be549))
+
+
+### Features
+
+* add directive form chgange ([9e920cf](https://github.com/letanure/headles-cms/commit/9e920cf053a454ecb7d64d6090a80868a000e4bf))
+* add general settings store, form updates state ([7478aa1](https://github.com/letanure/headles-cms/commit/7478aa19f8b5d52f762dbceb20c1a4646b7853e9))
+* prevent navigation on form change unsaved ([b449bd7](https://github.com/letanure/headles-cms/commit/b449bd7e68d2ec48a117d848883bfa869d2dd5d6))
+
 ## [1.16.1](https://github.com/letanure/headles-cms/compare/v1.16.0...v1.16.1) (2020-02-27)
 
 
