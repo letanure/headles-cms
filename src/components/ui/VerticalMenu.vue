@@ -44,12 +44,12 @@ export default {
           icon: 'info',
         },
         {
-          routeName: 'Users',
+          routeName: 'UsersList',
           text: this.$t('menu.users'),
           icon: 'info',
         },
         {
-          routeName: 'Groups',
+          routeName: 'GroupsList',
           text: this.$t('menu.groups'),
           icon: 'info',
         },
