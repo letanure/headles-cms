@@ -31,8 +31,13 @@ const routes = [
           ),
         children: [
           {
-            path: ':page?',
+            path: '',
             name: 'Users',
+            redirect: { name: 'UsersList' },
+          },
+          {
+            path: 'list:page?',
+            name: 'UsersList',
             props(route) {
               const props = { ...route.params }
               props.page = +props.page
@@ -66,8 +71,13 @@ const routes = [
           ),
         children: [
           {
-            path: ':page?',
+            path: '',
             name: 'Groups',
+            redirect: { name: 'GroupsList' },
+          },
+          {
+            path: 'list:page?',
+            name: 'GroupsList',
             props(route) {
               const props = { ...route.params }
               props.page = +props.page
@@ -137,9 +147,24 @@ router.beforeEach((to, from, next) => {
     }
   }
 
+  console.log('hasFormChanged', store.state.general.hasFormChanged)
+
+
   if (store.state.user.loaded) {
-    updateToken()
-    navigate()
+    let navigationIsBlocked = false
+    if (store.state.general.hasFormChanged) {
+      const userDiscartForm = confirm('Abandon changes?')
+      if (userDiscartForm) {
+        store.dispatch('general/clearFormChanged')
+        navigationIsBlocked = false
+      } else {
+        navigationIsBlocked = true
+      }
+    }
+    if (!navigationIsBlocked) {
+      updateToken()
+      navigate()
+    }
   } else {
     store.watch(store.getters['user/loaded'], () => {
       navigate()
