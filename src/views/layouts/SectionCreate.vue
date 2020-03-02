@@ -13,7 +13,7 @@ export default {
 
   computed: {
     sectionFormComponent() {
-      const componentFormName = this.$route.name.replace('sCreate', 'Form')
+      const componentFormName = this.$route.name.replace('Create', 'Form')
       return () => import(`@/components/${componentFormName}`)
     },
   },

@@ -21,14 +21,14 @@ export default {
 
   computed: {
     sectionFormComponent() {
-      const componentFormName = this.$route.name.replace('sEdit', 'Form')
+      const componentFormName = this.$route.name.replace('Edit', 'Form')
       return () => import(`@/components/${componentFormName}`)
     },
   },
 
   methods: {
     onSuccess() {
-      const name = this.$route.name.replace('sEdit', '')
+      const name = this.$route.name.replace('Edit', '')
       this.$router.push({ name })
     },
   },

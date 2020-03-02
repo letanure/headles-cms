@@ -1,17 +1,17 @@
 <template lang="pug">
-  el-form.GroupForm(
+  el-form.GroupsForm(
     :model="formData"
     :rules="formRules"
-    @submit.native.prevent="submit('GroupForm')"
+    @submit.native.prevent="submit('GroupsForm')"
     label-position="top"
     novalidate
-    ref="GroupForm"
+    ref="GroupsForm"
     status-icon
     v-formChange="{...formData, id}"
     )
 
     el-form-item(
-      :label="$t('GroupForm.fields.name.label')"
+      :label="$t('GroupsForm.fields.name.label')"
       prop="name"
       )
       el-input(
@@ -20,7 +20,7 @@
       )
 
     el-form-item(
-      :label="$t('GroupForm.fields.permissions.label')"
+      :label="$t('GroupsForm.fields.permissions.label')"
       prop="collections"
     )
       el-table(
@@ -67,7 +67,7 @@
       el-button(
         native-type="submit"
         type="primary"
-        v-text="$t('GroupForm.actions.submit.label')"
+        v-text="$t('GroupsForm.actions.submit.label')"
         )
 </template>
 
@@ -76,7 +76,7 @@ import firestoreGroups from '@/firebase/collections/groups.js'
 import '@/directives/formChange.js'
 
 export default {
-  name: 'GroupForm',
+  name: 'GroupsForm',
 
   props: {
     id: {
@@ -172,7 +172,7 @@ export default {
     },
 
     submit() {
-      this.$refs['GroupForm'].validate((valid) => {
+      this.$refs['GroupsForm'].validate((valid) => {
         if (valid) {
           if (this.id !== null) {
             this.update()
@@ -181,7 +181,7 @@ export default {
           }
         } else {
           this.message({
-            messageKey: 'GroupForm.actions.submit.error',
+            messageKey: 'GroupsForm.actions.submit.error',
           })
         }
       })

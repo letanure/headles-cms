@@ -1,17 +1,17 @@
 <template lang="pug">
-  el-form.UserForm(
+  el-form.UsersForm(
     :model="formData"
     :rules="formRules"
-    @submit.native.prevent="submit('UserForm')"
+    @submit.native.prevent="submit('UsersForm')"
     label-position="top"
     novalidate
-    ref="UserForm"
+    ref="UsersForm"
     status-icon
     v-formChange="{...formData, id}"
     )
 
     el-form-item(
-      :label="$t('UserForm.fields.name.label')"
+      :label="$t('UsersForm.fields.name.label')"
       prop="name"
       )
       el-input(
@@ -20,7 +20,7 @@
       )
 
     el-form-item(
-      :label="$t('UserForm.fields.email.label')"
+      :label="$t('UsersForm.fields.email.label')"
       prop="email"
       )
       el-input(
@@ -29,7 +29,7 @@
       )
 
     el-form-item(
-      :label="$t('UserForm.fields.password.label')"
+      :label="$t('UsersForm.fields.password.label')"
       prop="password"
       )
       el-input(
@@ -39,7 +39,7 @@
       )
 
     el-form-item(
-      :label="$t('UserForm.fields.groups.label')"
+      :label="$t('UsersForm.fields.groups.label')"
       prop="groups"
       )
       el-select(v-model="formData.groups" filterable multiple placeholder="Select")
@@ -54,7 +54,7 @@
       el-button(
         native-type="submit"
         type="primary"
-        v-text="$t('UserForm.actions.submit.label')"
+        v-text="$t('UsersForm.actions.submit.label')"
         )
 
 </template>
@@ -65,7 +65,7 @@ import firestoreUsers from '@/firebase/collections/users.js'
 import '@/directives/formChange.js'
 
 export default {
-  name: 'UserForm',
+  name: 'UsersForm',
 
   props: {
     id: {
@@ -203,7 +203,7 @@ export default {
     },
 
     submit() {
-      this.$refs['UserForm'].validate((valid) => {
+      this.$refs['UsersForm'].validate((valid) => {
         if (valid) {
           if (this.id !== null) {
             this.update()
@@ -212,7 +212,7 @@ export default {
           }
         } else {
           this.message({
-            messageKey: 'UserForm.actions.submit.error',
+            messageKey: 'UsersForm.actions.submit.error',
           })
         }
       })

@@ -6,7 +6,7 @@
       }
     }
   },
-  "GroupForm": {
+  "GroupsForm": {
     "actions": {
       "submit": {
         "error": "Error on save",
@@ -110,7 +110,7 @@
   "SignOut": {
     "label": "Sign out"
   },
-  "UserForm": {
+  "UsersForm": {
     "actions": {
       "submit": {
         "error": "Error on register",
