@@ -1,3 +1,10 @@
+## [1.18.1](https://github.com/letanure/headles-cms/compare/v1.18.0...v1.18.1) (2020-03-02)
+
+
+### Bug Fixes
+
+* alow navigation if form is valid ([a6f5eb2](https://github.com/letanure/headles-cms/commit/a6f5eb2928645d6fa6557f240e7dcc49de57ea41))
+
 # [1.18.0](https://github.com/letanure/headles-cms/compare/v1.17.0...v1.18.0) (2020-03-02)
 
 
