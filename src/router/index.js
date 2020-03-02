@@ -63,7 +63,10 @@ const routes = [
             name: 'UsersEdit',
             props: true,
             component: () =>
-              import(/* webpackChunkName: "Users" */ '../views/UsersEdit.vue'),
+              import(
+                /* webpackChunkName: "Users" */
+                '@/views/layouts/SectionEdit.vue'
+              ),
           },
         ],
       },
@@ -108,7 +111,8 @@ const routes = [
             props: true,
             component: () =>
               import(
-                /* webpackChunkName: "Groups" */ '../views/GroupsEdit.vue'
+                /* webpackChunkName: "Groups" */
+                '@/views/layouts/SectionEdit.vue'
               ),
           },
         ],
