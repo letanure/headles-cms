@@ -2,19 +2,23 @@ import Vue from 'vue'
 import store from '@/store/'
 import { cloneDeep, isEqual } from 'lodash-es'
 
-let firstValue = true
+let valueStored = false
 let originalValue = null
+let countDataChanged = 0
 
 Vue.directive('formChange', {
   update: function(el, binding) {
-    if (firstValue && binding.value.id === null) {
+    countDataChanged += 1
+    const isEdit = binding.value.id !== null
+    if (!valueStored && !isEdit) {
       originalValue = cloneDeep(binding.oldValue)
+      valueStored = true
     }
-    if (firstValue && binding.value.id !== null) {
+    if (isEdit && countDataChanged === 2) {
       originalValue = cloneDeep(binding.value)
+      valueStored = true
     }
-    firstValue = false
     const hasChanges = !isEqual(originalValue, binding.value)
-    store.dispatch('general/formChanged', hasChanges)
+    store.dispatch('general/blockNavigation', hasChanges)
   },
 })

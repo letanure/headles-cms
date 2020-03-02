@@ -174,6 +174,7 @@ export default {
     submit() {
       this.$refs['GroupsForm'].validate((valid) => {
         if (valid) {
+          this.$store.dispatch('general/allowNavigation')
           if (this.id !== null) {
             this.update()
           } else {

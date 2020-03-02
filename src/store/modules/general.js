@@ -1,26 +1,26 @@
 const state = () => ({
-  hasFormChanged: false,
+  navigationBlocked: false,
 })
 
 const mutations = {
-  SET_FORM_UNSAVED(state) {
-    state.hasFormChanged = true
+  NAVIGATION_BLOCKED(state) {
+    state.navigationBlocked = true
   },
-  SET_FORM_PRISTINE(state) {
-    state.hasFormChanged = false
+  NAVIGATION_ALlOWED(state) {
+    state.navigationBlocked = false
   },
 }
 
 const actions = {
-  formChanged({ commit }, hasChanges) {
+  blockNavigation({ commit }, hasChanges) {
     if (hasChanges) {
-      commit('SET_FORM_UNSAVED')
+      commit('NAVIGATION_BLOCKED')
     } else {
-      commit('SET_FORM_PRISTINE')
+      commit('NAVIGATION_ALlOWED')
     }
   },
-  clearFormChanged({ commit }) {
-    commit('SET_FORM_PRISTINE')
+  allowNavigation({ commit }) {
+    commit('NAVIGATION_ALlOWED')
   },
 }
 

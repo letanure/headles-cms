@@ -161,10 +161,10 @@ router.beforeEach((to, from, next) => {
 
   if (store.state.user.loaded) {
     let navigationIsBlocked = false
-    if (store.state.general.hasFormChanged) {
+    if (store.state.general.navigationBlocked) {
       const userDiscartForm = confirm('Abandon changes?')
       if (userDiscartForm) {
-        store.dispatch('general/clearFormChanged')
+        store.dispatch('general/allowNavigation')
         navigationIsBlocked = false
       } else {
         navigationIsBlocked = true

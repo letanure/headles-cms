@@ -205,6 +205,7 @@ export default {
     submit() {
       this.$refs['UsersForm'].validate((valid) => {
         if (valid) {
+          this.$store.dispatch('general/allowNavigation')
           if (this.id !== null) {
             this.update()
           } else {
