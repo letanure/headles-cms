@@ -54,7 +54,8 @@ const routes = [
             name: 'UsersCreate',
             component: () =>
               import(
-                /* webpackChunkName: "Users" */ '../views/UsersCreate.vue'
+                /* webpackChunkName: "Users" */
+                '@/views/layouts/SectionCreate.vue'
               ),
           },
           {
@@ -88,7 +89,7 @@ const routes = [
             },
             component: () =>
               import(
-                /* webpackChunkName: "Users" */
+                /* webpackChunkName: "Groups" */
                 '@/views/layouts/SectionHome.vue'
               ),
           },
@@ -97,7 +98,8 @@ const routes = [
             name: 'GroupsCreate',
             component: () =>
               import(
-                /* webpackChunkName: "Groups" */ '../views/GroupsCreate.vue'
+                /* webpackChunkName: "Groups" */
+                '@/views/layouts/SectionCreate.vue'
               ),
           },
           {

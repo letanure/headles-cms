@@ -38,12 +38,5 @@ export default {
       return () => import(`@/components/${this.$route.name}`)
     },
   },
-
-  // beforeMount() {
-  //   console.log(this.$route.name)
-  //   this.baseName = this.$route.name
-  //   const aa = require(`@/components/${this.baseName}`).default
-  //   console.log(aa)
-  // },
 }
 </script>
