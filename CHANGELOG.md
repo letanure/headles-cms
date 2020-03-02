@@ -1,3 +1,11 @@
+# [1.18.0](https://github.com/letanure/headles-cms/compare/v1.17.0...v1.18.0) (2020-03-02)
+
+
+### Features
+
+* keep state menu closed on reload ([e719cb7](https://github.com/letanure/headles-cms/commit/e719cb7f181981d1aca02108aaf2fffd12ee9743))
+* toggle vertical menu close-open ([415bef9](https://github.com/letanure/headles-cms/commit/415bef95394cbcd2ae5f7005718bdf7ee3bb7ea1))
+
 # [1.17.0](https://github.com/letanure/headles-cms/compare/v1.16.1...v1.17.0) (2020-03-01)
 
 
