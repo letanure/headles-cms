@@ -1,4 +1,11 @@
 {
+  "General": {
+    "actions": {
+      "create": {
+        "label": "Create new"
+      }
+    }
+  },
   "GroupForm": {
     "actions": {
       "submit": {

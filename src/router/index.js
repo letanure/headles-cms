@@ -44,7 +44,10 @@ const routes = [
               return props
             },
             component: () =>
-              import(/* webpackChunkName: "Users" */ '../views/Users.vue'),
+              import(
+                /* webpackChunkName: "Users" */
+                '@/views/layouts/SectionHome.vue'
+              ),
           },
           {
             path: 'create',
@@ -84,7 +87,10 @@ const routes = [
               return props
             },
             component: () =>
-              import(/* webpackChunkName: "Groups" */ '../views/Groups.vue'),
+              import(
+                /* webpackChunkName: "Users" */
+                '@/views/layouts/SectionHome.vue'
+              ),
           },
           {
             path: 'create',
@@ -146,9 +152,6 @@ router.beforeEach((to, from, next) => {
       auth.currentUser.getIdToken(true)
     }
   }
-
-  console.log('hasFormChanged', store.state.general.hasFormChanged)
-
 
   if (store.state.user.loaded) {
     let navigationIsBlocked = false
