@@ -45,9 +45,23 @@ export default {
     menuClosed: false,
   }),
 
+  beforeMount() {
+    this.getConfig()
+  },
+
   methods: {
+    getConfig() {
+      const menuClosed = localStorage.getItem('menuClosed') === 'true'
+      this.menuClosed = menuClosed
+    },
+
+    saveConfig() {
+      localStorage.setItem('menuClosed', this.menuClosed)
+    },
+
     toggleMenu() {
       this.menuClosed = !this.menuClosed
+      this.saveConfig()
     },
   },
 }
