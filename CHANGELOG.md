@@ -1,3 +1,11 @@
+# [1.19.0](https://github.com/letanure/headles-cms/compare/v1.18.1...v1.19.0) (2020-03-03)
+
+
+### Features
+
+* add error message in firebase collection wrapper ([4e174c6](https://github.com/letanure/headles-cms/commit/4e174c6f4fa65c1528aae8c475b3cb4023f8d750))
+* add section content type CRUD ([867c93d](https://github.com/letanure/headles-cms/commit/867c93db7f00c199505a6be81ca0e364f483f1b2))
+
 ## [1.18.1](https://github.com/letanure/headles-cms/compare/v1.18.0...v1.18.1) (2020-03-02)
 
 
