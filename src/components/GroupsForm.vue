@@ -108,6 +108,14 @@ export default {
             list: false,
             update: false,
           },
+          {
+            name: 'contentTypes',
+            create: false,
+            delete: false,
+            get: false,
+            list: false,
+            update: false,
+          },
         ],
       },
       formRules: {

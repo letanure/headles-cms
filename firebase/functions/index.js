@@ -205,11 +205,28 @@ function updateGroupPermissions({ groupId, collections }) {
   })
 }
 
+exports.collectionContentTypesCreate = functions.firestore
+  .document('/contentTypes/{contentTypeId}')
+  .onCreate(async (snapshotUser, context) => {
+    return updateMetaCount('contentTypes', 'CREATE')
+  })
+
+exports.collectionContentTypesUpdate = functions.firestore
+  .document('/contentTypes/{contentTypeId}')
+  .onWrite(async (change, context) => {
+    const data = change.after.data()
+    if (data.status && data.status === 'DELETED') {
+      return updateMetaCount('contentTypes', 'DELETE')
+    }
+    return true
+  })
+
 exports.collectionGroupsCreate = functions.firestore
   .document('/groups/{groupId}')
   .onCreate(async (snapshotUser, context) => {
     return updateMetaCount('groups', 'CREATE')
   })
+
 
 exports.collectionGroupsUpdate = functions.firestore
   .document('/groups/{groupId}')

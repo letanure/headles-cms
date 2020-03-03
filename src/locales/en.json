@@ -1,8 +1,37 @@
 {
+  "ContentTypesForm": {
+    "actions": {
+      "submit": {
+        "label": "Save"
+      }
+    },
+    "fields": {
+      "name": {
+        "label": "Name"
+      }
+    }
+  },
+  "ContentTypesList": {
+    "props": {
+      "created": {
+        "label": "Created"
+      },
+      "name": {
+        "label": "Name"
+      }
+    }
+  },
   "General": {
     "actions": {
       "create": {
         "label": "Create new"
+      }
+    }
+  },
+  "Groups": {
+    "actions": {
+      "create": {
+        "label": "Create group"
       }
     }
   },
@@ -19,13 +48,6 @@
       },
       "permissions": {
         "label": "Permissions"
-      }
-    }
-  },
-  "Groups": {
-    "actions": {
-      "create": {
-        "label": "Create group"
       }
     }
   },
@@ -110,28 +132,6 @@
   "SignOut": {
     "label": "Sign out"
   },
-  "UsersForm": {
-    "actions": {
-      "submit": {
-        "error": "Error on register",
-        "label": "Register"
-      }
-    },
-    "fields": {
-      "email": {
-        "label": "Email"
-      },
-      "groups": {
-        "label": "Groups"
-      },
-      "name": {
-        "label": "Name"
-      },
-      "password": {
-        "label": "Password"
-      }
-    }
-  },
   "Users": {
     "actions": {
       "create": {
@@ -153,6 +153,28 @@
       },
       "status": {
         "label": "Status"
+      }
+    }
+  },
+  "UsersForm": {
+    "actions": {
+      "submit": {
+        "error": "Error on register",
+        "label": "Register"
+      }
+    },
+    "fields": {
+      "email": {
+        "label": "Email"
+      },
+      "groups": {
+        "label": "Groups"
+      },
+      "name": {
+        "label": "Name"
+      },
+      "password": {
+        "label": "Password"
       }
     }
   },
@@ -193,10 +215,17 @@
     "table": {
       "actions": "Actions",
       "empty": "No data to display"
+    },
+    "messages": {
+      "permission-denied": {
+        "title": "",
+        "message": "Missing or insufficient permissions"
+      }
     }
   },
   "menu": {
     "about": "About",
+    "contentTypes": "Content types",
     "groups": "Groups",
     "home": "Home",
     "register": "Register",

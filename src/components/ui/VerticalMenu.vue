@@ -51,6 +51,11 @@ export default {
           text: this.$t('menu.groups'),
           icon: 'info',
         },
+        {
+          routeName: 'ContentTypesList',
+          text: this.$t('menu.contentTypes'),
+          icon: 'info',
+        },
       ],
     }
   },

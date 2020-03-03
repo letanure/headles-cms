@@ -117,6 +117,54 @@ const routes = [
           },
         ],
       },
+      {
+        path: 'content-types',
+        component: () =>
+          import(
+            /* webpackChunkName: "ContentTypes" */
+            '../views/layouts/MainArea.vue'
+          ),
+        children: [
+          {
+            path: '',
+            name: 'ContentTypes',
+            redirect: { name: 'ContentTypesList' },
+          },
+          {
+            path: 'list/:page?',
+            name: 'ContentTypesList',
+            props(route) {
+              const props = { ...route.params }
+              props.page = +props.page
+              return props
+            },
+            component: () =>
+              import(
+                /* webpackChunkName: "ContentTypes" */
+                '@/views/layouts/SectionHome.vue'
+              ),
+          },
+          {
+            path: 'create',
+            name: 'ContentTypesCreate',
+            component: () =>
+              import(
+                /* webpackChunkName: "ContentTypes" */
+                '@/views/layouts/SectionCreate.vue'
+              ),
+          },
+          {
+            path: 'edit/:id',
+            name: 'ContentTypesEdit',
+            props: true,
+            component: () =>
+              import(
+                /* webpackChunkName: "ContentTypes" */
+                '@/views/layouts/SectionEdit.vue'
+              ),
+          },
+        ],
+      },
     ],
   },
   {
