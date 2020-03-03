@@ -1,4 +1,4 @@
-import FirestoreWrapper from '@/firebase/'
+import FirestoreWrapper from '@/firebase/collections/firestoreWrapper.js'
 
 class FirestoreUsers extends FirestoreWrapper {
   constructor(options = {}) {

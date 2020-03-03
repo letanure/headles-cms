@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import SignOut from '@/components/SignOut'
+import SignOut from '@/components/Auth/SignOut'
 import UserInfo from '@/components/ui/UserInfo'
 import VerticalMenu from '@/components/ui/VerticalMenu'
 

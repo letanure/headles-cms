@@ -21,8 +21,8 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import RegisterForm from '@/components/RegisterForm'
-import SignOut from '@/components/SignOut'
+import RegisterForm from '@/components/Auth/RegisterForm'
+import SignOut from '@/components/Auth/SignOut'
 
 export default {
   name: 'Register',

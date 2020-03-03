@@ -62,7 +62,7 @@
           )
           template(slot-scope="scope")
             el-switch(v-model="scope.row.delete")
-        
+
     el-form-item
       el-button(
         native-type="submit"

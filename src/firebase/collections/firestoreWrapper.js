@@ -3,7 +3,7 @@ import { firestore, serverTimestamp } from '@/firebase/firestore'
 import { getPageCollection } from '@/firebase/functions'
 import { MessageBox } from 'element-ui'
 
-function errorMessage(errorCode){
+function errorMessage(errorCode) {
   MessageBox.alert(
     i18n.tc(`general.messages.${errorCode}.message`),
     i18n.tc(`general.messages.${errorCode}.title`),

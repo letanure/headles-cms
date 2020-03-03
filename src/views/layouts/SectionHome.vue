@@ -35,7 +35,8 @@ export default {
       return { name }
     },
     sectionListComponent() {
-      return () => import(`@/components/${this.$route.name}`)
+      const name = this.$route.name.replace('List', '')
+      return () => import(`@/components/${name}/${this.$route.name}`)
     },
   },
 }

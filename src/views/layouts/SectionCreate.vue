@@ -14,7 +14,8 @@ export default {
   computed: {
     sectionFormComponent() {
       const componentFormName = this.$route.name.replace('Create', 'Form')
-      return () => import(`@/components/${componentFormName}`)
+      const name = this.$route.name.replace('Create', '')
+      return () => import(`@/components/${name}/${componentFormName}`)
     },
   },
 

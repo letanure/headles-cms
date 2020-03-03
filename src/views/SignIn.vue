@@ -32,9 +32,9 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import SignInProvider from '@/components/SignInProvider'
-import SignInForm from '@/components/SignInForm'
-import SignOut from '@/components/SignOut'
+import SignInProvider from '@/components/Auth/SignInProvider'
+import SignInForm from '@/components/Auth/SignInForm'
+import SignOut from '@/components/Auth/SignOut'
 
 export default {
   name: 'SignIn',
