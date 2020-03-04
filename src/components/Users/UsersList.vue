@@ -149,21 +149,3 @@ export default {
   },
 }
 </script>
-
-<style lang="stylus">
-.UsersList
-
-  &-pagination
-    margin-top 15px
-    text-align right
-    a
-      text-decoration none
-
-  .el-icon-loading
-    margin-right 5px
-
-  .el-table_1_column_6
-    padding 0
-    a + span
-      margin-left 5px
-</style>
