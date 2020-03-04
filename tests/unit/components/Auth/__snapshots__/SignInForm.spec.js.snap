@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignInForm.vue smoke tests matches snapshot 1`] = `
+<el-form-stub
+  class="SignInForm"
+  labelposition="top"
+  labelsuffix=""
+  model="[object Object]"
+  novalidate="novalidate"
+  rules="[object Object]"
+  showmessage="true"
+  statusicon="true"
+  validateonrulechange="true"
+>
+  <el-form-item-stub
+    inlinemessage=""
+    label="SignInForm.fields.email.label"
+    prop="email"
+    showmessage="true"
+  >
+    <el-input-stub
+      autocomplete="off"
+      type="email"
+      validateevent="true"
+      value=""
+    />
+  </el-form-item-stub>
+  <el-form-item-stub
+    inlinemessage=""
+    label="SignInForm.fields.password.label"
+    prop="password"
+    showmessage="true"
+  >
+    <el-input-stub
+      autocomplete="off"
+      placeholder="SignInForm.fields.password.placeholder"
+      showpassword="true"
+      type="password"
+      validateevent="true"
+      value=""
+    />
+  </el-form-item-stub>
+  <el-form-item-stub
+    inlinemessage=""
+    showmessage="true"
+  >
+    <el-button-stub
+      icon=""
+      nativetype="submit"
+      type="primary"
+    >
+      SignInForm.actions.submit.label
+    </el-button-stub>
+  </el-form-item-stub>
+</el-form-stub>
+`;
