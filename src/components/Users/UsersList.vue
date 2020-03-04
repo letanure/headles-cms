@@ -1,8 +1,8 @@
 <template lang="pug">
   .UsersList
-    el-row.UsersList-table
+    el-row(v-if="list.length === 0" v-loading="loading")
       el-col
-        p(v-if="list.length === 0" v-loading="loading") {{ $t('general.table.empty') }}
+        p {{ $t('general.table.empty') }}
     el-row.UsersList-table
       el-col
         el-table(

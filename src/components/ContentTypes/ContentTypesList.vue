@@ -1,9 +1,8 @@
 <template lang="pug">
   .ContentTypesList
-    h1 ContentTypesList
-    el-row.ContentTypesList-table
+    el-row(v-if="list.length === 0" v-loading="loading")
       el-col
-        p(v-if="list.length === 0" v-loading="loading") {{ $t('general.table.empty') }}
+        p {{ $t('general.table.empty') }}
     el-row.ContentTypesList-table
       el-col
         el-table(
