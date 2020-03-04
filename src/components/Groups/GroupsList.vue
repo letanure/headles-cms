@@ -3,49 +3,49 @@
     el-row(v-if="list.length === 0" v-loading="loading")
       el-col
         p {{ $t('general.table.empty') }}
-    el-row.GroupsList-table(v-if="list.length > 0" v-loading="loading")
-      el-col
-        el-table(
-          v-if="list.length > 0"
-          :data="list"
-          stripe
-          style="width: 100%"
-          )
-          el-table-column(
-            :label="$t('GroupsList.props.name.label')"
-            prop="name"
+    transition(name="fade" mode="out-in")
+      el-row.GroupsList-table(v-if="list.length > 0" v-loading="loading")
+        el-col
+          el-table(
+            v-if="list.length > 0"
+            :data="list"
+            stripe
+            style="width: 100%"
             )
-          el-table-column(
-            :label="$t('GroupsList.props.created.label')"
-            prop="created"
+            el-table-column(
+              :label="$t('GroupsList.props.name.label')"
+              )
+            el-table-column(
+              :label="$t('GroupsList.props.created.label')"
+              prop="created"
+              )
+              template(slot-scope="scope")
+                span {{ new Date(scope.row.created._seconds * 1000 ).toLocaleString('en-GB') }}
+            el-table-column(
+              :label="$t('general.table.actions')"
+              width="220"
             )
-            template(slot-scope="scope")
-              span {{ new Date(scope.row.created._seconds * 1000 ).toLocaleString('en-GB') }}
-          el-table-column(
-            :label="$t('general.table.actions')"
-            width="220"
-          )
-            template(slot-scope="scope")
-              router-link(
-                :to="{ name: 'GroupsEdit', params: {id: scope.row.id} }"
-                )
-                el-button(
-                  plain
-                  size="mini"
-                  type="warning"
-                  v-text="$t('general.actions.edit')"
+              template(slot-scope="scope")
+                router-link(
+                  :to="{ name: 'GroupsEdit', params: {id: scope.row.id} }"
                   )
-              el-popconfirm(
-                  @onConfirm="deleteItem(scope.row.id)"
-                  :title="$t('general.actions.delete.confirm')"
-                  )
-                el-button(
-                  plain
-                  size="mini"
-                  slot="reference"
-                  type="danger"
-                  v-text="$t('general.actions.delete.label')"
-                  )
+                  el-button(
+                    plain
+                    size="mini"
+                    type="warning"
+                    v-text="$t('general.actions.edit')"
+                    )
+                el-popconfirm(
+                    @onConfirm="deleteItem(scope.row.id)"
+                    :title="$t('general.actions.delete.confirm')"
+                    )
+                  el-button(
+                    plain
+                    size="mini"
+                    slot="reference"
+                    type="danger"
+                    v-text="$t('general.actions.delete.label')"
+                    )
     el-row.GroupsList-pagination(v-if="!hidePagination && count !== null && list.length !== 0")
       el-col
         el-pagination(

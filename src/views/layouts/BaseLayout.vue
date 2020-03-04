@@ -22,7 +22,8 @@
               UserInfo
               SignOut
         el-main
-          router-view
+          transition(name="fade" mode="out-in")
+            router-view
         el-footer.BaseLayout-footer
           | BaseLayout-footer
 </template>

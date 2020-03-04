@@ -37,3 +37,14 @@ body
         margin-left 5px
   .el-icon-loading
     margin-right 5px
+
+.fade
+  &-enter
+    opacity 0
+    &-active
+      transition opacity .5s cubic-bezier(0.4, 0, 0.2, 1)
+  &-leave
+    &-active
+      transition opacity .5s cubic-bezier(0.4, 0, 0.2, 1)
+    &-to
+      opacity 0
