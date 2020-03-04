@@ -14,6 +14,7 @@
             )
             el-table-column(
               :label="$t('GroupsList.props.name.label')"
+              prop="name"
               )
             el-table-column(
               :label="$t('GroupsList.props.created.label')"
