@@ -20,21 +20,27 @@
 </template>
 
 <script>
+import { Col, Row } from 'element-ui'
 import { mapGetters } from 'vuex'
 import RegisterForm from '@/components/Auth/RegisterForm'
 import SignOut from '@/components/Auth/SignOut'
 
 export default {
   name: 'Register',
+
   components: {
+    [Col.name]: Col,
+    [Row.name]: Row,
     RegisterForm,
     SignOut,
   },
+
   computed: {
     ...mapGetters({
       user: 'user/user',
     }),
   },
+
   methods: {
     registerSuccess() {
       setTimeout(() => {

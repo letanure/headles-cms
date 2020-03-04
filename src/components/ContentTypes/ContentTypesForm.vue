@@ -28,11 +28,19 @@
 </template>
 
 <script>
+import { Button, Form, FormItem, Input } from 'element-ui'
 import firestoreContentTypes from '@/firebase/collections/contentTypes'
 import '@/directives/blockNavOnChange'
 
 export default {
   name: 'ContentTypesForm',
+
+  components: {
+    [Button.name]: Button,
+    [Form.name]: Form,
+    [FormItem.name]: FormItem,
+    [Input.name]: Input,
+  },
 
   props: {
     id: {

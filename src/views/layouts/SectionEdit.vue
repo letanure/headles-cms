@@ -8,8 +8,15 @@
 </template>
 
 <script>
+import { Col, Row } from 'element-ui'
+
 export default {
   name: 'SectionEdit',
+
+  components: {
+    [Col.name]: Col,
+    [Row.name]: Row,
+  },
 
   props: {
     id: {

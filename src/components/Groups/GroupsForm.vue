@@ -72,11 +72,19 @@
 </template>
 
 <script>
+import { Button, Form, FormItem, Input } from 'element-ui'
 import firestoreGroups from '@/firebase/collections/groups'
 import '@/directives/blockNavOnChange'
 
 export default {
   name: 'GroupsForm',
+
+  components: {
+    [Button.name]: Button,
+    [Form.name]: Form,
+    [FormItem.name]: FormItem,
+    [Input.name]: Input,
+  },
 
   props: {
     id: {

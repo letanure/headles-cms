@@ -15,8 +15,15 @@
 </template>
 
 <script>
+import { Menu, MenuItem } from 'element-ui'
+
 export default {
   name: 'VerticalMenu',
+
+  components: {
+    [Menu.name]: Menu,
+    [MenuItem.name]: MenuItem,
+  },
 
   data() {
     return {

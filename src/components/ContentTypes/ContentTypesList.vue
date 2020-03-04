@@ -60,10 +60,29 @@
 </template>
 
 <script>
+import {
+  Button,
+  Col,
+  Pagination,
+  Popconfirm,
+  Row,
+  Table,
+  TableColumn,
+} from 'element-ui'
 import firestoreContentTypes from '@/firebase/collections/contentTypes'
 
 export default {
   name: 'ContentTypesList',
+
+  components: {
+    [Button.name]: Button,
+    [Col.name]: Col,
+    [Pagination.name]: Pagination,
+    [Popconfirm.name]: Popconfirm,
+    [Row.name]: Row,
+    [Table.name]: Table,
+    [TableColumn.name]: TableColumn,
+  },
 
   props: {
     page: {

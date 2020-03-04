@@ -47,9 +47,18 @@
 </template>
 
 <script>
+import { Button, Form, FormItem, Input } from 'element-ui'
 import { auth } from '@/firebase/auth'
+
 export default {
   name: 'RegisterForm',
+
+  components: {
+    [Button.name]: Button,
+    [Form.name]: Form,
+    [FormItem.name]: FormItem,
+    [Input.name]: Input,
+  },
 
   data() {
     return {

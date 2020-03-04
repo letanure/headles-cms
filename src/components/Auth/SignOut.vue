@@ -8,10 +8,15 @@
 </template>
 
 <script>
+import { Button } from 'element-ui'
 import { auth } from '@/firebase/auth'
 
 export default {
   name: 'SignOut',
+
+  components: {
+    [Button.name]: Button,
+  },
 
   props: {
     buttonType: {

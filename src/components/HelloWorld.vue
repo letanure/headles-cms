@@ -61,8 +61,15 @@
 </template>
 
 <script>
+import { Button } from 'element-ui'
+
 export default {
   name: 'HelloWorld',
+
+  components: {
+    [Button.name]: Button,
+  },
+
   props: {
     msg: {
       type: String,

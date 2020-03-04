@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import { Card, Divider, Col, Row } from 'element-ui'
 import { mapGetters } from 'vuex'
 import SignInProvider from '@/components/Auth/SignInProvider'
 import SignInForm from '@/components/Auth/SignInForm'
@@ -38,16 +39,23 @@ import SignOut from '@/components/Auth/SignOut'
 
 export default {
   name: 'SignIn',
+
   components: {
+    [Card.name]: Card,
+    [Col.name]: Col,
+    [Divider.name]: Divider,
+    [Row.name]: Row,
     SignInForm,
     SignInProvider,
     SignOut,
   },
+
   computed: {
     ...mapGetters({
       user: 'user/user',
     }),
   },
+
   methods: {
     signInSuccess() {
       setTimeout(() => {

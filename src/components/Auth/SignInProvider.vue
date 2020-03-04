@@ -7,10 +7,15 @@
 </template>
 
 <script>
+import { Button } from 'element-ui'
 import { auth, providers } from '@/firebase/auth'
 
 export default {
   name: 'SignInProvider',
+
+  components: {
+    [Button.name]: Button,
+  },
 
   props: {
     provider: {

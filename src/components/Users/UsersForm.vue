@@ -60,12 +60,22 @@
 </template>
 
 <script>
+import { Button, Form, FormItem, Input, Option, Select } from 'element-ui'
 import { firestore } from '@/firebase/firestore'
 import firestoreUsers from '@/firebase/collections/users'
 import '@/directives/blockNavOnChange'
 
 export default {
   name: 'UsersForm',
+
+  components: {
+    [Button.name]: Button,
+    [Form.name]: Form,
+    [FormItem.name]: FormItem,
+    [Input.name]: Input,
+    [Option.name]: Option,
+    [Select.name]: Select,
+  },
 
   props: {
     id: {

@@ -40,9 +40,17 @@
 
 <script>
 import { auth } from '@/firebase/auth'
+import { Button, Form, FormItem, Input } from 'element-ui'
 
 export default {
   name: 'SignInForm',
+
+  components: {
+    [Button.name]: Button,
+    [Form.name]: Form,
+    [FormItem.name]: FormItem,
+    [Input.name]: Input,
+  },
 
   data() {
     return {

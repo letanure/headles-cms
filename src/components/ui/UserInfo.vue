@@ -12,10 +12,15 @@
 </template>
 
 <script>
+import { Avatar } from 'element-ui'
 import { mapGetters } from 'vuex'
 
 export default {
   name: 'UserInfo',
+
+  components: {
+    [Avatar.name]: Avatar,
+  },
 
   computed: {
     ...mapGetters({

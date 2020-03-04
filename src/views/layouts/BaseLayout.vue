@@ -29,6 +29,18 @@
 </template>
 
 <script>
+import {
+  Aside,
+  Button,
+  Col,
+  Container,
+  Footer,
+  Header,
+  Icon,
+  Main,
+  Menu,
+  Row,
+} from 'element-ui'
 import SignOut from '@/components/Auth/SignOut'
 import UserInfo from '@/components/ui/UserInfo'
 import VerticalMenu from '@/components/ui/VerticalMenu'
@@ -37,6 +49,17 @@ export default {
   name: 'BaseLayout',
 
   components: {
+    [Button.name]: Button,
+    [Aside.name]: Aside,
+    [Button.name]: Button,
+    [Col.name]: Col,
+    [Container.name]: Container,
+    [Footer.name]: Footer,
+    [Header.name]: Header,
+    [Icon.name]: Icon,
+    [Main.name]: Main,
+    [Menu.name]: Menu,
+    [Row.name]: Row,
     SignOut,
     UserInfo,
     VerticalMenu,
