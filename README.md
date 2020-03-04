@@ -1,3 +1,5 @@
+[![CircleCI](https://img.shields.io/circleci/project/github/letanure/headles-cms.svg)](https://circleci.com/gh/letanure/headles-cms)
+
 # headles-cms
 
 ## Project setup
