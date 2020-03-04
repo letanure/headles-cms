@@ -7,10 +7,10 @@
       el-row.UsersList-table(v-if="list.length > 0" v-loading="loading")
         el-col
           el-table(
-            v-if="list.length > 0"
             :data="list"
             stripe
             style="width: 100%"
+            v-if="list.length > 0"
             )
             el-table-column(
               :label="$t('Users.props.name.label')"
@@ -43,7 +43,7 @@
             el-table-column(
               :label="$t('general.table.actions')"
               width="220"
-            )
+              )
               template(slot-scope="scope")
                 router-link(
                   :to="{ name: 'UsersEdit', params: {id: scope.row.id} }"
@@ -76,11 +76,11 @@
           @current-change="handleCurrentChange"
           background
           layout="prev, pager, next"
-        )
+          )
 </template>
 
 <script>
-import firestoreUsers from '@/firebase/collections/users.js'
+import firestoreUsers from '@/firebase/collections/users'
 import { mapGetters } from 'vuex'
 
 export default {

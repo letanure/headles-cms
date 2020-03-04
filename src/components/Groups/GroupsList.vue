@@ -7,10 +7,10 @@
       el-row.GroupsList-table(v-if="list.length > 0" v-loading="loading")
         el-col
           el-table(
-            v-if="list.length > 0"
             :data="list"
             stripe
             style="width: 100%"
+            v-if="list.length > 0"
             )
             el-table-column(
               :label="$t('GroupsList.props.name.label')"
@@ -25,7 +25,7 @@
             el-table-column(
               :label="$t('general.table.actions')"
               width="220"
-            )
+              )
               template(slot-scope="scope")
                 router-link(
                   :to="{ name: 'GroupsEdit', params: {id: scope.row.id} }"
@@ -56,11 +56,11 @@
           @current-change="handleCurrentChange"
           background
           layout="prev, pager, next"
-        )
+          )
 </template>
 
 <script>
-import firestoreGroups from '@/firebase/collections/groups.js'
+import firestoreGroups from '@/firebase/collections/groups'
 
 export default {
   name: 'GroupsList',

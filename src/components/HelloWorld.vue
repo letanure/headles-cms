@@ -72,7 +72,7 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style lang="stylus">
 .HelloWorld
   h3
     margin 40px 0 0

@@ -2,8 +2,8 @@ import Vue from 'vue'
 import store from '@/store/'
 import { cloneDeep, isEqual } from 'lodash-es'
 
-let valueStored = false
 let originalValue = null
+let valueStored = false
 
 Vue.directive('blockNavOnChange', {
   update: function(el, binding) {

@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { auth, providers } from '@/firebase/auth.js'
+import { auth, providers } from '@/firebase/auth'
 
 export default {
   name: 'SignInProvider',

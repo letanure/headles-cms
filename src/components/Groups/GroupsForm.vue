@@ -17,12 +17,12 @@
       el-input(
         type="text"
         v-model="formData.name"
-      )
+        )
 
     el-form-item(
       :label="$t('GroupsForm.fields.permissions.label')"
       prop="collections"
-    )
+      )
       el-table(
         :data="formData.collections"
         stripe
@@ -72,8 +72,8 @@
 </template>
 
 <script>
-import firestoreGroups from '@/firebase/collections/groups.js'
-import '@/directives/blockNavOnChange.js'
+import firestoreGroups from '@/firebase/collections/groups'
+import '@/directives/blockNavOnChange'
 
 export default {
   name: 'GroupsForm',
@@ -93,27 +93,27 @@ export default {
         name: '',
         collections: [
           {
+            create: false,
+            delete: false,
+            get: false,
+            list: false,
             name: 'groups',
+            update: false,
+          },
+          {
             create: false,
             delete: false,
             get: false,
             list: false,
-            update: false,
-          },
-          {
             name: 'users',
-            create: false,
-            delete: false,
-            get: false,
-            list: false,
             update: false,
           },
           {
-            name: 'contentTypes',
             create: false,
             delete: false,
             get: false,
             list: false,
+            name: 'contentTypes',
             update: false,
           },
         ],
@@ -121,13 +121,13 @@ export default {
       formRules: {
         name: [
           {
-            required: true,
             message: this.$t('validation.required'),
+            required: true,
             trigger: 'blur',
           },
           {
-            min: 5,
             message: this.$t('validation.min', { min: 5 }),
+            min: 5,
             trigger: 'blur',
           },
         ],

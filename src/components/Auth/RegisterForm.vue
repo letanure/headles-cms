@@ -35,7 +35,7 @@
         show-password
         type="password"
         v-model="formData.password"
-      )
+        )
 
     el-form-item
       el-button(
@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import { auth } from '@/firebase/auth.js'
+import { auth } from '@/firebase/auth'
 export default {
   name: 'RegisterForm',
 
@@ -61,37 +61,37 @@ export default {
       formRules: {
         email: [
           {
-            required: true,
             message: this.$t('validation.required'),
+            required: true,
             trigger: 'blur',
           },
           {
-            type: 'email',
             message: this.$t('validation.email'),
             trigger: ['blur', 'change'],
+            type: 'email',
           },
         ],
         name: [
           {
-            required: true,
             message: this.$t('validation.required'),
+            required: true,
             trigger: 'blur',
           },
           {
-            min: 2,
             message: this.$t('validation.min', { min: 2 }),
+            min: 2,
             trigger: 'blur',
           },
         ],
         password: [
           {
-            required: true,
             message: this.$t('validation.required'),
+            required: true,
             trigger: 'blur',
           },
           {
-            min: 6,
             message: this.$t('validation.min', { min: 6 }),
+            min: 6,
             trigger: 'blur',
           },
         ],

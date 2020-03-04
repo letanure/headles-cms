@@ -1,14 +1,14 @@
 <template lang="pug">
   .VerticalMenu
     el-menu(
-      default-active="1"
       :router="true"
+      default-active="1"
       )
       el-menu-item(
-        v-for='(menuItem, index) in menuItems'
-        :key='index' 
         :index="menuItem.routeName" 
+        :key='index' 
         :route="{name: menuItem.routeName}"
+        v-for='(menuItem, index) in menuItems'
         )
         i(:class='`el-icon-${menuItem.icon}`')
         span(v-text="menuItem.text")
@@ -22,39 +22,39 @@ export default {
     return {
       menuItems: [
         {
+          icon: 's-home',
           routeName: 'Home',
           text: this.$t('menu.home'),
-          icon: 's-home',
         },
         {
+          icon: 'info',
           routeName: 'About',
           text: this.$t('menu.about'),
-          icon: 'info',
         },
         {
+          icon: 'info',
           routeName: 'SignIn',
           text: this.$t('menu.signIn'),
-          icon: 'info',
         },
         {
+          icon: 'info',
           routeName: 'Register',
           text: this.$t('menu.register'),
-          icon: 'info',
         },
         {
+          icon: 'info',
           routeName: 'UsersList',
           text: this.$t('menu.users'),
-          icon: 'info',
         },
         {
+          icon: 'info',
           routeName: 'GroupsList',
           text: this.$t('menu.groups'),
-          icon: 'info',
         },
         {
+          icon: 'info',
           routeName: 'ContentTypesList',
           text: this.$t('menu.contentTypes'),
-          icon: 'info',
         },
       ],
     }
@@ -66,6 +66,7 @@ export default {
 .VerticalMenu
   position relative
   z-index 1
+
   .el-menu
     min-height 100vh
 </style>

@@ -2,9 +2,9 @@
   span.UserInfo(v-if="user && user.data")
     el-avatar(
       :alt="user.data.displayName"
+      :size="40"
       :src="user.data.photoURL"
       fit="fill"
-      :size="40"
       v-loading="!user"
       )
       i.el-icon-user-solid
@@ -33,10 +33,12 @@ export default {
   overflow hidden
   vertical-align middle
   width 40px
+
   .el-avatar
     background-color teal
+
   .el-icon-user-solid
+    color white
     font-size 22px
     line-height 38px
-    color white
 </style>

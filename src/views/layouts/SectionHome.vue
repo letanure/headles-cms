@@ -43,8 +43,10 @@ export default {
 </script>
 <style lang="stylus">
 .SectionHome
+
   .el-row
     margin-bottom 15px
+
   [class*='-pagination']
     text-align right
     a

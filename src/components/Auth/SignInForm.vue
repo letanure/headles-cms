@@ -16,7 +16,7 @@
       el-input(
         type="email"
         v-model="formData.email"
-      )
+        )
 
     el-form-item(
       :label="$t('SignInForm.fields.password.label')"
@@ -27,7 +27,7 @@
         show-password
         type="password"
         v-model="formData.password"
-      )
+        )
 
     el-form-item
       el-button(
@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import { auth } from '@/firebase/auth.js'
+import { auth } from '@/firebase/auth'
 
 export default {
   name: 'SignInForm',
@@ -53,25 +53,25 @@ export default {
       formRules: {
         email: [
           {
-            required: true,
             message: this.$t('validation.required'),
+            required: true,
             trigger: 'blur',
           },
           {
-            type: 'email',
             message: this.$t('validation.email'),
             trigger: ['blur', 'change'],
+            type: 'email',
           },
         ],
         password: [
           {
-            min: 6,
             message: this.$t('validation.min', { min: 6 }),
+            min: 6,
             trigger: 'blur',
           },
           {
-            required: true,
             message: this.$t('validation.required'),
+            required: true,
             trigger: 'blur',
           },
         ],

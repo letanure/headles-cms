@@ -28,8 +28,8 @@
 </template>
 
 <script>
-import firestoreContentTypes from '@/firebase/collections/contentTypes.js'
-import '@/directives/blockNavOnChange.js'
+import firestoreContentTypes from '@/firebase/collections/contentTypes'
+import '@/directives/blockNavOnChange'
 
 export default {
   name: 'ContentTypesForm',
@@ -51,13 +51,13 @@ export default {
       formRules: {
         name: [
           {
-            required: true,
             message: this.$t('validation.required'),
+            required: true,
             trigger: 'blur',
           },
           {
-            min: 5,
             message: this.$t('validation.min', { min: 5 }),
+            min: 5,
             trigger: 'blur',
           },
         ],

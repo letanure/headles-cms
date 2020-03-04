@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import store from '@/store/'
-import BaseLayout from '@/views/layouts/BaseLayout.vue'
+import BaseLayout from '@/views/layouts/BaseLayout'
 import { auth } from '@/firebase/auth'
 
 Vue.use(VueRouter)
@@ -14,21 +14,18 @@ const routes = [
       {
         path: '',
         name: 'Home',
-        component: () =>
-          import(/* webpackChunkName: "Home" */ '../views/Home.vue'),
+        component: () => import(/* webpackChunkName: "Home" */ '../views/Home'),
       },
       {
         path: 'about',
         name: 'About',
         component: () =>
-          import(/* webpackChunkName: "About" */ '../views/About.vue'),
+          import(/* webpackChunkName: "About" */ '../views/About'),
       },
       {
         path: 'users',
         component: () =>
-          import(
-            /* webpackChunkName: "Users" */ '../views/layouts/MainArea.vue'
-          ),
+          import(/* webpackChunkName: "Users" */ '../views/layouts/MainArea'),
         children: [
           {
             path: '',
@@ -46,7 +43,7 @@ const routes = [
             component: () =>
               import(
                 /* webpackChunkName: "Users" */
-                '@/views/layouts/SectionHome.vue'
+                '@/views/layouts/SectionHome'
               ),
           },
           {
@@ -55,7 +52,7 @@ const routes = [
             component: () =>
               import(
                 /* webpackChunkName: "Users" */
-                '@/views/layouts/SectionCreate.vue'
+                '@/views/layouts/SectionCreate'
               ),
           },
           {
@@ -65,7 +62,7 @@ const routes = [
             component: () =>
               import(
                 /* webpackChunkName: "Users" */
-                '@/views/layouts/SectionEdit.vue'
+                '@/views/layouts/SectionEdit'
               ),
           },
         ],
@@ -73,9 +70,7 @@ const routes = [
       {
         path: 'groups',
         component: () =>
-          import(
-            /* webpackChunkName: "Groups" */ '../views/layouts/MainArea.vue'
-          ),
+          import(/* webpackChunkName: "Groups" */ '../views/layouts/MainArea'),
         children: [
           {
             path: '',
@@ -93,7 +88,7 @@ const routes = [
             component: () =>
               import(
                 /* webpackChunkName: "Groups" */
-                '@/views/layouts/SectionHome.vue'
+                '@/views/layouts/SectionHome'
               ),
           },
           {
@@ -102,7 +97,7 @@ const routes = [
             component: () =>
               import(
                 /* webpackChunkName: "Groups" */
-                '@/views/layouts/SectionCreate.vue'
+                '@/views/layouts/SectionCreate'
               ),
           },
           {
@@ -112,7 +107,7 @@ const routes = [
             component: () =>
               import(
                 /* webpackChunkName: "Groups" */
-                '@/views/layouts/SectionEdit.vue'
+                '@/views/layouts/SectionEdit'
               ),
           },
         ],
@@ -122,7 +117,7 @@ const routes = [
         component: () =>
           import(
             /* webpackChunkName: "ContentTypes" */
-            '../views/layouts/MainArea.vue'
+            '../views/layouts/MainArea'
           ),
         children: [
           {
@@ -141,7 +136,7 @@ const routes = [
             component: () =>
               import(
                 /* webpackChunkName: "ContentTypes" */
-                '@/views/layouts/SectionHome.vue'
+                '@/views/layouts/SectionHome'
               ),
           },
           {
@@ -150,7 +145,7 @@ const routes = [
             component: () =>
               import(
                 /* webpackChunkName: "ContentTypes" */
-                '@/views/layouts/SectionCreate.vue'
+                '@/views/layouts/SectionCreate'
               ),
           },
           {
@@ -160,7 +155,7 @@ const routes = [
             component: () =>
               import(
                 /* webpackChunkName: "ContentTypes" */
-                '@/views/layouts/SectionEdit.vue'
+                '@/views/layouts/SectionEdit'
               ),
           },
         ],
@@ -170,14 +165,13 @@ const routes = [
   {
     path: '/login',
     name: 'SignIn',
-    component: () =>
-      import(/* webpackChunkName: "SignIn" */ '../views/SignIn.vue'),
+    component: () => import(/* webpackChunkName: "SignIn" */ '../views/SignIn'),
   },
   {
     path: '/register',
     name: 'Register',
     component: () =>
-      import(/* webpackChunkName: "Register" */ '../views/Register.vue'),
+      import(/* webpackChunkName: "Register" */ '../views/Register'),
   },
 ]
 

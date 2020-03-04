@@ -60,9 +60,11 @@ export default {
 
 <style lang="stylus">
 .SignIn
+
   &-providers
     flex-wrap wrap
     text-align center
+
     .el-col
       margin-bottom 10px
 </style>
