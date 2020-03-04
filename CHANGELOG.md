@@ -1,3 +1,15 @@
+# [1.20.0](https://github.com/letanure/headles-cms/compare/v1.19.0...v1.20.0) (2020-03-04)
+
+
+### Bug Fixes
+
+* form edit block only if changed after first load of data ([e7538b1](https://github.com/letanure/headles-cms/commit/e7538b1d8fda4faa17462ab56133368967bb5900))
+
+
+### Features
+
+* use inter font ([d099b85](https://github.com/letanure/headles-cms/commit/d099b85b8009362cf3277eb8f28a46f95e5d5f60))
+
 # [1.19.0](https://github.com/letanure/headles-cms/compare/v1.18.1...v1.19.0) (2020-03-03)
 
 
