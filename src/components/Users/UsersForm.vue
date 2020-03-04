@@ -7,7 +7,7 @@
     novalidate
     ref="UsersForm"
     status-icon
-    v-formChange="{...formData, id}"
+    v-blockNavOnChange="{...formData, id}"
     )
 
     el-form-item(
@@ -62,7 +62,7 @@
 <script>
 import { firestore } from '@/firebase/firestore'
 import firestoreUsers from '@/firebase/collections/users.js'
-import '@/directives/formChange.js'
+import '@/directives/blockNavOnChange.js'
 
 export default {
   name: 'UsersForm',

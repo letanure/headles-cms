@@ -6,7 +6,7 @@ let valueStored = false
 let originalValue = null
 let countDataChanged = 0
 
-Vue.directive('formChange', {
+Vue.directive('blockNavOnChange', {
   update: function(el, binding) {
     countDataChanged += 1
     const isEdit = binding.value.id !== null
