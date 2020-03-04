@@ -3,14 +3,13 @@
     el-row(v-if="list.length === 0" v-loading="loading")
       el-col
         p {{ $t('general.table.empty') }}
-    el-row.ContentTypesList-table
+    el-row.ContentTypesList-table(v-if="list.length > 0" v-loading="loading")
       el-col
         el-table(
           v-if="list.length > 0"
           :data="list"
           stripe
           style="width: 100%"
-          v-loading="loading"
           )
           el-table-column(
             :label="$t('ContentTypesList.props.name.label')"
