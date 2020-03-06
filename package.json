@@ -60,7 +60,7 @@
     "vue-cli-plugin-i18n": "^0.6.1",
     "vue-cli-plugin-pug": "^1.0.7",
     "vue-template-compiler": "^2.6.10",
-    "webpack": "^4.41.6"
+    "webpack": "^4.42.0"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
