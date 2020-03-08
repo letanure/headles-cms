@@ -6,6 +6,9 @@
       }
     },
     "fields": {
+      "description": {
+        "label": "Description"
+      },
       "name": {
         "label": "Name"
       }
@@ -201,6 +204,12 @@
       },
       "edit": "Edit"
     },
+    "messages": {
+      "permission-denied": {
+        "message": "Missing or insufficient permissions",
+        "title": ""
+      }
+    },
     "pagination": {
       "next": "Next Page",
       "previous": "Previous Page"
@@ -215,12 +224,6 @@
     "table": {
       "actions": "Actions",
       "empty": "No data to display"
-    },
-    "messages": {
-      "permission-denied": {
-        "title": "",
-        "message": "Missing or insufficient permissions"
-      }
     }
   },
   "menu": {

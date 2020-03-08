@@ -18,6 +18,15 @@
         type="text"
         v-model="formData.name"
       )
+    
+    el-form-item(
+      :label="$t('ContentTypesForm.fields.description.label')"
+      prop="description"
+      )
+      el-input(
+        type="text"
+        v-model="formData.description"
+      )
 
     el-form-item
       el-button(
@@ -55,6 +64,7 @@ export default {
       itemRef: null,
       formData: {
         name: '',
+        description: '',
       },
       formRules: {
         name: [
@@ -69,6 +79,18 @@ export default {
             trigger: 'blur',
           },
         ],
+        description: [
+          {
+            message: this.$t('validation.required'),
+            required: true,
+            trigger: 'blur',
+          },
+          {
+            message: this.$t('validation.min', { min: 5 }),
+            min: 5,
+            trigger: 'blur',
+          },
+        ]
       },
     }
   },
