@@ -39,14 +39,3 @@ exports[`ContentTypesForm.vue smoke tests matches snapshot 1`] = `
   </el-form-item-stub>
 </el-form-stub>
 `;
-
-exports[`SignOut.vue smoke tests matches snapshot 1`] = `
-<el-button-stub
-  class="SignOut"
-  icon=""
-  nativetype="button"
-  type="primary"
->
-  SignOut.label
-</el-button-stub>
-`;
