@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectFieldType.vue smoke tests matches snapshot 1`] = `
+<el-select-stub
+  autocomplete="off"
+  class="SelectField"
+  multiplelimit="0"
+  placeholder="Select"
+  popperappendtobody="true"
+  value="text"
+  valuekey="value"
+>
+  <el-option-stub
+    label="fieldTyle.checkbox.label"
+    value="checkbox"
+  />
+  <el-option-stub
+    label="fieldTyle.color.label"
+    value="color"
+  />
+  <el-option-stub
+    label="fieldTyle.date.label"
+    value="date"
+  />
+  <el-option-stub
+    label="fieldTyle.email.label"
+    value="email"
+  />
+  <el-option-stub
+    label="fieldTyle.month.label"
+    value="month"
+  />
+  <el-option-stub
+    label="fieldTyle.number.label"
+    value="number"
+  />
+  <el-option-stub
+    label="fieldTyle.password.label"
+    value="password"
+  />
+  <el-option-stub
+    label="fieldTyle.radio.label"
+    value="radio"
+  />
+  <el-option-stub
+    label="fieldTyle.range.label"
+    value="range"
+  />
+  <el-option-stub
+    label="fieldTyle.tel.label"
+    value="tel"
+  />
+  <el-option-stub
+    label="fieldTyle.text.label"
+    value="text"
+  />
+  <el-option-stub
+    label="fieldTyle.time.label"
+    value="time"
+  />
+  <el-option-stub
+    label="fieldTyle.url.label"
+    value="url"
+  />
+  <el-option-stub
+    label="fieldTyle.week.label"
+    value="week"
+  />
+</el-select-stub>
+`;
