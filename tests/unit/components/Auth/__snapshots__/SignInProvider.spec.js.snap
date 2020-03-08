@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignInProvider.vue smoke tests matches snapshot 1`] = `
+<el-button-stub
+  class="SignInProvider"
+  icon=""
+  nativetype="button"
+  type="default"
+>
+  SignInProvider.facebook.label
+</el-button-stub>
+`;
