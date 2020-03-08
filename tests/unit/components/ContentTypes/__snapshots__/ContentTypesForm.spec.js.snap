@@ -38,9 +38,6 @@ exports[`ContentTypesForm.vue smoke tests matches snapshot 1`] = `
       value=""
     />
   </el-form-item-stub>
-  <pre>
-    form []
-  </pre>
   <el-form-item-stub
     inlinemessage=""
     label="ContentTypesForm.fields.items.label"
