@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RegisterForm.vue smoke tests matches snapshot 1`] = `
+<el-form-stub
+  class="RegisterForm"
+  labelposition="top"
+  labelsuffix=""
+  model="[object Object]"
+  novalidate="novalidate"
+  rules="[object Object]"
+  showmessage="true"
+  statusicon="true"
+  validateonrulechange="true"
+>
+  <el-form-item-stub
+    inlinemessage=""
+    label="RegisterForm.fields.name.label"
+    prop="name"
+    showmessage="true"
+  >
+    <el-input-stub
+      autocomplete="off"
+      type="text"
+      validateevent="true"
+      value=""
+    />
+  </el-form-item-stub>
+  <el-form-item-stub
+    inlinemessage=""
+    label="RegisterForm.fields.email.label"
+    prop="email"
+    showmessage="true"
+  >
+    <el-input-stub
+      autocomplete="off"
+      type="email"
+      validateevent="true"
+      value=""
+    />
+  </el-form-item-stub>
+  <el-form-item-stub
+    inlinemessage=""
+    label="RegisterForm.fields.password.label"
+    prop="password"
+    showmessage="true"
+  >
+    <el-input-stub
+      autocomplete="off"
+      showpassword="true"
+      type="password"
+      validateevent="true"
+      value=""
+    />
+  </el-form-item-stub>
+  <el-form-item-stub
+    inlinemessage=""
+    showmessage="true"
+  >
+    <el-button-stub
+      icon=""
+      nativetype="submit"
+      type="primary"
+    >
+      RegisterForm.actions.submit.label
+    </el-button-stub>
+  </el-form-item-stub>
+</el-form-stub>
+`;
