@@ -1,3 +1,13 @@
+# [1.21.0](https://github.com/letanure/headles-cms/compare/v1.20.0...v1.21.0) (2020-03-08)
+
+
+### Features
+
+* add content type description data ([53fdf42](https://github.com/letanure/headles-cms/commit/53fdf42ab1217fdb5683df7068159add4669c393))
+* add elect field types ([0a02288](https://github.com/letanure/headles-cms/commit/0a02288aab96fb9dc22c9a5dc847298a7048930e))
+* add fields list in comntent type ([63deaa7](https://github.com/letanure/headles-cms/commit/63deaa7416bd141c1863640f5b022a2a5bf596df))
+* add firlds list in contemt type ([cbcf182](https://github.com/letanure/headles-cms/commit/cbcf182797e13676794ffd7ac8b1b6795e5d6cba))
+
 # [1.20.0](https://github.com/letanure/headles-cms/compare/v1.19.0...v1.20.0) (2020-03-04)
 
 
