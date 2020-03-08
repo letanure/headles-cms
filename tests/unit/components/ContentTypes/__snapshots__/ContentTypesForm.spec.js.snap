@@ -27,6 +27,32 @@ exports[`ContentTypesForm.vue smoke tests matches snapshot 1`] = `
   </el-form-item-stub>
   <el-form-item-stub
     inlinemessage=""
+    label="ContentTypesForm.fields.description.label"
+    prop="description"
+    showmessage="true"
+  >
+    <el-input-stub
+      autocomplete="off"
+      type="text"
+      validateevent="true"
+      value=""
+    />
+  </el-form-item-stub>
+  <pre>
+    form []
+  </pre>
+  <el-form-item-stub
+    inlinemessage=""
+    label="ContentTypesForm.fields.items.label"
+    prop="items"
+    showmessage="true"
+  >
+    <fieldslist-stub
+      value=""
+    />
+  </el-form-item-stub>
+  <el-form-item-stub
+    inlinemessage=""
     showmessage="true"
   >
     <el-button-stub

@@ -27,7 +27,13 @@
         type="text"
         v-model="formData.description"
       )
-
+    
+    el-form-item(
+      :label="$t('ContentTypesForm.fields.items.label')"
+      prop="items"
+      )
+      FieldsList(v-model="formData.items")
+    
     el-form-item
       el-button(
         native-type="submit"
@@ -38,6 +44,7 @@
 
 <script>
 import { Button, Form, FormItem, Input } from 'element-ui'
+import FieldsList from '@/components/ContentTypes/FieldsList'
 import firestoreContentTypes from '@/firebase/collections/contentTypes'
 import '@/directives/blockNavOnChange'
 
@@ -49,6 +56,7 @@ export default {
     [Form.name]: Form,
     [FormItem.name]: FormItem,
     [Input.name]: Input,
+    FieldsList,
   },
 
   props: {
@@ -65,6 +73,7 @@ export default {
       formData: {
         name: '',
         description: '',
+        items: [],
       },
       formRules: {
         name: [
@@ -90,7 +99,14 @@ export default {
             min: 5,
             trigger: 'blur',
           },
-        ]
+        ],
+        items: [
+          {
+            message: this.$t('validation.required'),
+            required: true,
+            trigger: 'blur',
+          },
+        ],
       },
     }
   },

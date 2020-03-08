@@ -9,6 +9,9 @@
       "description": {
         "label": "Description"
       },
+      "items": {
+        "label": "Items"
+      },
       "name": {
         "label": "Name"
       }
@@ -196,8 +199,55 @@
     "weak_password": "Password should be at least 6 characters",
     "wrong_password": "The password is invalid"
   },
+  "fieldTyle": {
+    "checkbox": {
+      "label": "Checkbox"
+    },
+    "color": {
+      "label": "Color"
+    },
+    "date": {
+      "label": "Date"
+    },
+    "email": {
+      "label": "Email"
+    },
+    "month": {
+      "label": "Month"
+    },
+    "number": {
+      "label": "Number"
+    },
+    "password": {
+      "label": "Password"
+    },
+    "radio": {
+      "label": "Radio"
+    },
+    "range": {
+      "label": "Range"
+    },
+    "tel": {
+      "label": "telephone"
+    },
+    "text": {
+      "label": "Text"
+    },
+    "time": {
+      "label": "Time"
+    },
+    "url": {
+      "label": "URL"
+    },
+    "week": {
+      "label": "Week"
+    }
+  },
   "general": {
     "actions": {
+      "add": {
+        "label": "Add"
+      },
       "delete": {
         "confirm": "Are you sure to delete this?",
         "label": "Delete"
