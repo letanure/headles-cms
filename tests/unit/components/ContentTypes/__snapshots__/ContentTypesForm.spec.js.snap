@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContentTypesForm.vue smoke tests matches snapshot 1`] = `
+<el-form-stub
+  class="ContentTypesForm"
+  labelposition="top"
+  labelsuffix=""
+  model="[object Object]"
+  novalidate="novalidate"
+  rules="[object Object]"
+  showmessage="true"
+  statusicon="true"
+  validateonrulechange="true"
+>
+  <el-form-item-stub
+    inlinemessage=""
+    label="ContentTypesForm.fields.name.label"
+    prop="name"
+    showmessage="true"
+  >
+    <el-input-stub
+      autocomplete="off"
+      type="text"
+      validateevent="true"
+      value=""
+    />
+  </el-form-item-stub>
+  <el-form-item-stub
+    inlinemessage=""
+    showmessage="true"
+  >
+    <el-button-stub
+      icon=""
+      nativetype="submit"
+      type="primary"
+    >
+      ContentTypesForm.actions.submit.label
+    </el-button-stub>
+  </el-form-item-stub>
+</el-form-stub>
+`;
+
+exports[`SignOut.vue smoke tests matches snapshot 1`] = `
+<el-button-stub
+  class="SignOut"
+  icon=""
+  nativetype="button"
+  type="primary"
+>
+  SignOut.label
+</el-button-stub>
+`;
