@@ -8,7 +8,7 @@ describe(`${Component.name}.vue`, () => {
   beforeEach(() => {
     wrapper = shallowMount(Component, {
       propsData: {
-        value: 'text'
+        value: 'text',
       },
       mocks: {
         $t: (msg) => msg,
