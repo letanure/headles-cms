@@ -7,6 +7,7 @@
       label-width="140px"
       novalidate
       ref="FieldConfigForm"
+      size="small"
       status-icon
       )
       el-form-item(
@@ -14,23 +15,66 @@
         prop="type"
         )
         SelectFieldType(v-model="config.type")
+      
       el-form-item(
-        label="Type"
+        v-for="(propConfig, index) in inputTypes[config.type].props"
+        :label="$t(`propConfig.${propConfig.name}`)"
         prop="type"
         )
-        el-input(
-          type="text"
-          v-model="config.type"
+        
+        el-select(
+          :filterable="propConfig.filterable"
+          :placeholder="propConfig.placeholder"
+          v-if="propConfig.is === 'el-select'"
+          v-model="config[propConfig.name]"
           )
+          el-option(
+            v-for="option in propConfig.options"
+            :key="option.value" 
+            :label="option.label"
+            :value="option.value"
+            )
+            template(v-if="propConfig.custom === 'icon'")
+              div.select-icon
+                span(:class="option.value")
+                span(v-text="option.label")
+        
+        el-radio-group(
+          v-else-if="propConfig.is === 'el-radio-group'"
+          v-model="config[propConfig.name]"
+          )
+          el-radio-button(
+            v-for="option in propConfig.options"
+            :key="option.value" 
+            :label="option.value"
+            )
+            span(v-text="option.label")
+        
+        component(
+          :is="propConfig.is" 
+          v-else
+          v-model="config[propConfig.name]"
+          )
+      
     //- pre {{ config }}
 </template>
 
 <script>
-import { Col, Form, FormItem, Input, Row } from 'element-ui'
+import {
+  Col,
+  Form,
+  FormItem,
+  Input,
+  InputNumber,
+  Option,
+  RadioButton,
+  RadioGroup,
+  Row,
+  Select,
+  Switch,
+} from 'element-ui'
 import SelectFieldType from '@/components/ContentTypes/SelectFieldType'
 import InputTypes from '@/components/ContentTypes/FieldTypes.ts'
-
-console.log(InputTypes)
 
 export default {
   name: 'FieldConfig',
@@ -40,7 +84,13 @@ export default {
     [Form.name]: Form,
     [FormItem.name]: FormItem,
     [Input.name]: Input,
+    [InputNumber.name]: InputNumber,
+    [Option.name]: Option,
+    [RadioButton.name]: RadioButton,
+    [RadioGroup.name]: RadioGroup,
     [Row.name]: Row,
+    [Select.name]: Select,
+    [Switch.name]: Switch,
     SelectFieldType,
   },
 
@@ -54,6 +104,7 @@ export default {
 
   data() {
     return {
+      inputTypes: InputTypes,
       formRules: {
         type: [
           {

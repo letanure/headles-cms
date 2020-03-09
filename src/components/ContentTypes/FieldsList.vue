@@ -5,10 +5,11 @@
         v-for="(item, index) in itemsFields"
         :key="index"
         )
-        FieldConfig(v-model="itemsFields[index]")
-        //- el-row
+        el-row
           el-col(:span="24")
-          //- el-col(:span="4")
+            FieldConfig(v-model="itemsFields[index]")
+        el-row
+          el-col(:span="24")
             el-button(
               @click="remove(index)"
               type="danger"
