@@ -1,3 +1,12 @@
+# [1.22.0](https://github.com/letanure/headles-cms/compare/v1.21.0...v1.22.0) (2020-03-09)
+
+
+### Features
+
+* add config basic form field types ([3746abc](https://github.com/letanure/headles-cms/commit/3746abcb87253b9bd3f6e2236152d7f89eafe714))
+* add field types and props types ([f1b00e4](https://github.com/letanure/headles-cms/commit/f1b00e406bb8e1682e6522c93ec8517e9b6bebb5))
+* init field config form ([f59a4dc](https://github.com/letanure/headles-cms/commit/f59a4dc19d5434dc2598223b611ec01d8fa88695))
+
 # [1.21.0](https://github.com/letanure/headles-cms/compare/v1.20.0...v1.21.0) (2020-03-08)
 
 
