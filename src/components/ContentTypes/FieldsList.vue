@@ -4,11 +4,11 @@
       el-card(
         v-for="(item, index) in itemsFields"
         :key="index"
-      )
-        el-row
-          el-col(:span="20")
-            SelectFieldType(v-model="item.type")
-          el-col(:span="4")
+        )
+        FieldConfig(v-model="itemsFields[index]")
+        //- el-row
+          el-col(:span="24")
+          //- el-col(:span="4")
             el-button(
               @click="remove(index)"
               type="danger"
@@ -23,7 +23,7 @@
 
 <script>
 import { Button, Card, Col, Option, Row, Select } from 'element-ui'
-import SelectFieldType from '@/components/ContentTypes/SelectFieldType'
+import FieldConfig from '@/components/ContentTypes/FieldConfig'
 
 export default {
   name: 'FieldsList',
@@ -35,7 +35,7 @@ export default {
     [Option.name]: Option,
     [Row.name]: Row,
     [Select.name]: Select,
-    SelectFieldType,
+    FieldConfig,
   },
 
   props: {
