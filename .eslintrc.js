@@ -1,9 +1,17 @@
 module.exports = {
   root: true,
+
   env: {
     node: true,
   },
-  extends: ['@vue/prettier', 'eslint:recommended', 'plugin:vue/recommended'],
+
+  extends: [
+    '@vue/prettier',
+    'eslint:recommended',
+    'plugin:vue/recommended',
+    '@vue/typescript',
+  ],
+
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
@@ -164,9 +172,11 @@ module.exports = {
     'vue/valid-v-bind-sync': 'error',
     'vue/valid-v-slot': 'error',
   },
+
   parserOptions: {
-    parser: 'babel-eslint',
+    parser: '@typescript-eslint/parser',
   },
+
   overrides: [
     {
       files: [
