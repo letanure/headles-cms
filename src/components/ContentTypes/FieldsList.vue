@@ -25,6 +25,7 @@
 <script>
 import { Button, Card, Col, Option, Row, Select } from 'element-ui'
 import FieldConfig from '@/components/ContentTypes/FieldConfig'
+import InputTypes from '@/components/ContentTypes/FieldTypes.ts'
 
 export default {
   name: 'FieldsList',
@@ -60,9 +61,14 @@ export default {
 
   methods: {
     add() {
+      const fieldDefaults = {}
+      InputTypes.text.props.forEach((prop) => {
+        fieldDefaults[prop.name] = prop.value
+      })
       this.itemsFields.push({
         created: Date.now(),
         type: 'text',
+        ...fieldDefaults,
       })
     },
 
