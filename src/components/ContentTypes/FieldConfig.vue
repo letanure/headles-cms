@@ -19,7 +19,7 @@
       el-form-item(
         :key="propConfig.name"
         :label="$t(`propConfig.${propConfig.name}`)"
-        prop="type"
+        :prop="propConfig.name"
         v-for="(propConfig, index) in inputTypes[config.type].props"
         )
 
@@ -108,6 +108,20 @@ export default {
       inputTypes: InputTypes,
       formRules: {
         type: [
+          {
+            message: this.$t('validation.required'),
+            required: true,
+            trigger: 'blur',
+          },
+        ],
+        name: [
+          {
+            message: this.$t('validation.required'),
+            required: true,
+            trigger: 'blur',
+          },
+        ],
+        label: [
           {
             message: this.$t('validation.required'),
             required: true,
