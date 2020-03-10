@@ -14,7 +14,7 @@
         label="Type"
         prop="type"
         )
-        SelectFieldType(v-model="config.type")
+        SelectFieldType(v-model="config.type" @input="changeFieldType")
       
       el-form-item(
         :key="propConfig.name"
@@ -129,7 +129,19 @@ export default {
     },
   },
 
-  methods: {},
+  methods: {
+    changeFieldType() {
+      const fieldDefaults = {}
+      Object.values(InputTypes[this.config.type].props).forEach((prop) => {
+        fieldDefaults[prop.name] = this.config[prop.name] || prop.value
+      })
+      this.config = {
+        created: this.config.created,
+        type: this.config.type,
+        ...fieldDefaults,
+      }
+    },
+  },
 }
 </script>
 
