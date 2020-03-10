@@ -33,4 +33,4 @@ database-debug.log
 pubsub-debug.log
 firebase-debug.log
 .firebase/hosting.*
-.notes
+.notes*
