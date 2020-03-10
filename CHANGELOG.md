@@ -1,3 +1,10 @@
+# [1.23.0](https://github.com/letanure/headles-cms/compare/v1.22.0...v1.23.0) (2020-03-10)
+
+
+### Features
+
+* bump npm packages ([b88daec](https://github.com/letanure/headles-cms/commit/b88daecf49a83fae15e34b1d9dae13cc07198f03))
+
 # [1.22.0](https://github.com/letanure/headles-cms/compare/v1.21.0...v1.22.0) (2020-03-09)
 
 
