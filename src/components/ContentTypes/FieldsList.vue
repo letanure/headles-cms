@@ -2,8 +2,8 @@
   .FieldsList
     transition-group(name="flip-list" tag="div" mode="out-in") 
       el-card(
+        :key="item.created"
         v-for="(item, index) in itemsFields"
-        :key="index"
         )
         el-row
           el-col(:span="24")
@@ -61,7 +61,7 @@ export default {
   methods: {
     add() {
       this.itemsFields.push({
-        name: Date(),
+        created: Date.now(),
         type: 'text',
       })
     },

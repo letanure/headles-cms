@@ -17,11 +17,12 @@
         SelectFieldType(v-model="config.type")
       
       el-form-item(
-        v-for="(propConfig, index) in inputTypes[config.type].props"
+        :key="propConfig.name"
         :label="$t(`propConfig.${propConfig.name}`)"
         prop="type"
+        v-for="(propConfig, index) in inputTypes[config.type].props"
         )
-        
+
         el-select(
           :filterable="propConfig.filterable"
           :placeholder="propConfig.placeholder"
