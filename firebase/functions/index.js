@@ -247,7 +247,7 @@ exports.collectionGroupsUpdate = functions.firestore
 
 exports.collectionUserAdd = functions.firestore
   .document('/users/{userId}')
-  .onCreate(async (snapshotUser, context) => {
+  .onCreate(async (snapshotUser) => {
     const { email, name, password } = snapshotUser.data()
     const UserRecord = await createUserOnFirebaseAuth({ email, name, password })
     updateMetaCount('users', 'CREATE')
@@ -256,7 +256,7 @@ exports.collectionUserAdd = functions.firestore
 
 exports.collectionUserUpdate = functions.firestore
   .document('/users/{userId}')
-  .onWrite(async (change, context) => {
+  .onWrite(async (change) => {
     const userdata = change.after.data()
     if (userdata.status && userdata.status === 'DELETING') {
       deleteUserOnFirebaseAuth(change.after.data())
