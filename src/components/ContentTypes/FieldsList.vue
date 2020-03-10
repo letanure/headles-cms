@@ -6,21 +6,30 @@
         v-for="(item, index) in itemsFields"
         )
         el-row(:gutter="20")
-          el-col(:span="21")
+          el-col(:span="19")
             div.FieldsList-item-title
               el-tag.FieldsList-item-title-type(v-if="item.type" effect="plain" size="small") {{ $t(`fieldType.${item.type}`) }}
               span.FieldsList-item-title-label(v-if="item.label") {{ item.label }}
-          el-col(:span="3")
+          el-col(:span="5")
+            el-button(
+              @click="toggleShowConfig(index)"
+              type="info"
+              size="small"
+              plain
+              )
+              i.el-icon-setting
             el-button(
               @click="remove(index)"
               type="danger"
               size="small"
+              plain
               ) 
               i.el-icon-delete
               //- span {{ $t('general.actions.delete.label')}}
-        el-row()
-          el-col(:span="24")
-            FieldConfig(v-model="itemsFields[index]")
+        transition(name="fade" mode="in-out")
+          el-row(v-if="showFormConfig.includes(index)")
+            el-col(:span="24")
+              FieldConfig(v-model="itemsFields[index]")
     el-button(
       @click="add"
     ) {{ $t('general.actions.add.label')}}
@@ -53,6 +62,12 @@ export default {
     },
   },
 
+  data() {
+    return {
+      showFormConfig: [],
+    }
+  },
+
   computed: {
     itemsFields: {
       get() {
@@ -70,6 +85,7 @@ export default {
       InputTypes.text.props.forEach((prop) => {
         fieldDefaults[prop.name] = prop.value
       })
+      this.showFormConfig.push(this.itemsFields.length)
       this.itemsFields.push({
         created: Date.now(),
         type: 'text',
@@ -81,6 +97,17 @@ export default {
       this.itemsFields = this.itemsFields.filter(
         (item, index) => index !== indexRemove,
       )
+    },
+
+    toggleShowConfig(index) {
+      const isVisible = this.showFormConfig.includes(index)
+      if (isVisible) {
+        this.showFormConfig = this.showFormConfig.filter(
+          (indexVisible) => indexVisible !== index,
+        )
+      } else {
+        this.showFormConfig.push(index)
+      }
     },
   },
 }
