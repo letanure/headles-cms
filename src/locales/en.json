@@ -27,6 +27,12 @@
       }
     }
   },
+  "FieldConfig": {
+    "group": {
+      "advanced": "Advanced config",
+      "basic": "Basic config"
+    }
+  },
   "General": {
     "actions": {
       "create": {
@@ -216,28 +222,6 @@
     "url": "URL",
     "week": "Week"
   },
-  "propConfig": {
-    "autofocus": "Autofocus",
-    "autosize": "Autosize",
-    "clearable": "Clearable",
-    "disabled": "Disabled",
-    "label": "Label",
-    "limit": "Show word limit",
-    "maxlength": "Max length",
-    "minlength": "Min length",
-    "name": "Name",
-    "password": "Show password",
-    "placeholder": "Placeholder",
-    "prefixIcon": "Icon prefix",
-    "readonly": "Readonly",
-    "resize": "Resizable",
-    "rows": "Rows",
-    "show-password": "Show password",
-    "show-word-limit": "Show word limit",
-    "size": "Size",
-    "suffixIcon": "Icon suffix",
-    "value": "Initial value"
-  },
   "general": {
     "actions": {
       "add": {
@@ -249,6 +233,7 @@
       },
       "edit": "Edit"
     },
+    "field": "Field",
     "messages": {
       "permission-denied": {
         "message": "Missing or insufficient permissions",
@@ -281,6 +266,29 @@
     "users": "Users"
   },
   "message": "hello i18n !!",
+  "propConfig": {
+    "autofocus": "Autofocus",
+    "autosize": "Autosize",
+    "clearable": "Clearable",
+    "disabled": "Disabled",
+    "label": "Label",
+    "limit": "Show word limit",
+    "maxlength": "Max length",
+    "minlength": "Min length",
+    "name": "Name",
+    "password": "Show password",
+    "placeholder": "Placeholder",
+    "prefixIcon": "Icon prefix",
+    "readonly": "Readonly",
+    "resize": "Resizable",
+    "rows": "Rows",
+    "show-password": "Show password",
+    "show-word-limit": "Show word limit",
+    "size": "Size",
+    "suffixIcon": "Icon suffix",
+    "type": "Type",
+    "value": "Initial value"
+  },
   "validation": {
     "email": "Valid Email required",
     "min": "at least {min} characters",

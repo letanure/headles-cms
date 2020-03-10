@@ -1,29 +1,33 @@
 <template lang="pug">
   .FieldsList
     transition-group(name="flip-list" tag="div" mode="out-in") 
-      el-card(
+      el-card.FieldsList-item(
         :key="item.created"
         v-for="(item, index) in itemsFields"
         )
-        el-row
-          el-col(:span="24")
-            FieldConfig(v-model="itemsFields[index]")
-        el-row
-          el-col(:span="24")
+        el-row(:gutter="20")
+          el-col(:span="21")
+            div.FieldsList-item-title
+              el-tag.FieldsList-item-title-type(v-if="item.type" effect="plain" size="small") {{ $t(`fieldType.${item.type}`) }}
+              span.FieldsList-item-title-label(v-if="item.label") {{ item.label }}
+          el-col(:span="3")
             el-button(
               @click="remove(index)"
               type="danger"
               size="small"
               ) 
               i.el-icon-delete
-              span {{ $t('general.actions.delete.label')}}
+              //- span {{ $t('general.actions.delete.label')}}
+        el-row()
+          el-col(:span="24")
+            FieldConfig(v-model="itemsFields[index]")
     el-button(
       @click="add"
     ) {{ $t('general.actions.add.label')}}
 </template>
 
 <script>
-import { Button, Card, Col, Option, Row, Select } from 'element-ui'
+import { Button, Card, Col, Option, Row, Select, Tag } from 'element-ui'
 import FieldConfig from '@/components/ContentTypes/FieldConfig'
 import InputTypes from '@/components/ContentTypes/FieldTypes.ts'
 
@@ -37,6 +41,7 @@ export default {
     [Option.name]: Option,
     [Row.name]: Row,
     [Select.name]: Select,
+    [Tag.name]: Tag,
     FieldConfig,
   },
 
@@ -87,6 +92,12 @@ export default {
   padding 15px
   line-height 40px
   border-radius 4px
+
+  &-item
+    &-title
+      &-type
+        margin-right 5px
+
   .el-card
     margin-bottom 10px
     &__body
