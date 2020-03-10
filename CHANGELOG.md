@@ -1,3 +1,10 @@
+## [1.25.1](https://github.com/letanure/headles-cms/compare/v1.25.0...v1.25.1) (2020-03-10)
+
+
+### Bug Fixes
+
+* deepscan fix ([a123d19](https://github.com/letanure/headles-cms/commit/a123d199fe421c18147629e17c3e3cddcf6b2a21))
+
 # [1.25.0](https://github.com/letanure/headles-cms/compare/v1.24.0...v1.25.0) (2020-03-10)
 
 
