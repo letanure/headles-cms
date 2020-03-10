@@ -1,3 +1,18 @@
+# [1.24.0](https://github.com/letanure/headles-cms/compare/v1.23.0...v1.24.0) (2020-03-10)
+
+
+### Bug Fixes
+
+* ad missing prop label ([1a3a9fb](https://github.com/letanure/headles-cms/commit/1a3a9fbb2c74812b39ef064a8a98801663b42ce2))
+* add keys to vfor, created in field, remove demo name ([16c7f99](https://github.com/letanure/headles-cms/commit/16c7f9962dce79ed72175ea20d8b197175e0d3a6))
+
+
+### Features
+
+* add accordion with field config groups basic/advanced ([1000cf0](https://github.com/letanure/headles-cms/commit/1000cf04425221059afb054bfefd7086747e3fc7))
+* add field list item title ([d03815c](https://github.com/letanure/headles-cms/commit/d03815ca4f44e3edbc1de28b2a7bd58546b28e4a))
+* keep values, update props on field type change ([b87bfa4](https://github.com/letanure/headles-cms/commit/b87bfa4f1eaba989cf8f61fb86934db024f7ad88))
+
 # [1.23.0](https://github.com/letanure/headles-cms/compare/v1.22.0...v1.23.0) (2020-03-10)
 
 
