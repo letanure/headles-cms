@@ -19,7 +19,7 @@ interface InputProp {
     | 'el-radio-group'
     | 'el-select'
     | 'el-switch'
-  value: any
+  value: String | Boolean | Number | null
   placeholder?: String
   valueSuggested?: Number
   min?: Number
@@ -32,7 +32,7 @@ interface InputProp {
 const propName: InputProp = {
   name: 'name',
   is: 'el-input',
-  value: null,
+  value: '',
 }
 
 const propLabel: InputProp = {
