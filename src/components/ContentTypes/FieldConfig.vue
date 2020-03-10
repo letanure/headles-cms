@@ -10,59 +10,68 @@
       size="small"
       status-icon
       )
-      el-form-item(
-        label="Type"
-        prop="type"
+      el-collapse(v-model="activeArea" accordion)
+        el-collapse-item(
+          v-for="(group, indexGroup) in inputTypesPropsPerGroup"
+          :key="indexGroup"
+          :title="$t(`FieldConfig.group.${indexGroup}`)"
+          :name="indexGroup"
         )
-        SelectFieldType(v-model="config.type" @input="changeFieldType")
-      
-      el-form-item(
-        :key="propConfig.name"
-        :label="$t(`propConfig.${propConfig.name}`)"
-        :prop="propConfig.name"
-        v-for="(propConfig, index) in inputTypes[config.type].props"
-        )
+        
+          el-form-item(
+            v-if="indexGroup === 'basic'"
+            :label="$t('propConfig.type')"
+            prop="type"
+            )
+            SelectFieldType(v-model="config.type" @input="changeFieldType")
+          
+          el-form-item(
+            :key="propConfig.name"
+            :label="$t(`propConfig.${propConfig.name}`)"
+            :prop="propConfig.name"
+            v-for="(propConfig, index) in group"
+            )
 
-        el-select(
-          :filterable="propConfig.filterable"
-          :placeholder="propConfig.placeholder"
-          v-if="propConfig.is === 'el-select'"
-          v-model="config[propConfig.name]"
-          )
-          el-option(
-            v-for="option in propConfig.options"
-            :key="option.value" 
-            :label="option.label"
-            :value="option.value"
-            )
-            template(v-if="propConfig.custom === 'icon'")
-              div.select-icon
-                span(:class="option.value")
+            el-select(
+              :filterable="propConfig.filterable"
+              :placeholder="propConfig.placeholder"
+              v-if="propConfig.is === 'el-select'"
+              v-model="config[propConfig.name]"
+              )
+              el-option(
+                v-for="option in propConfig.options"
+                :key="option.value" 
+                :label="option.label"
+                :value="option.value"
+                )
+                template(v-if="propConfig.custom === 'icon'")
+                  div.select-icon
+                    span(:class="option.value")
+                    span(v-text="option.label")
+            
+            el-radio-group(
+              v-else-if="propConfig.is === 'el-radio-group'"
+              v-model="config[propConfig.name]"
+              )
+              el-radio-button(
+                v-for="option in propConfig.options"
+                :key="option.value" 
+                :label="option.value"
+                )
                 span(v-text="option.label")
-        
-        el-radio-group(
-          v-else-if="propConfig.is === 'el-radio-group'"
-          v-model="config[propConfig.name]"
-          )
-          el-radio-button(
-            v-for="option in propConfig.options"
-            :key="option.value" 
-            :label="option.value"
-            )
-            span(v-text="option.label")
-        
-        component(
-          :is="propConfig.is" 
-          v-else
-          v-model="config[propConfig.name]"
-          )
+            
+            component(
+              :is="propConfig.is" 
+              v-else
+              v-model="config[propConfig.name]"
+              )
       
-    //- pre {{ config }}
 </template>
 
 <script>
 import {
-  Col,
+  Collapse,
+  CollapseItem,
   Form,
   FormItem,
   Input,
@@ -70,7 +79,6 @@ import {
   Option,
   RadioButton,
   RadioGroup,
-  Row,
   Select,
   Switch,
 } from 'element-ui'
@@ -81,7 +89,8 @@ export default {
   name: 'FieldConfig',
 
   components: {
-    [Col.name]: Col,
+    [Collapse.name]: Collapse,
+    [CollapseItem.name]: CollapseItem,
     [Form.name]: Form,
     [FormItem.name]: FormItem,
     [Input.name]: Input,
@@ -89,7 +98,6 @@ export default {
     [Option.name]: Option,
     [RadioButton.name]: RadioButton,
     [RadioGroup.name]: RadioGroup,
-    [Row.name]: Row,
     [Select.name]: Select,
     [Switch.name]: Switch,
     SelectFieldType,
@@ -105,6 +113,7 @@ export default {
 
   data() {
     return {
+      activeArea: 'basic',
       inputTypes: InputTypes,
       formRules: {
         type: [
@@ -141,6 +150,21 @@ export default {
         this.$emit('input', value)
       },
     },
+    inputTypesPropsPerGroup() {
+      const groups = {
+        basic: [],
+        advanced: [],
+      }
+      const basicTypes = ['name', 'label']
+      Object.values(InputTypes[this.config.type].props).forEach((prop) => {
+        if (basicTypes.includes(prop.name)) {
+          groups.basic.push(prop)
+        } else {
+          groups.advanced.push(prop)
+        }
+      })
+      return groups
+    },
   },
 
   methods: {
@@ -168,4 +192,15 @@ export default {
         float left
       &__error
         padding-top 0
+  .el-collapse
+    border 0
+    &-item
+      &:last-child .el-collapse-item__header
+        border-bottom 0
+      &__header
+        height 40px
+        line-height 40px
+        color #606266
+      &__content
+        padding-bottom 0px
 </style>
