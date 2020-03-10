@@ -2,6 +2,7 @@
 [![CircleCI](https://img.shields.io/circleci/project/github/letanure/headles-cms.svg)](https://circleci.com/gh/letanure/headles-cms)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 [![Maintainability](https://api.codeclimate.com/v1/badges/98d434ed9bb6fd258103/maintainability)](https://codeclimate.com/github/letanure/headles-cms/maintainability)
+[![DeepScan grade](https://deepscan.io/api/teams/7996/projects/10125/branches/136266/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=7996&pid=10125&bid=136266)
 
 
 # headles-cms
