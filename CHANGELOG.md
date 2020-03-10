@@ -1,3 +1,10 @@
+# [1.25.0](https://github.com/letanure/headles-cms/compare/v1.24.0...v1.25.0) (2020-03-10)
+
+
+### Features
+
+* form field config hidde, toggle button, on add, show form ([5994d45](https://github.com/letanure/headles-cms/commit/5994d458a63a99de4c2ac8fb98f67414de864e28))
+
 # [1.24.0](https://github.com/letanure/headles-cms/compare/v1.23.0...v1.24.0) (2020-03-10)
 
 
