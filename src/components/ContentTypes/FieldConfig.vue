@@ -163,7 +163,9 @@ export default {
 .FieldConfig
   .el-form
     &-item
-      margin-bottom 10px
+      margin-bottom 15px
       &__label
         float left
+      &__error
+        padding-top 0
 </style>
