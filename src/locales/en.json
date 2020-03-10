@@ -232,6 +232,7 @@
     "readonly": "Readonly",
     "resize": "Resizable",
     "rows": "Rows",
+    "show-password": "Show password",
     "show-word-limit": "Show word limit",
     "size": "Size",
     "suffixIcon": "Icon suffix",
