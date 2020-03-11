@@ -1,3 +1,10 @@
+# [1.26.0](https://github.com/letanure/headles-cms/compare/v1.25.1...v1.26.0) (2020-03-11)
+
+
+### Features
+
+* init form render, add as preview in content type form ([f88d958](https://github.com/letanure/headles-cms/commit/f88d9580f90a81d1e9fa493baa6b2660a1f1e0d6))
+
 ## [1.25.1](https://github.com/letanure/headles-cms/compare/v1.25.0...v1.25.1) (2020-03-10)
 
 
