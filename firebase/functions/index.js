@@ -207,13 +207,13 @@ function updateGroupPermissions({ groupId, collections }) {
 
 exports.collectionContentTypesCreate = functions.firestore
   .document('/contentTypes/{contentTypeId}')
-  .onCreate(async (snapshotUser, context) => {
+  .onCreate(async () => {
     return updateMetaCount('contentTypes', 'CREATE')
   })
 
 exports.collectionContentTypesUpdate = functions.firestore
   .document('/contentTypes/{contentTypeId}')
-  .onWrite(async (change, context) => {
+  .onWrite(async (change) => {
     const data = change.after.data()
     if (data.status && data.status === 'DELETED') {
       return updateMetaCount('contentTypes', 'DELETE')
@@ -223,10 +223,9 @@ exports.collectionContentTypesUpdate = functions.firestore
 
 exports.collectionGroupsCreate = functions.firestore
   .document('/groups/{groupId}')
-  .onCreate(async (snapshotUser, context) => {
+  .onCreate(async () => {
     return updateMetaCount('groups', 'CREATE')
   })
-
 
 exports.collectionGroupsUpdate = functions.firestore
   .document('/groups/{groupId}')
