@@ -65,7 +65,6 @@
               v-else
               v-model="config[propConfig.name]"
               )
-      
 </template>
 
 <script>

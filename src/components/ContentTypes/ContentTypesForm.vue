@@ -1,50 +1,53 @@
 <template lang="pug">
-  el-form.ContentTypesForm(
-    :model="formData"
-    :rules="formRules"
-    @submit.native.prevent="submit('ContentTypesForm')"
-    label-position="top"
-    novalidate
-    ref="ContentTypesForm"
-    status-icon
-    v-blockNavOnChange="{...formData, id}"
-    )
+  .ContentTypesForm
+    FormRender(:config="formData")
+    el-form.ContentTypesForm(
+      :model="formData"
+      :rules="formRules"
+      @submit.native.prevent="submit('ContentTypesForm')"
+      label-position="top"
+      novalidate
+      ref="ContentTypesForm"
+      status-icon
+      v-blockNavOnChange="{...formData, id}"
+      )
 
-    el-form-item(
-      :label="$t('ContentTypesForm.fields.name.label')"
-      prop="name"
-      )
-      el-input(
-        type="text"
-        v-model="formData.name"
-      )
-    
-    el-form-item(
-      :label="$t('ContentTypesForm.fields.description.label')"
-      prop="description"
-      )
-      el-input(
-        type="text"
-        v-model="formData.description"
-      )
-    
-    el-form-item(
-      :label="$t('ContentTypesForm.fields.items.label')"
-      prop="items"
-      )
-      FieldsList(v-model="formData.items")
-    
-    el-form-item
-      el-button(
-        native-type="submit"
-        type="primary"
-        v-text="$t('ContentTypesForm.actions.submit.label')"
+      el-form-item(
+        :label="$t('ContentTypesForm.fields.name.label')"
+        prop="name"
         )
+        el-input(
+          type="text"
+          v-model="formData.name"
+        )
+      
+      el-form-item(
+        :label="$t('ContentTypesForm.fields.description.label')"
+        prop="description"
+        )
+        el-input(
+          type="text"
+          v-model="formData.description"
+        )
+      
+      el-form-item(
+        :label="$t('ContentTypesForm.fields.items.label')"
+        prop="items"
+        )
+        FieldsList(v-model="formData.items")
+      
+      el-form-item
+        el-button(
+          native-type="submit"
+          type="primary"
+          v-text="$t('ContentTypesForm.actions.submit.label')"
+          )
 </template>
 
 <script>
 import { Button, Form, FormItem, Input } from 'element-ui'
 import FieldsList from '@/components/ContentTypes/FieldsList'
+import FormRender from '@/components/ContentTypes/FormRender'
 import firestoreContentTypes from '@/firebase/collections/contentTypes'
 import '@/directives/blockNavOnChange'
 
@@ -57,6 +60,7 @@ export default {
     [FormItem.name]: FormItem,
     [Input.name]: Input,
     FieldsList,
+    FormRender,
   },
 
   props: {
@@ -174,3 +178,12 @@ export default {
   },
 }
 </script>
+<style lang="stylus">
+.ContentTypesForm
+  position relative
+  .FormRender
+    position fixed
+    top 110px
+    left 720px
+    width 500px
+</style>
