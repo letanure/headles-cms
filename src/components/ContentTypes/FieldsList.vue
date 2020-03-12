@@ -87,9 +87,10 @@ export default {
       })
       this.showFormConfig.push(this.itemsFields.length)
       this.itemsFields.push({
+        ...fieldDefaults,
         created: Date.now(),
         type: 'text',
-        ...fieldDefaults,
+        name: `field_${Date.now()}`,
       })
     },
 
