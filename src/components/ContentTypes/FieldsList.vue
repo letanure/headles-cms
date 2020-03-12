@@ -91,6 +91,13 @@ export default {
         created: Date.now(),
         type: 'text',
         name: `field_${Date.now()}`,
+        rules: {
+          max: null,
+          min: null,
+          pattern: null,
+          required: false,
+          type: undefined,
+        },
       })
     },
 

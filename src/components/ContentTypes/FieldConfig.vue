@@ -66,6 +66,49 @@
               v-else
               v-model="config[propConfig.name]"
               )
+
+      
+        el-collapse-item(
+          name="validation"
+          :title="$t(`FieldConfig.group.validation`)"
+          )
+          el-form-item(
+            :label="$t(`general.validation.type.label`)"
+            )
+            el-select(
+              v-model="config.rules.type" 
+              :placeholder="$t(`general.select.placeholder`)"
+              )
+              el-option(
+                v-for="option in validationTypesOptions"
+                :key="option"
+                :label="$t(`general.validation.type.option.${option}.label`)"
+                :value="option"
+                )
+          el-form-item(
+            label="Required"
+            )
+            el-switch(
+              v-model="config.rules.required"
+              )
+          el-form-item(
+            label="Pattern REGEX"
+            )
+            el-input(
+              v-model="config.rules.pattern"
+            )
+          el-form-item(
+            label="Min"
+            )
+            el-input-number(
+              v-model.integer="config.rules.min"
+            )
+          el-form-item(
+            label="Max"
+            )
+            el-input-number(
+              v-model.integer="config.rules.max"
+            )
 </template>
 
 <script>
@@ -138,6 +181,23 @@ export default {
           },
         ],
       },
+      validationTypesOptions: [
+        'date',
+        'email',
+        'float',
+        'hex',
+        'integer',
+        'number',
+        'regexp',
+        'string',
+        'url',
+        // 'any',
+        // 'array',
+        // 'boolean',
+        // 'enum',
+        // 'method',
+        // 'object',
+      ],
     }
   },
 

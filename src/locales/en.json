@@ -30,7 +30,8 @@
   "FieldConfig": {
     "group": {
       "advanced": "Advanced config",
-      "basic": "Basic config"
+      "basic": "Basic config",
+      "validation": "Validation"
     }
   },
   "General": {
@@ -244,6 +245,9 @@
       "next": "Next Page",
       "previous": "Previous Page"
     },
+    "select": {
+      "placeholder": "Select"
+    },
     "status": {
       "ACTIVE": "Active",
       "DELETED": "Deleted",
@@ -254,6 +258,40 @@
     "table": {
       "actions": "Actions",
       "empty": "No data to display"
+    },
+    "validation": {
+      "type": {
+        "label": "Type",
+        "option": {
+          "date": {
+            "label": "Date"
+          },
+          "email": {
+            "label": "Email"
+          },
+          "float": {
+            "label": "Float"
+          },
+          "hex": {
+            "label": "Hex"
+          },
+          "integer": {
+            "label": "Integer"
+          },
+          "number": {
+            "label": "Number"
+          },
+          "regexp": {
+            "label": "Regex"
+          },
+          "string": {
+            "label": "String"
+          },
+          "url": {
+            "label": "URL"
+          }
+        }
+      }
     }
   },
   "menu": {
