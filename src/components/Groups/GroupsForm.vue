@@ -72,7 +72,16 @@
 </template>
 
 <script>
-import { Button, Form, FormItem, Input, Message } from 'element-ui'
+import {
+  Button,
+  Form,
+  FormItem,
+  Input,
+  Message,
+  Switch,
+  Table,
+  TableColumn,
+} from 'element-ui'
 import firestoreGroups from '@/firebase/collections/groups'
 import '@/directives/blockNavOnChange'
 
@@ -84,6 +93,9 @@ export default {
     [Form.name]: Form,
     [FormItem.name]: FormItem,
     [Input.name]: Input,
+    [Switch.name]: Switch,
+    [Table.name]: Table,
+    [TableColumn.name]: TableColumn,
   },
 
   props: {
