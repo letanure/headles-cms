@@ -19,7 +19,7 @@ interface InputProp {
     | 'el-radio-group'
     | 'el-select'
     | 'el-switch'
-  value: String | Boolean | Number | null
+  value: String | Boolean | Number | null | undefined
   placeholder?: String
   valueSuggested?: Number
   min?: Number
@@ -96,13 +96,13 @@ const propSuffixIcon: InputProp = {
 const propMaxlength: InputProp = {
   name: 'maxlength',
   is: 'el-input-number',
-  value: null,
+  value: undefined,
   valueSuggested: 100,
 }
 const propMinlength: InputProp = {
   name: 'minlength',
   is: 'el-input-number',
-  value: null,
+  value: 0,
   valueSuggested: 3,
 }
 
