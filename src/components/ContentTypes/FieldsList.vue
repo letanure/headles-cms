@@ -1,41 +1,49 @@
 <template lang="pug">
   .FieldsList
-    transition-group(name="flip-list" tag="div" mode="out-in") 
-      el-card.FieldsList-item(
-        :key="item.created"
-        v-for="(item, index) in itemsFields"
-        )
-        el-row(:gutter="20")
-          el-col(:span="19")
-            div.FieldsList-item-title
-              el-tag.FieldsList-item-title-type(v-if="item.type" effect="plain" size="small") {{ $t(`fieldType.${item.type}`) }}
-              span.FieldsList-item-title-label(v-if="item.label") {{ item.label }}
-          el-col(:span="5")
-            el-button(
-              @click="toggleShowConfig(index)"
-              type="info"
-              size="small"
-              plain
-              )
-              i.el-icon-setting
-            el-button(
-              @click="remove(index)"
-              type="danger"
-              size="small"
-              plain
-              ) 
-              i.el-icon-delete
-              //- span {{ $t('general.actions.delete.label')}}
-        transition(name="fade" mode="in-out")
-          el-row(v-if="showFormConfig.includes(index)")
-            el-col(:span="24")
-              FieldConfig(v-model="itemsFields[index]")
+    draggable(
+      draggable=".FieldsList-item"
+      ghostClass="ghost"
+      group="fields"
+      handle=".FieldsList-item"
+      v-model="itemsFields"
+      )
+      transition-group(name="flip-list" tag="div" mode="out-in")  
+        el-card.FieldsList-item(
+          :key="item.created"
+          v-for="(item, index) in itemsFields"
+          )
+          el-row(:gutter="20")
+            el-col(:span="19")
+              div.FieldsList-item-title
+                el-tag.FieldsList-item-title-type(v-if="item.type" effect="plain" size="small") {{ $t(`fieldType.${item.type}`) }}
+                span.FieldsList-item-title-label(v-if="item.label") {{ item.label }}
+            el-col(:span="5")
+              el-button(
+                @click="toggleShowConfig(index)"
+                type="info"
+                size="small"
+                plain
+                )
+                i.el-icon-setting
+              el-button(
+                @click="remove(index)"
+                type="danger"
+                size="small"
+                plain
+                ) 
+                i.el-icon-delete
+                //- span {{ $t('general.actions.delete.label')}}
+          transition(name="fade" mode="in-out")
+            el-row(v-if="showFormConfig.includes(index)")
+              el-col(:span="24")
+                FieldConfig(v-model="itemsFields[index]")
     el-button(
       @click="add"
     ) {{ $t('general.actions.add.label')}}
 </template>
 
 <script>
+import draggable from 'vuedraggable'
 import { Button, Card, Col, Option, Row, Select, Tag } from 'element-ui'
 import FieldConfig from '@/components/ContentTypes/FieldConfig'
 import InputTypes from '@/components/ContentTypes/FieldTypes.ts'
@@ -52,6 +60,7 @@ export default {
     [Select.name]: Select,
     [Tag.name]: Tag,
     FieldConfig,
+    draggable,
   },
 
   props: {
@@ -137,6 +146,10 @@ export default {
     margin-bottom 10px
     &__body
       padding 10px
+  
+  .ghost
+    opacity 0.5
+    background var(--lns-themeDark-color-focusRing)
 
   .flip-list
     &-move
