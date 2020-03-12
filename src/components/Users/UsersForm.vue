@@ -60,7 +60,15 @@
 </template>
 
 <script>
-import { Button, Form, FormItem, Input, Option, Select } from 'element-ui'
+import {
+  Button,
+  Form,
+  FormItem,
+  Input,
+  Message,
+  Option,
+  Select,
+} from 'element-ui'
 import { firestore } from '@/firebase/firestore'
 import firestoreUsers from '@/firebase/collections/users'
 import '@/directives/blockNavOnChange'
@@ -205,7 +213,7 @@ export default {
 
     message({ type = 'error', messageKey = null }) {
       if (messageKey) {
-        this.$message({
+        Message({
           type,
           message: this.$t(messageKey),
         })

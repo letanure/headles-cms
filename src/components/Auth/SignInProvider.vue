@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { Button } from 'element-ui'
+import { Button, Message } from 'element-ui'
 import { auth, providers } from '@/firebase/auth'
 
 export default {
@@ -45,7 +45,7 @@ export default {
 
     message({ type = 'error', messageKey = null }) {
       if (messageKey) {
-        this.$message({
+        Message({
           type,
           message: this.$t(messageKey),
         })

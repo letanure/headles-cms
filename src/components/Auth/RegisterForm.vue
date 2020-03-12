@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import { Button, Form, FormItem, Input } from 'element-ui'
+import { Button, Form, FormItem, Input, Message } from 'element-ui'
 import { auth } from '@/firebase/auth'
 
 export default {
@@ -132,7 +132,7 @@ export default {
 
     message({ type = 'error', messageKey = null }) {
       if (messageKey) {
-        this.$message({
+        Message({
           type,
           message: this.$t(messageKey),
         })

@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import { Button, Form, FormItem, Input } from 'element-ui'
+import { Button, Form, FormItem, Input, Message } from 'element-ui'
 import FieldsList from '@/components/ContentTypes/FieldsList'
 import FormRender from '@/components/ContentTypes/FormRender'
 import firestoreContentTypes from '@/firebase/collections/contentTypes'
@@ -152,7 +152,7 @@ export default {
 
     message({ type = 'error', messageKey = null }) {
       if (messageKey) {
-        this.$message({
+        Message({
           type,
           message: this.$t(messageKey),
         })

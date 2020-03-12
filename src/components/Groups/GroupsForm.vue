@@ -72,7 +72,7 @@
 </template>
 
 <script>
-import { Button, Form, FormItem, Input } from 'element-ui'
+import { Button, Form, FormItem, Input, Message } from 'element-ui'
 import firestoreGroups from '@/firebase/collections/groups'
 import '@/directives/blockNavOnChange'
 
@@ -180,7 +180,7 @@ export default {
 
     message({ type = 'error', messageKey = null }) {
       if (messageKey) {
-        this.$message({
+        Message({
           type,
           message: this.$t(messageKey),
         })
