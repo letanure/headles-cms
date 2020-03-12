@@ -61,6 +61,7 @@
                 span(v-text="option.label")
             
             component(
+              :clearable="true"
               :is="propConfig.is" 
               v-else
               v-model="config[propConfig.name]"
