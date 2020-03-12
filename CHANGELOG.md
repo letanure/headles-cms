@@ -1,3 +1,12 @@
+# [1.27.0](https://github.com/letanure/headles-cms/compare/v1.26.0...v1.27.0) (2020-03-12)
+
+
+### Features
+
+* add validation field rules ([7671fd3](https://github.com/letanure/headles-cms/commit/7671fd3acf63627a9230fa146c3ea52ab98e34fd))
+* form config input fields clearable ([c637dd8](https://github.com/letanure/headles-cms/commit/c637dd8c62264b0d4a43b8cb5ff6128ed9fe7cf2))
+* set initial field name ([1bf6329](https://github.com/letanure/headles-cms/commit/1bf63294b9d5423b61c2a765a617587f9f0908c8))
+
 # [1.26.0](https://github.com/letanure/headles-cms/compare/v1.25.1...v1.26.0) (2020-03-11)
 
 
