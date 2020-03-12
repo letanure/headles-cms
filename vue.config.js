@@ -21,7 +21,7 @@ module.exports = {
     plugins: [
       // eslint-disable-next-line no-undef
       new webpack.NormalModuleReplacementPlugin(
-        /element-ui[\/\\]lib[\/\\]locale[\/\\]lang[\/\\]zh-CN/,
+        /element-ui[/\\]lib[/\\]locale[/\\]lang[/\\]zh-CN/,
         'element-ui/lib/locale/lang/en',
       ),
     ],
