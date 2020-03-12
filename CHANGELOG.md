@@ -1,3 +1,16 @@
+# [1.28.0](https://github.com/letanure/headles-cms/compare/v1.27.0...v1.28.0) (2020-03-12)
+
+
+### Bug Fixes
+
+* add missing elementUi components ([cc96f4e](https://github.com/letanure/headles-cms/commit/cc96f4ee76819a279e6ee491146bf6e8651a8b18))
+* replace old global message for local import ([de492b6](https://github.com/letanure/headles-cms/commit/de492b6fcc707e838a3702409328fb68ee6c6c4b))
+
+
+### Features
+
+* add drag and drop reorder fields ([d48a769](https://github.com/letanure/headles-cms/commit/d48a769a466dc52e1da9d41e4caa446063752e0b))
+
 # [1.27.0](https://github.com/letanure/headles-cms/compare/v1.26.0...v1.27.0) (2020-03-12)
 
 
