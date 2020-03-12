@@ -55,6 +55,21 @@ export default {
       return componentRelations
     },
   },
+
+  watch: {
+    'config.items': {
+      immediate: true,
+      deep: true,
+      handler(newItems) {
+        const newFormdata = {}
+        for (const index in newItems) {
+          const item = newItems[index]
+          newFormdata[item.name] = this.dataForm[item.name] || item.value
+        }
+        this.dataForm = newFormdata
+      },
+    },
+  },
 }
 </script>
 
