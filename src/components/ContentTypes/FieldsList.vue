@@ -101,7 +101,7 @@ export default {
         type: 'text',
         name: `field_${Date.now()}`,
         rules: {
-          max: null,
+          max: 9999,
           min: null,
           pattern: null,
           required: false,

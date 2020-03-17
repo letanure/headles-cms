@@ -21,7 +21,6 @@ interface InputProp {
     | 'el-switch'
   value: String | Boolean | Number | null | undefined
   placeholder?: String
-  valueSuggested?: Number
   min?: Number
   step?: Number
   filterable?: Boolean
@@ -96,14 +95,12 @@ const propSuffixIcon: InputProp = {
 const propMaxlength: InputProp = {
   name: 'maxlength',
   is: 'el-input-number',
-  value: null,
-  valueSuggested: 100,
+  value: 9999,
 }
 const propMinlength: InputProp = {
   name: 'minlength',
   is: 'el-input-number',
   value: 0,
-  valueSuggested: 3,
 }
 
 const propClearable: InputProp = {
