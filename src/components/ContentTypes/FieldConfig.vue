@@ -101,12 +101,15 @@
             :label="$t('FieldConfig.rules.min')"
             )
             el-input-number(
+              :min="0"
+              :max="config.rules.max"
               v-model.integer="config.rules.min"
             )
           el-form-item(
             :label="$t('FieldConfig.rules.max')"
             )
             el-input-number(
+              :min="config.rules.min"
               v-model.integer="config.rules.max"
             )
 </template>
