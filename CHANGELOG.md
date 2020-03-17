@@ -1,3 +1,16 @@
+# [1.29.0](https://github.com/letanure/headles-cms/compare/v1.28.1...v1.29.0) (2020-03-17)
+
+
+### Bug Fixes
+
+* keep rules on field type change ([7d66b14](https://github.com/letanure/headles-cms/commit/7d66b140cbdc4418a084ee2b2a75ebc285fcdf31))
+
+
+### Features
+
+* add general locale firebase error ([e2ffeae](https://github.com/letanure/headles-cms/commit/e2ffeae0b6a2ebcb0bcf9918e59bdd3adc38a37d))
+* bind min/max values ([33f1895](https://github.com/letanure/headles-cms/commit/33f189534c5649fcb629b0cdd080f774ff516a2b))
+
 ## [1.28.1](https://github.com/letanure/headles-cms/compare/v1.28.0...v1.28.1) (2020-03-17)
 
 
