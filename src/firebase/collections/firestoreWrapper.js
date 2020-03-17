@@ -3,14 +3,15 @@ import { firestore, serverTimestamp } from '@/firebase/firestore'
 import { getPageCollection } from '@/firebase/functions'
 import { MessageBox } from 'element-ui'
 
-function errorMessage(errorCode) {
+function errorMessage(error) {
   MessageBox.alert(
-    i18n.tc(`general.messages.${errorCode}.message`),
-    i18n.tc(`general.messages.${errorCode}.title`),
+    i18n.tc(`general.messages.${error.code}.message`),
+    i18n.tc(`general.messages.${error.code}.title`),
     {
       type: 'error',
     },
   )
+  console.error('Firebase', error)
 }
 
 export default class FirestoreWrapper {
@@ -24,7 +25,7 @@ export default class FirestoreWrapper {
     try {
       return firestore.doc(`${this.collection}/${id}`)
     } catch (error) {
-      errorMessage(error.code)
+      errorMessage(error)
     }
   }
 
@@ -32,7 +33,7 @@ export default class FirestoreWrapper {
     try {
       return firestore.collection(this.collection)
     } catch (error) {
-      errorMessage(error.code)
+      errorMessage(error)
     }
   }
 
@@ -44,7 +45,7 @@ export default class FirestoreWrapper {
         ...data,
       })
     } catch (error) {
-      errorMessage(error.code)
+      errorMessage(error)
     }
   }
 
@@ -59,7 +60,7 @@ export default class FirestoreWrapper {
         { merge: true },
       )
     } catch (error) {
-      errorMessage(error.code)
+      errorMessage(error)
     }
   }
 
@@ -74,7 +75,7 @@ export default class FirestoreWrapper {
         data: data,
       }
     } catch (error) {
-      errorMessage(error.code)
+      errorMessage(error)
     }
   }
 
@@ -89,7 +90,7 @@ export default class FirestoreWrapper {
         { merge: true },
       )
     } catch (error) {
-      errorMessage(error.code)
+      errorMessage(error)
     }
   }
 
@@ -103,7 +104,7 @@ export default class FirestoreWrapper {
       })
       return req.data
     } catch (error) {
-      errorMessage(error.code)
+      errorMessage(error)
     }
   }
 }
