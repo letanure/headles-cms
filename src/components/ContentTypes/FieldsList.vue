@@ -105,7 +105,7 @@ export default {
           min: null,
           pattern: null,
           required: false,
-          type: undefined,
+          type: null,
         },
       })
     },
@@ -146,7 +146,7 @@ export default {
     margin-bottom 10px
     &__body
       padding 10px
-  
+
   .ghost
     opacity 0.5
     background var(--lns-themeDark-color-focusRing)

@@ -96,7 +96,7 @@ const propSuffixIcon: InputProp = {
 const propMaxlength: InputProp = {
   name: 'maxlength',
   is: 'el-input-number',
-  value: undefined,
+  value: null,
   valueSuggested: 100,
 }
 const propMinlength: InputProp = {
