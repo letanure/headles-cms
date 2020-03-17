@@ -16,7 +16,7 @@
           :key="indexGroup"
           :title="$t(`FieldConfig.group.${indexGroup}`)"
           :name="indexGroup"
-        )
+          )
         
           el-form-item(
             v-if="indexGroup === 'basic'"
@@ -67,7 +67,6 @@
               v-model="config[propConfig.name]"
               )
 
-      
         el-collapse-item(
           name="validation"
           :title="$t(`FieldConfig.group.validation`)"
@@ -111,7 +110,7 @@
             el-input-number(
               :min="config.rules.min"
               v-model.integer="config.rules.max"
-            )
+              )
 </template>
 
 <script>
@@ -239,6 +238,7 @@ export default {
       this.config = {
         created: this.config.created,
         type: this.config.type,
+        rules: this.config.rules,
         ...fieldDefaults,
       }
     },
