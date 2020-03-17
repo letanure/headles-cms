@@ -1,6 +1,5 @@
 <template lang="pug">
   .FormRender
-    h1 FormRender
     el-form(
       :model="dataForm" 
       label-width="120px"

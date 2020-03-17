@@ -3,7 +3,7 @@
     el-row(
       type="flex"
       )
-      el-col(:xs="24" :sm="24" :md="12" :lg="12" :xl="8")
+      el-col
         component(:is="sectionFormComponent" @success="onSuccess" :id="id" :key="this.$route.name")
 </template>
 
