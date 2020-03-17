@@ -1,3 +1,10 @@
+## [1.28.1](https://github.com/letanure/headles-cms/compare/v1.28.0...v1.28.1) (2020-03-17)
+
+
+### Bug Fixes
+
+* prevent send undefined to firebase ([5c0559a](https://github.com/letanure/headles-cms/commit/5c0559a20e34af738b3a1360518a7069b08e646d))
+
 # [1.28.0](https://github.com/letanure/headles-cms/compare/v1.27.0...v1.28.0) (2020-03-12)
 
 
