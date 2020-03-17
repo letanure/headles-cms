@@ -249,6 +249,10 @@
       "permission-denied": {
         "message": "Missing or insufficient permissions",
         "title": ""
+      },
+      "internal": {
+        "message": "Firebase internal error",
+        "title": ""
       }
     },
     "pagination": {
