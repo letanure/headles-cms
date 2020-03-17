@@ -86,25 +86,25 @@
                 :value="option"
                 )
           el-form-item(
-            label="Required"
+            :label="$t('FieldConfig.rules.required')"
             )
             el-switch(
               v-model="config.rules.required"
               )
           el-form-item(
-            label="Pattern REGEX"
+            :label="$t('FieldConfig.rules.pattern')"
             )
             el-input(
               v-model="config.rules.pattern"
             )
           el-form-item(
-            label="Min"
+            :label="$t('FieldConfig.rules.min')"
             )
             el-input-number(
               v-model.integer="config.rules.min"
             )
           el-form-item(
-            label="Max"
+            :label="$t('FieldConfig.rules.max')"
             )
             el-input-number(
               v-model.integer="config.rules.max"

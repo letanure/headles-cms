@@ -32,6 +32,12 @@
       "advanced": "Advanced config",
       "basic": "Basic config",
       "validation": "Validation"
+    },
+    "rules": {
+      "max": "Max",
+      "min": "Min",
+      "pattern": "Pattern REGEX",
+      "required": "Required"
     }
   },
   "General": {
@@ -236,6 +242,10 @@
     },
     "field": "Field",
     "messages": {
+      "invalid-argument": {
+        "message": "Unsupported field value:",
+        "title": ""
+      },
       "permission-denied": {
         "message": "Missing or insufficient permissions",
         "title": ""
