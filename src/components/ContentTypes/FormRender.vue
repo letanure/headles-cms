@@ -5,14 +5,15 @@
       label-width="120px"
       ref="dataForm"
       )
-      el-form-item(
-        :key="field.created" 
-        :label="field.label"
-        :prop="field.name"
-        :rules="field.rules"
-        v-for="(field, index) in config.items"
-        )
-        el-input(v-bind="field" v-model="dataForm[field.name]")
+      transition-group(name="flip-list" tag="div" mode="out-in")  
+        el-form-item(
+          :key="field.created" 
+          :label="field.label"
+          :prop="field.name"
+          :rules="field.rules"
+          v-for="(field, index) in config.items"
+          )
+          el-input(v-bind="field" v-model="dataForm[field.name]")
 </template>
 
 <script>
