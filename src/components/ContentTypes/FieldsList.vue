@@ -150,13 +150,4 @@ export default {
   .ghost
     opacity 0.5
     background var(--lns-themeDark-color-focusRing)
-
-  .flip-list
-    &-move
-      transition all .5s
-      opacity .75
-    &-enter-active, &-leave-active
-      transition all .5s
-    &-enter, &-leave-to
-      opacity 0
 </style>

@@ -48,3 +48,12 @@ body
       transition opacity .5s cubic-bezier(0.4, 0, 0.2, 1)
     &-to
       opacity 0
+
+.flip-list
+  &-move
+    transition all .5s
+    opacity .75
+  &-enter-active, &-leave-active
+    transition all .5s
+  &-enter, &-leave-to
+    opacity 0
