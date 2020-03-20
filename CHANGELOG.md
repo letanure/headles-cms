@@ -1,3 +1,10 @@
+# [1.30.0](https://github.com/letanure/headles-cms/compare/v1.29.0...v1.30.0) (2020-03-20)
+
+
+### Features
+
+* add transition flip list to form render preview ([d908161](https://github.com/letanure/headles-cms/commit/d908161e7c408001a70c9cd9f5d1e4928590e97f))
+
 # [1.29.0](https://github.com/letanure/headles-cms/compare/v1.28.1...v1.29.0) (2020-03-17)
 
 
