@@ -58,7 +58,7 @@
     "geckodriver": "^1.19.1",
     "lint-staged": "^10.0.8",
     "node-sass": "^4.9.2",
-    "prettier": "^1.19.1",
+    "prettier": "^2.0.1",
     "sass-loader": "^8.0.2",
     "semantic-release": "^17.0.4",
     "stylus": "^0.54.7",
