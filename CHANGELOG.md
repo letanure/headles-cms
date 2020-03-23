@@ -1,3 +1,10 @@
+# [1.31.0](https://github.com/letanure/headles-cms/compare/v1.30.0...v1.31.0) (2020-03-23)
+
+
+### Features
+
+* add form config ([23c5037](https://github.com/letanure/headles-cms/commit/23c503769d0726ea90919cf9edf398f47fe1cb82))
+
 # [1.30.0](https://github.com/letanure/headles-cms/compare/v1.29.0...v1.30.0) (2020-03-20)
 
 
