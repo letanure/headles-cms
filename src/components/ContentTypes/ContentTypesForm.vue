@@ -41,7 +41,12 @@
             :label="$t('ContentTypesForm.fields.formConfig.label')"
             prop="formConfig"
             )
-            FormConfig(v-model="formData.formConfig")
+            el-collapse.ContentTypesForm-formConfig(v-model="activeFieldGroup" accordion)
+              el-collapse-item(
+              :title="$t('ContentTypesForm.fields.formConfig.open')"
+              name="formConfig"
+              )
+                FormConfig(v-model="formData.formConfig")
           
           el-form-item
             el-button(
@@ -55,7 +60,17 @@
 </template>
 
 <script>
-import { Button, Col, Form, FormItem, Input, Message, Row } from 'element-ui'
+import {
+  Button,
+  Col,
+  Collapse,
+  CollapseItem,
+  Form,
+  FormItem,
+  Input,
+  Message,
+  Row,
+} from 'element-ui'
 import FieldsList from '@/components/ContentTypes/FieldsList'
 import FormConfig from '@/components/ContentTypes/FormConfig'
 import FormRender from '@/components/ContentTypes/FormRender'
@@ -68,6 +83,8 @@ export default {
   components: {
     [Button.name]: Button,
     [Col.name]: Col,
+    [Collapse.name]: Collapse,
+    [CollapseItem.name]: CollapseItem,
     [Form.name]: Form,
     [FormItem.name]: FormItem,
     [Input.name]: Input,
@@ -87,6 +104,7 @@ export default {
 
   data() {
     return {
+      activeFieldGroup: null,
       itemRef: null,
       formData: {
         name: '',
@@ -219,4 +237,17 @@ export default {
   &-preview
     position sticky
     top 0
+
+  &-formConfig
+    border 1px solid #dcdfe6
+    border-radius 4px
+    padding 1px 15px
+
+    .el-collapse-item
+      &__header
+        border-bottom 0
+      &__wrap
+        border-bottom 0
+      &__content
+        padding-bottom 0
 </style>

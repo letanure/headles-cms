@@ -10,7 +10,8 @@
         "label": "Description"
       },
       "formConfig": {
-        "label": "Form config"
+        "label": "Form config",
+        "open": "Advanced configurations"
       },
       "items": {
         "label": "Items"
