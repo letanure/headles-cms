@@ -158,7 +158,7 @@ export default {
 
   data() {
     return {
-      activeArea: null,
+      activeArea: 'basic',
       inputTypes: InputTypes,
       formRules: {
         type: [
