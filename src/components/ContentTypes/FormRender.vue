@@ -75,9 +75,3 @@ export default {
   },
 }
 </script>
-
-<style lang="stylus">
-.FormRender
-  border 1px solid #DCDFE6
-  padding 15px
-</style>

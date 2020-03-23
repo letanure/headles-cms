@@ -56,6 +56,7 @@
               )
 
       el-col.ContentTypesForm-preview(:xs="24" :sm="24" :md="12" :lg="12" :xl="12")
+        h3.ContentTypesForm-preview-title {{$t('ContentTypesForm.preview.title')}}
         FormRender(:config="formData")
 </template>
 
@@ -235,8 +236,17 @@ export default {
   position relative
 
   &-preview
+    border 1px solid #DCDFE6
+    box-shadow 0 2px 12px 0 rgba(0,0,0,0.1)
     position sticky
     top 0
+
+    &-title
+      background-color #dcdfe6
+      color #303133
+      margin 0 -10px 30px
+      padding 15px
+      text-align center
 
   &-formConfig
     border 1px solid #dcdfe6

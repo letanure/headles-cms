@@ -19,6 +19,9 @@
       "name": {
         "label": "Name"
       }
+    },
+    "preview": {
+      "title": "Form preview"
     }
   },
   "ContentTypesList": {
