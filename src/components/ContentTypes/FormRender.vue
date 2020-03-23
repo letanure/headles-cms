@@ -2,8 +2,10 @@
   .FormRender
     el-form(
       :model="dataForm" 
-      label-width="120px"
       ref="dataForm"
+      v-bind="config.formConfig"
+      :labelWidth="config.formConfig.labelWidth ? `${config.formConfig.labelWidth}px` : ''"
+      :size="config.formConfig.size"
       )
       transition-group(name="flip-list" tag="div" mode="out-in")  
         el-form-item(

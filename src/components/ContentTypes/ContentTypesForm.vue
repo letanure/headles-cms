@@ -37,6 +37,12 @@
             )
             FieldsList(v-model="formData.fields")
           
+          el-form-item(
+            :label="$t('ContentTypesForm.fields.formConfig.label')"
+            prop="formConfig"
+            )
+            FormConfig(v-model="formData.formConfig")
+          
           el-form-item
             el-button(
               native-type="submit"
@@ -51,6 +57,7 @@
 <script>
 import { Button, Col, Form, FormItem, Input, Message, Row } from 'element-ui'
 import FieldsList from '@/components/ContentTypes/FieldsList'
+import FormConfig from '@/components/ContentTypes/FormConfig'
 import FormRender from '@/components/ContentTypes/FormRender'
 import firestoreContentTypes from '@/firebase/collections/contentTypes'
 import '@/directives/blockNavOnChange'
@@ -66,6 +73,7 @@ export default {
     [Input.name]: Input,
     [Row.name]: Row,
     FieldsList,
+    FormConfig,
     FormRender,
   },
 
@@ -84,6 +92,19 @@ export default {
         name: '',
         description: '',
         fields: [],
+        formConfig: {
+          disabled: false,
+          hideRequiredAsterisk: false,
+          inline: false,
+          inlineMessage: false,
+          labelPosition: 'top',
+          labelSuffix: null,
+          labelWidth: null,
+          showMessage: true,
+          size: null,
+          statusIcon: false,
+          validateOnRuleChange: true,
+        },
       },
       formRules: {
         name: [
@@ -111,6 +132,13 @@ export default {
           },
         ],
         fields: [
+          {
+            message: this.$t('validation.required'),
+            required: true,
+            trigger: 'blur',
+          },
+        ],
+        formConfig: [
           {
             message: this.$t('validation.required'),
             required: true,

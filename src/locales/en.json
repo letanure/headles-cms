@@ -9,6 +9,9 @@
       "description": {
         "label": "Description"
       },
+      "formConfig": {
+        "label": "Form config"
+      },
       "items": {
         "label": "Items"
       },
@@ -38,6 +41,49 @@
       "min": "Min",
       "pattern": "Pattern REGEX",
       "required": "Required"
+    }
+  },
+  "FormConfig": {
+    "fields": {
+      "disabled": {
+        "label": "Disabled"
+      },
+      "hideRequiredAsterisk": {
+        "label": "Hide required *"
+      },
+      "inline": {
+        "label": "Inline"
+      },
+      "inlineMessage": {
+        "label": "Inline message"
+      },
+      "labelPosition": {
+        "label": "Label position",
+        "left": "Left",
+        "right": "Right",
+        "top": "Top"
+      },
+      "labelSuffix": {
+        "label": "Label suffix"
+      },
+      "labelWidth": {
+        "label": "Label width"
+      },
+      "showMessage": {
+        "label": "Show message"
+      },
+      "size": {
+        "label": "Size",
+        "option": {
+          "default": "Default",
+          "medium": "Medium",
+          "mini": "Mini",
+          "small": "Small"
+        }
+      },
+      "statusIcon": {
+        "label": "Status Icon"
+      }
     }
   },
   "General": {
@@ -242,16 +288,16 @@
     },
     "field": "Field",
     "messages": {
+      "internal": {
+        "message": "Firebase internal error",
+        "title": ""
+      },
       "invalid-argument": {
         "message": "Unsupported field value:",
         "title": ""
       },
       "permission-denied": {
         "message": "Missing or insufficient permissions",
-        "title": ""
-      },
-      "internal": {
-        "message": "Firebase internal error",
         "title": ""
       }
     },
