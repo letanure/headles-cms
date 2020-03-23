@@ -33,9 +33,9 @@
           
           el-form-item(
             :label="$t('ContentTypesForm.fields.items.label')"
-            prop="items"
+            prop="fields"
             )
-            FieldsList(v-model="formData.items")
+            FieldsList(v-model="formData.fields")
           
           el-form-item
             el-button(
@@ -83,7 +83,7 @@ export default {
       formData: {
         name: '',
         description: '',
-        items: [],
+        fields: [],
       },
       formRules: {
         name: [
@@ -110,7 +110,7 @@ export default {
             trigger: 'blur',
           },
         ],
-        items: [
+        fields: [
           {
             message: this.$t('validation.required'),
             required: true,

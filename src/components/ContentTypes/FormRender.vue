@@ -11,7 +11,7 @@
           :label="field.label"
           :prop="field.name"
           :rules="field.rules"
-          v-for="(field, index) in config.items"
+          v-for="(field, index) in config.fields"
           )
           el-input(v-bind="field" v-model="dataForm[field.name]")
 </template>
