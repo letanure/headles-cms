@@ -44,7 +44,7 @@
               v-text="$t('ContentTypesForm.actions.submit.label')"
               )
 
-      el-col(:xs="24" :sm="24" :md="12" :lg="12" :xl="12")
+      el-col.ContentTypesForm-preview(:xs="24" :sm="24" :md="12" :lg="12" :xl="12")
         FormRender(:config="formData")
 </template>
 
@@ -187,4 +187,8 @@ export default {
 <style lang="stylus">
 .ContentTypesForm
   position relative
+
+  &-preview
+    position sticky
+    top 0
 </style>

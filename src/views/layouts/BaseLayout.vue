@@ -95,7 +95,7 @@ export default {
 .BaseLayout
 
   .el-container
-    min-height 100vh
+    height 100vh
 
   &-header
     background-color #e6f2f2
@@ -109,6 +109,9 @@ export default {
     padding-top 56px
     position relative
     transition width 0.2s ease-out
+    height 100vh
+    border-right 1px solid #e6e6e6
+    overflow hidden
 
     .el-menu-item span
       transition opacity .2s ease-out
@@ -129,6 +132,6 @@ export default {
     z-index 2
 
   &-footer
-    border-top solid 1px #35495d
+    border-top solid 1px #e6f2f2
     line-height 56px
 </style>

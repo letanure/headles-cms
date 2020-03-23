@@ -12,12 +12,12 @@
           :key="item.created"
           v-for="(item, index) in itemsFields"
           )
-          el-row(:gutter="20")
-            el-col(:span="19")
+          el-row(:gutter="20" justify="space-between")
+            el-col(:xs="14" :sm="17")
               div.FieldsList-item-title
                 el-tag.FieldsList-item-title-type(v-if="item.type" effect="plain" size="small") {{ $t(`fieldType.${item.type}`) }}
                 span.FieldsList-item-title-label(v-if="item.label") {{ item.label }}
-            el-col(:span="5")
+            el-col.FieldsList-item-actions(:xs="10" :sm="7")
               el-button(
                 @click="toggleShowConfig(index)"
                 type="info"
@@ -133,14 +133,21 @@ export default {
 <style lang="stylus">
 .FieldsList
   border 1px solid #DCDFE6
-  padding 15px
-  line-height 40px
   border-radius 4px
+  line-height 40px
+  padding 15px
 
   &-item
     &-title
+      overflow hidden
+      text-overflow ellipsis
+      white-space nowrap
+
       &-type
         margin-right 5px
+
+    &-actions
+      text-align right
 
   .el-card
     margin-bottom 10px

@@ -71,9 +71,6 @@ export default {
 
 <style lang="stylus">
 .VerticalMenu
-  position relative
-  z-index 1
-
   .el-menu
-    min-height 100vh
+    border-right 0
 </style>
