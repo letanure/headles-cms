@@ -47,7 +47,7 @@
                     type="danger"
                     v-text="$t('general.actions.delete.label')"
                     )
-    el-row.ContentTypesList-pagination(v-if="!hidePagination && count !== null && list.length !== 0")
+    el-row.ContentTypesList-pagination(v-if="!hidePagination && count !== null && list.length > 0")
       el-col
         el-pagination(
           :current-page="page"
