@@ -7,6 +7,7 @@
       :labelWidth="config.formConfig.labelWidth ? `${config.formConfig.labelWidth}px` : ''"
       :size="config.formConfig.size"
       )
+      pre {{config.fields[6]}}
       transition-group(name="flip-list" tag="div" mode="out-in")  
         el-form-item(
           :key="field.created" 

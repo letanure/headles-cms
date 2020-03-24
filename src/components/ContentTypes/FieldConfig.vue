@@ -59,7 +59,15 @@
                 :label="option.value"
                 )
                 span(v-text="option.label")
-            
+            template(v-else-if="['min', 'max', 'precision'].includes(propConfig.name)")
+              el-switch(
+                v-model="optionalProps[propConfig.name]"
+                @change="toggleMinMax(propConfig.name)"
+              )
+              el-input-number(
+                v-if="optionalProps[propConfig.name]"
+                v-model.number="config[propConfig.name]"
+              )
             component(
               :clearable="true"
               :is="propConfig.is" 
@@ -74,7 +82,12 @@
           el-form-item(
             :label="$t(`general.validation.type.label`)"
             )
+            el-switch(
+              v-model="optionalRules.type"
+              @change="toggleRule('type')"
+              )
             el-select(
+              v-if="optionalRules.type"
               v-model="config.rules.type" 
               :placeholder="$t(`general.select.placeholder`)"
               )
@@ -93,22 +106,36 @@
           el-form-item(
             :label="$t('FieldConfig.rules.pattern')"
             )
+            el-switch(
+              v-model="optionalRules.pattern"
+              @change="toggleRule('pattern')"
+              )
             el-input(
+              v-if="optionalRules.pattern"
               v-model="config.rules.pattern"
             )
           el-form-item(
             :label="$t('FieldConfig.rules.min')"
             )
+            el-switch(
+              v-model="optionalRules.min"
+              @change="toggleRule('min')"
+              )
             el-input-number(
-              :min="0"
               :max="config.rules.max"
+              v-if="optionalRules.min"
               v-model.integer="config.rules.min"
             )
           el-form-item(
             :label="$t('FieldConfig.rules.max')"
             )
+            el-switch(
+              v-model="optionalRules.max"
+              @change="toggleRule('max')"
+              )
             el-input-number(
               :min="config.rules.min"
+              v-if="optionalRules.max"
               v-model.integer="config.rules.max"
               )
 </template>
@@ -160,6 +187,16 @@ export default {
     return {
       activeArea: 'basic',
       inputTypes: InputTypes,
+      optionalRules: {
+        max: false,
+        min: false,
+        pattern: false,
+        type: false,
+      },
+      optionalProps: {
+        max: false,
+        min: false,
+      },
       formRules: {
         type: [
           {
@@ -242,6 +279,18 @@ export default {
         ...fieldDefaults,
       }
     },
+
+    toggleMinMax(propConfigName) {
+      if (!this.optionalProps[propConfigName]) {
+        this.$delete(this.config, propConfigName)
+      }
+    },
+
+    toggleRule(ruleValidation) {
+      if (!this.optionalRules[ruleValidation]) {
+        this.$delete(this.config.rules, ruleValidation)
+      }
+    }
   },
 }
 </script>
@@ -255,6 +304,15 @@ export default {
         float left
       &__error
         padding-top 0
+
+  .el-switch + .el-input-number,
+  .el-switch + .el-input,
+  .el-switch + .el-select
+    margin-left 10px
+
+  .el-switch + .el-input
+    width auto
+
   .el-collapse
     border 0
     &-item
