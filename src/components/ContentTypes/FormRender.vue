@@ -15,11 +15,12 @@
           :rules="field.rules"
           v-for="(field, index) in config.fields"
           )
-          el-input(v-bind="field" v-model="dataForm[field.name]")
+          el-input-number(v-if="field.type === 'number'" v-bind="sanitizeFieldConfig(field)" v-model.number="dataForm[field.name]")
+          el-input(v-else v-bind="sanitizeFieldConfig(field)" v-model="dataForm[field.name]")
 </template>
 
 <script>
-import { Form, FormItem, Input } from 'element-ui'
+import { Form, FormItem, Input, InputNumber } from 'element-ui'
 
 export default {
   name: 'FormRender',
@@ -28,6 +29,7 @@ export default {
     [Form.name]: Form,
     [FormItem.name]: FormItem,
     [Input.name]: Input,
+    [InputNumber.name]: InputNumber,
     [Option.name]: Option,
   },
 
@@ -71,6 +73,36 @@ export default {
         }
         this.dataForm = newFormdata
       },
+    },
+  },
+
+  methods: {
+    sanitizeFieldConfig(fieldConfig) {
+      if (fieldConfig.maxLength === null) {
+        delete fieldConfig.maxLength
+      }
+      if (fieldConfig.minLength === null) {
+        delete fieldConfig.min
+      }
+      if (fieldConfig.max === null) {
+        delete fieldConfig.max
+      }
+      if (fieldConfig.min === null) {
+        delete fieldConfig.min
+      }
+      if (fieldConfig.rules.min === null) {
+        delete fieldConfig.rules.min
+      }
+      if (fieldConfig.rules.max === null) {
+        delete fieldConfig.rules.max
+      }
+      if (fieldConfig.rules.pattern === null) {
+        delete fieldConfig.rules.pattern
+      }
+      if (fieldConfig.rules.type === null) {
+        delete fieldConfig.rules.type
+      }
+      return fieldConfig
     },
   },
 }

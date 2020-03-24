@@ -97,10 +97,11 @@ const propMaxlength: InputProp = {
   is: 'el-input-number',
   value: 9999,
 }
+
 const propMinlength: InputProp = {
   name: 'minlength',
   is: 'el-input-number',
-  value: 0,
+  value: null,
 }
 
 const propClearable: InputProp = {
@@ -167,9 +168,54 @@ const propAutosize: InputProp = {
 }
 
 // autocomplete
-// max
-// min
-// step
+const propMax: InputProp = {
+  name: 'max',
+  is: 'el-input-number',
+  value: null,
+}
+
+const propMin: InputProp = {
+  name: 'min',
+  is: 'el-input-number',
+  value: null,
+}
+
+const propStep: InputProp = {
+  name: 'step',
+  is: 'el-input-number',
+  value: 1,
+}
+
+const propStepStrictly: InputProp = {
+  name: 'step-strictly',
+  is: 'el-switch',
+  value: false,
+}
+
+const propPrecision: InputProp = {
+  name: 'precision',
+  is: 'el-input-number',
+  value: null,
+}
+
+const propControls: InputProp = {
+  name: 'controls',
+  is: 'el-switch',
+  value: true,
+}
+
+const propControlsPosition: InputProp = {
+  name: 'controls-position',
+  is: 'el-radio-group',
+  value: 'default',
+  options: [
+    { value: 'default', label: 'Default' },
+    { value: 'right', label: 'Right' },
+  ],
+}
+
+
+
 // tabindex
 // validate-event
 
@@ -226,6 +272,25 @@ const InputTextarea = {
   },
 }
 
+const InputNumber: any = {
+  type: 'number',
+  props: {
+    propName,
+    propLabel,
+    propValue,
+    propPlaceholder,
+    propSize,
+    propDisabled,
+    propControls,
+    propControlsPosition,
+    propMax,
+    propMin,
+    propPrecision,
+    propStep,
+    propStepStrictly,
+  },
+}
+
 const InputTypes: { [index: string]: InputConfig } = {
   [InputText.type]: InputText,
   [InputEmail.type]: InputEmail,
@@ -233,6 +298,7 @@ const InputTypes: { [index: string]: InputConfig } = {
   [InputTel.type]: InputTel,
   [InputPassword.type]: InputPassword,
   [InputTextarea.type]: InputTextarea,
+  [InputNumber.type]: InputNumber,
 }
 
 export default InputTypes

@@ -389,6 +389,13 @@
     "size": "Size",
     "suffixIcon": "Icon suffix",
     "type": "Type",
+    "controls": "Show controls",
+    "controls-position": "Controls position",
+    "max": "Maximum",
+    "min": "Minimun",
+    "precision": "Precision",
+    "step": "Step",
+    "step-strictly": "Step strictly",
     "value": "Initial value"
   },
   "validation": {
