@@ -1,3 +1,12 @@
+# [1.32.0](https://github.com/letanure/headles-cms/compare/v1.31.0...v1.32.0) (2020-03-25)
+
+
+### Features
+
+* add input type number ([1ad1b40](https://github.com/letanure/headles-cms/commit/1ad1b40b6d85af9c3b82f7c767f731cbc12d62fe))
+* layout form preview box, title ([8caec97](https://github.com/letanure/headles-cms/commit/8caec972c9939de6d2d4449db44e398cb9195529))
+* toggle validation rules before config ([f705d2d](https://github.com/letanure/headles-cms/commit/f705d2d9972991f40664dc8b3b5e49b134d8ef62))
+
 # [1.31.0](https://github.com/letanure/headles-cms/compare/v1.30.0...v1.31.0) (2020-03-23)
 
 
