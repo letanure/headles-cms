@@ -290,7 +290,7 @@ export default {
       if (!this.optionalRules[ruleValidation]) {
         this.$delete(this.config.rules, ruleValidation)
       }
-    }
+    },
   },
 }
 </script>

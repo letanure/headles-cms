@@ -6,7 +6,7 @@ let originalValue = null
 let valueStored = false
 
 Vue.directive('blockNavOnChange', {
-  update: function(el, binding) {
+  update: function (el, binding) {
     const isEdit = binding.value.id !== null
     if (!valueStored && !isEdit) {
       originalValue = cloneDeep(binding.oldValue)

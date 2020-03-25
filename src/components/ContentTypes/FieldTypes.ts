@@ -214,8 +214,6 @@ const propControlsPosition: InputProp = {
   ],
 }
 
-
-
 // tabindex
 // validate-event
 

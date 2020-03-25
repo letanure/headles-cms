@@ -137,7 +137,7 @@ export default {
   },
 
   watch: {
-    page: function() {
+    page: function () {
       this.getData()
     },
   },
