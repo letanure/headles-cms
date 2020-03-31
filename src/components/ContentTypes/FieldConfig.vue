@@ -144,6 +144,7 @@
 import {
   Collapse,
   CollapseItem,
+  ColorPicker,
   Form,
   FormItem,
   Input,
@@ -154,6 +155,8 @@ import {
   Select,
   Switch,
 } from 'element-ui'
+import DefatulTypeValue from '@/components/ui/DefatulTypeValue'
+import SelectIcon from '@/components/ui/SelectIcon'
 import SelectFieldType from '@/components/ContentTypes/SelectFieldType'
 import InputTypes from '@/components/ContentTypes/FieldTypes.ts'
 
@@ -163,6 +166,7 @@ export default {
   components: {
     [Collapse.name]: Collapse,
     [CollapseItem.name]: CollapseItem,
+    [ColorPicker.name]: ColorPicker,
     [Form.name]: Form,
     [FormItem.name]: FormItem,
     [Input.name]: Input,
@@ -172,6 +176,8 @@ export default {
     [RadioGroup.name]: RadioGroup,
     [Select.name]: Select,
     [Switch.name]: Switch,
+    DefatulTypeValue,
+    SelectIcon,
     SelectFieldType,
   },
 

@@ -11,14 +11,16 @@ interface InputPropOption {
 interface InputPropOptions extends Array<InputPropOption> {}
 
 interface InputProp {
-  // group: 'basic' | 'validate' | 'input'
   name: string
   is:
+    | 'el-color-picker'
     | 'el-input-number'
     | 'el-input'
     | 'el-radio-group'
     | 'el-select'
     | 'el-switch'
+    | 'select-icon'
+    | 'defatulTypeValue'
   value: String | Boolean | Number | null | undefined
   placeholder?: String
   min?: Number
@@ -129,13 +131,13 @@ const propAutofocus: InputProp = {
 }
 
 const propShowWordLimit: InputProp = {
-  name: 'show-word-limit',
+  name: 'showWordLimit',
   is: 'el-switch',
   value: false,
 }
 
 const propShowPassword: InputProp = {
-  name: 'show-password',
+  name: 'showPassword',
   is: 'el-switch',
   value: false,
 }
@@ -167,6 +169,12 @@ const propAutosize: InputProp = {
   //  Can accept an object, e.g. { minRows: 2, maxRows: 6 }	boolean / object	—	false
 }
 
+const propWidth: InputProp = {
+  name: 'width',
+  is: 'el-input-number',
+  value: 9999,
+}
+
 // autocomplete
 const propMax: InputProp = {
   name: 'max',
@@ -187,7 +195,7 @@ const propStep: InputProp = {
 }
 
 const propStepStrictly: InputProp = {
-  name: 'step-strictly',
+  name: 'stepStrictly',
   is: 'el-switch',
   value: false,
 }
@@ -205,13 +213,61 @@ const propControls: InputProp = {
 }
 
 const propControlsPosition: InputProp = {
-  name: 'controls-position',
+  name: 'controlsPosition',
   is: 'el-radio-group',
   value: 'default',
   options: [
     { value: 'default', label: 'Default' },
     { value: 'right', label: 'Right' },
   ],
+}
+
+const propActiveText: InputProp = {
+  name: 'activeText',
+  is: 'el-input',
+  value: '',
+}
+
+const propInactiveText: InputProp = {
+  name: 'inactiveText',
+  is: 'el-input',
+  value: '',
+}
+
+const propActiveIconClass: InputProp = {
+  name: 'activeIconClass',
+  is: 'select-icon',
+  value: '',
+}
+
+const propInactiveIconClass: InputProp = {
+  name: 'inactiveIconClass',
+  is: 'select-icon',
+  value: '',
+}
+
+const propActiveColor: InputProp = {
+  name: 'activeColor',
+  is: 'el-color-picker',
+  value: '',
+}
+
+const propInactiveColor: InputProp = {
+  name: 'inactiveColor',
+  is: 'el-color-picker',
+  value: '',
+}
+
+const propActiveValue: InputProp = {
+  name: 'activeValue',
+  is: 'defatulTypeValue',
+  value: '',
+}
+
+const propInactiveValue: InputProp = {
+  name: 'inactiveValue',
+  is: 'defatulTypeValue',
+  value: '',
 }
 
 // tabindex
@@ -289,14 +345,33 @@ const InputNumber: any = {
   },
 }
 
+const InputSwitch: any = {
+  type: 'switch',
+  props: {
+    propName,
+    propLabel,
+    propDisabled,
+    propWidth: { ...propWidth, value: 40 },
+    propActiveIconClass,
+    propInactiveIconClass,
+    propActiveText,
+    propInactiveText,
+    propActiveValue: { ...propActiveValue, value: true },
+    propInactiveValue: { ...propInactiveValue, value: false },
+    propActiveColor: { ...propActiveColor, value: '#409EFF' },
+    propInactiveColor: { ...propInactiveColor, value: '#C0CCDA' },
+  },
+}
+
 const InputTypes: { [index: string]: InputConfig } = {
-  [InputText.type]: InputText,
   [InputEmail.type]: InputEmail,
-  [InputUrl.type]: InputUrl,
-  [InputTel.type]: InputTel,
-  [InputPassword.type]: InputPassword,
-  [InputTextarea.type]: InputTextarea,
   [InputNumber.type]: InputNumber,
+  [InputPassword.type]: InputPassword,
+  [InputSwitch.type]: InputSwitch,
+  [InputTel.type]: InputTel,
+  [InputText.type]: InputText,
+  [InputTextarea.type]: InputTextarea,
+  [InputUrl.type]: InputUrl,
 }
 
 export default InputTypes

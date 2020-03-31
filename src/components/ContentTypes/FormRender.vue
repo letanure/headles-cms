@@ -7,7 +7,6 @@
       :labelWidth="config.formConfig.labelWidth ? `${config.formConfig.labelWidth}px` : ''"
       :size="config.formConfig.size"
       )
-      pre {{config.fields[6]}}
       transition-group(name="flip-list" tag="div" mode="out-in")  
         el-form-item(
           :key="field.created" 
@@ -16,12 +15,13 @@
           :rules="field.rules"
           v-for="(field, index) in config.fields"
           )
-          el-input-number(v-if="field.type === 'number'" v-bind="sanitizeFieldConfig(field)" v-model.number="dataForm[field.name]")
+          el-switch(v-if="field.type === 'switch'" v-bind="sanitizeFieldConfig(field)" v-model="dataForm[field.name]")
+          el-input-number(v-else-if="field.type === 'number'" v-bind="sanitizeFieldConfig(field)" v-model.number="dataForm[field.name]")
           el-input(v-else v-bind="sanitizeFieldConfig(field)" v-model="dataForm[field.name]")
 </template>
 
 <script>
-import { Form, FormItem, Input, InputNumber } from 'element-ui'
+import { Form, FormItem, Input, InputNumber, Switch } from 'element-ui'
 
 export default {
   name: 'FormRender',
@@ -32,6 +32,7 @@ export default {
     [Input.name]: Input,
     [InputNumber.name]: InputNumber,
     [Option.name]: Option,
+    [Switch.name]: Switch,
   },
 
   props: {
@@ -90,6 +91,12 @@ export default {
       }
       if (fieldConfig.min === null) {
         delete fieldConfig.min
+      }
+      if (fieldConfig.activeIconClass === 'no-icon') {
+        delete fieldConfig.activeIconClass
+      }
+      if (fieldConfig.inactiveIconClass === 'no-icon') {
+        delete fieldConfig.inactiveIconClass
       }
       if (fieldConfig.rules.min === null) {
         delete fieldConfig.rules.min
