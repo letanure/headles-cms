@@ -1,3 +1,12 @@
+# [1.33.0](https://github.com/letanure/headles-cms/compare/v1.32.0...v1.33.0) (2020-03-31)
+
+
+### Features
+
+* component default value + type ([62de052](https://github.com/letanure/headles-cms/commit/62de0523df505d1530828eb2141b232ac6c4e6f5))
+* component select icon ([897b69b](https://github.com/letanure/headles-cms/commit/897b69b0d5f42191f4fce774393a74f678b33ba4))
+* content type field switch ([2bb5884](https://github.com/letanure/headles-cms/commit/2bb588496dd4e37cb9a0dc36d089f7a5686adf3a))
+
 # [1.32.0](https://github.com/letanure/headles-cms/compare/v1.31.0...v1.32.0) (2020-03-25)
 
 
