@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@commitlint/cli": "^8.3.5",
-    "@commitlint/config-angular": "^8.3.4",
+    "@commitlint/config-angular": "^9.1.2",
     "core-js": "^3.6.5",
     "element-ui": "^2.13.2",
     "firebase": "^7.14.1",
